@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_LI1K4_IP1" Id="{d1be7b36-4016-4b0e-aff6-a7c2bd7afb17}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_LI1K4_IP1
+VAR
+    {attribute 'pytmc' := '
+        pv: LI1K4:IP1
+        io: io
+    '}
+    fbLI1K4: FB_LIC;
+
+    stSiBP: ST_BeamParams := PMPS_GVL.cstFullBeam;
+    
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+// Exclusion range specified by P. Walter 2021-5-19
+stSiBP.neVRange := F_eVExcludeRange(1.6E3, 3.2E3);
+// Drop transmission to 20%
+stSiBP.nTran := 0.20;
+
+fbLI1K4.nTransitionAssertionID := 16#4140;
+fbLI1K4.nUnknownAssertionID := 16#4149;
+
+fbLI1K4.stOut.fPosition := 0.118;
+fbLI1K4.stOut.bUseRawCounts := FALSE;
+fbLI1K4.stOut.nRequestAssertionID := 16#4141;
+fbLI1K4.stOut.stBeamParams := PMPS_GVL.cstFullBeam;
+fbLI1K4.stOut.bValid := TRUE;
+
+fbLI1K4.stMirror1.fPosition := -36.38;
+fbLI1K4.stMirror1.bUseRawCounts := FALSE;
+fbLI1K4.stMirror1.nRequestAssertionID := 16#4142;
+fbLI1K4.stMirror1.stBeamParams := stSiBP;
+fbLI1K4.stMirror1.bValid := TRUE;
+
+fbLI1K4.stMirror2.fPosition := -70.38;
+fbLI1K4.stMirror2.bUseRawCounts := FALSE;
+fbLI1K4.stMirror2.nRequestAssertionID := 16#4143;
+fbLI1K4.stMirror2.stBeamParams := stSiBP;
+fbLI1K4.stMirror2.bValid := TRUE;
+
+fbLI1K4.stTarget1.fPosition := -102.38;
+fbLI1K4.stTarget1.bUseRawCounts := FALSE;
+fbLI1K4.stTarget1.nRequestAssertionID := 16#4144;
+fbLI1K4.stTarget1.stBeamParams := stSiBP;
+fbLI1K4.stTarget1.bValid := TRUE;
+
+fbLI1K4(
+    fbArbiter := fbArbiter,
+    fbFFHWO := fbFastFaultOutput2,
+    stYStage := Main.M20);
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

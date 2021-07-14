@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_SLITS_POWER" Id="{d889b456-91f0-0980-2255-32e7e69e3656}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_SLITS_POWER EXTENDS FB_SLITS
+VAR_INPUT
+END_VAR
+VAR
+     {attribute 'pytmc' := '
+        pv: FSW
+    '}
+    fbFlowSwitch: FB_XTES_Flowswitch;
+
+
+
+    //RTDs
+    {attribute 'pytmc' := '
+        pv: TOP:RTD:01
+    '}
+    RTD_TOP_1: FB_TempSensor;
+    {attribute 'pytmc' := '
+        pv: TOP:RTD:02
+    '}
+    RTD_TOP_2: FB_TempSensor;
+    {attribute 'pytmc' := '
+        pv: BOTTOM:RTD:01
+    '}
+    RTD_Bottom_1: FB_TempSensor;
+    {attribute 'pytmc' := '
+        pv: BOTTOM:RTD:02
+    '}
+    RTD_Bottom_2: FB_TempSensor;
+
+    {attribute 'pytmc' := '
+        pv: NORTH:RTD:01
+    '}
+    RTD_North_1: FB_TempSensor;
+    {attribute 'pytmc' := '
+        pv: NORTH:RTD:02
+    '}
+    RTD_North_2: FB_TempSensor;
+    {attribute 'pytmc' := '
+        pv: SOUTH:RTD:01
+    '}
+    RTD_South_1: FB_TempSensor;
+    {attribute 'pytmc' := '
+        pv: SOUTH:RTD:02
+    '}
+    RTD_South_2: FB_TempSensor;
+
+
+
+END_VAR
+
+   ]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+ACT_RTDs();]]></ST>
+    </Implementation>
+    <Action Name="ACT_CalculatePositions" Id="{c0f7f59b-e975-4325-b55c-4cf79c9c8b01}">
+      <Implementation>
+        <ST><![CDATA[//check if requested center or gap has changed
+//check that the requested values are within acceptable motion range
+IF (rOldReqApertureSizeX <> rReqApertureSizeX) THEN
+    IF (rReqApertureSizeX <= AptArrayReq.Width)  THEN
+        rOldReqApertureSizeX := rReqApertureSizeX;
+        bExecuteMotionX := TRUE;
+        fbLogger(sMsg:='Requested new X gap.', eSevr:=TcEventSeverity.Verbose);
+    ELSE
+        fbLogger(sMsg:='Requested new X gap is larger than PMPS request.', eSevr:=TcEventSeverity.Verbose);
+    END_IF
+  //  ELSE
+    //    rReqApertureSizeX := rActApertureSizeX;
+END_IF
+
+IF (rOldReqCenterX <> rReqCenterX) THEN
+    rOldReqCenterX := rReqCenterX;
+    bExecuteMotionX := TRUE;
+    fbLogger(sMsg:='Requested new X center', eSevr:=TcEventSeverity.Verbose);
+   // ELSE
+      //  rReqCenterX := rActCenterX;
+END_IF
+
+IF (rOldReqApertureSizeY <> rReqApertureSizeY) THEN
+    IF rReqApertureSizeY <= AptArrayReq.Height THEN
+        rOldReqApertureSizeY := rReqApertureSizeY;
+        bExecuteMotionY := TRUE;
+        fbLogger(sMsg:='Requested new Y gap.', eSevr:=TcEventSeverity.Verbose);
+    ELSE
+        fbLogger(sMsg:='Requested new Y gap is larger than PMPS request.', eSevr:=TcEventSeverity.Verbose);
+    END_IF
+   // ELSE
+       // rReqApertureSizeY := rActApertureSizeY;
+END_IF
+
+IF (rOldReqCenterY <> rReqCenterY) THEN
+    rOldReqCenterY := rReqCenterY;
+    bExecuteMotionY := TRUE;
+    fbLogger(sMsg:='Requested new Y center.', eSevr:=TcEventSeverity.Verbose);
+   // ELSE
+      //  rReqCenterY := rActCenterY;
+END_IF
+
+
+//Calculate requested target positions from requested gap and center
+fPosTopBlade := (rReqApertureSizeY/2) + (rReqCenterY + rEncoderOffsetTop) ;
+fPosBottomBlade := (-1*rReqApertureSizeY/2) + (rReqCenterY+rEncoderOffsetBottom);
+
+fPosNorthBlade := (rReqApertureSizeX/2) + (rReqCenterX + rEncoderOffsetNorth);
+fPosSouthBlade := (-1*rReqApertureSizeX/2) + (rReqCenterX + rEncoderOffsetSouth);
+
+
+//Calculate actual gap and center from actual stages positions
+rActApertureSizeX := LREAL_TO_REAL((stNorthBlade.stAxisStatus.fActPosition - rEncoderOffsetNorth) - (stSouthBlade.stAxisStatus.fActPosition- rEncoderOffsetSouth));
+
+rActApertureSizeY := LREAL_TO_REAL((stTopBlade.stAxisStatus.fActPosition - rEncoderOffsetTop) - (stBottomBlade.stAxisStatus.fActPosition - rEncoderOffsetBottom));
+
+rActCenterX := LREAL_TO_REAL((((stNorthBlade.stAxisStatus.fActPosition - rEncoderOffsetNorth)  + (stSouthBlade.stAxisStatus.fActPosition - rEncoderOffsetSouth ))/2));
+
+rActCenterY := LREAL_TO_REAL((((stTopBlade.stAxisStatus.fActPosition - rEncoderOffsetTop) + (stBottomBlade.stAxisStatus.fActPosition - rEncoderOffsetBottom))/2));
+
+
+
+//Update PMPS Arbiter with the Actual Size and Center of the Aperture
+
+
+
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_RTDs" Id="{2824f268-7671-0ba5-2fec-76114d5b195e}">
+      <Implementation>
+        <ST><![CDATA[////RTDs
+RTD_TOP_1();
+RTD_TOP_2();
+RTD_Bottom_1();
+RTD_Bottom_2();
+RTD_North_1();
+RTD_North_2();
+RTD_South_1();
+RTD_South_2();
+
+//Flow Switch
+fbFlowSwitch();]]></ST>
+      </Implementation>
+    </Action>
+  </POU>
+</TcPlcObject>

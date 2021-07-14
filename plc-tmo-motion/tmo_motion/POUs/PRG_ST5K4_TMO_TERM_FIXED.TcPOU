@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_ST5K4_TMO_TERM_FIXED" Id="{0264a6ae-5329-49a3-9321-cb62975a68fe}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_ST5K4_TMO_TERM_FIXED
+VAR
+    {attribute 'pytmc' := 'pv: ST5K4:TMO_TERM_FIXED'}
+    {attribute 'TcLinkTo' := 	'.i_xInsertedLS	:=	TIIB[ST5K4-EP2338]^Channel 4^Input;
+                                 .i_xRetractedLS:=	TIIB[ST5K4-EP2338]^Channel 3^Input;
+                                 .q_xInsert_DO	:=	TIIB[ST5K4-EP2338]^Channel 9^Output
+    '}
+    ST4K4: FB_MotionPneumaticActuator;
+    ibPMPS_OK : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[ST4K4(
+    ibInsertOK:= TRUE,
+    ibRetractOK:= TRUE,
+    ibPMPS_OK:= ibPMPS_OK,
+    ibSingleCntrl:= TRUE ,
+    ibCntrlHold:= TRUE,
+    ibOverrideInterlock:= ,
+    i_xReset:= ,
+    stPneumaticActuator=> ,
+    xMPS_OK=>  ,
+    io_fbFFHWO:= fbFastFaultOutput2  ); // Do Stoppers send MPS FAULT?]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

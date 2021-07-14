@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_1_PlcTask" Id="{42048787-7ba9-4c4c-a68e-bba60d5038d8}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_1_PlcTask
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[PRG_2_PMPS_PRE();
+
+PRG_AL1K4_L2SI();
+PRG_IM2K4_PPM();
+PRG_IM3K4_PPM();
+PRG_IM4K4_PPM();
+PRG_IM5K4_PPM();
+PRG_LI1K4_IP1();
+PRG_PF1K4_WFS_TARGET();
+PRG_SL1K4_SCATTER();
+PRG_SL2K4_SCATTER();
+PRG_ST4K4_TMO_TERM();
+PRG_ST5K4_TMO_TERM_FIXED();
+PRG_TM1K4();
+
+PRG_3_PMPS_POST();
+PRG_4_LOG();
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="GVL_PMPS" Id="{9b94692b-5571-4165-bb98-ffe5b3549b86}">
+    <Declaration><![CDATA[VAR_GLOBAL
+    // Arbiter linked to the FFO and the MPS
+    {attribute 'pytmc' := 'pv: PLC:TMO:MOTION:ARB'}
+    fbArbiter: FB_Arbiter(1);
+
+    // Fast fault for before ST4K4 (Most Devices)
+    {attribute 'pytmc' := 'pv: PLC:TMO:MOTION:FFO:01'}
+    {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
+    fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.92.73.1.1');
+    // Fast fault for after ST4K4 (Basically just DREAM)
+    {attribute 'pytmc' := 'pv: PLC:TMO:MOTION:FFO:02'}
+    {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
+    fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.92.73.1.1');
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

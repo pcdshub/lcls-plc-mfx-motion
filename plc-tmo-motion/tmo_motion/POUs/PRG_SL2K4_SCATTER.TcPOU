@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_SL2K4_SCATTER" Id="{b6ef2940-d2cd-4bd1-b68c-07acfefcb29e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_SL2K4_SCATTER
+VAR
+    {attribute 'pytmc' := '
+        pv: SL2K4:SCATTER
+        io: io
+    '}
+    fbSL2K4: FB_SLITS;
+    //GET PMPS Move Ok bit
+    // Default True until it is properly linked to PMPS bit
+    bMoveOk:BOOL :=TRUE;
+    {attribute 'pytmc' := '
+    pv: SL2K4:SCATTER:GO;
+    io: io;
+    field: ZNAM False;
+    field: ONAM True;
+    '}
+    bExecuteMotion :BOOL :=FALSE;
+    bTest:BOOL:=FALSE;
+    //for testing purposes only. comment-out/delete once done.
+    mcPower : ARRAY [1..4] OF MC_POWER;
+
+
+    (*Offsets*)
+    (* Absolute encoder value at the HLS + Absolure eoncoder value at the centered beam *)
+    rEncoderOffsetTop: REAL := -15; (* 0+(-15)*)
+    rEncoderOffsetBottom: REAL := -15; (* 0+(-15)*)
+    rEncoderOffsetNorth: REAL := -15;(* 0+(-15)*)
+    rEncoderOffsetSouth: REAL := -15;(* 0+(-15)*)
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+fbSL2K4.bMoveOk := bMoveOk;
+
+//for testing purposes only. comment-out/delete once done.
+If (bTest) THEN
+mcPower[1](axis:=Main.M23.Axis, Enable:=bTest, enable_positive:=Main.M23.bLimitForwardEnable, enable_negative:=Main.M23.bLimitBackwardEnable);
+mcPower[2](axis:=Main.M24.Axis, Enable:=bTest, enable_positive:=Main.M24.bLimitForwardEnable, enable_negative:=Main.M24.bLimitBackwardEnable);
+mcPower[3](axis:=Main.M25.Axis, Enable:=bTest, enable_positive:=Main.M25.bLimitForwardEnable, enable_negative:=Main.M25.bLimitBackwardEnable);
+mcPower[4](axis:=Main.M26.Axis, Enable:=bTest, enable_positive:=Main.M26.bLimitForwardEnable, enable_negative:=Main.M26.bLimitBackwardEnable);
+ELSE
+
+//Homing routine parameters
+Main.M24.fHomePosition:= 0;
+Main.M23.fHomePosition:= -30.6;
+Main.M25.fHomePosition:= 0;
+Main.M26.fHomePosition:= -30.51;
+
+Main.M24.nHomingMode := ENUM_EpicsHomeCmd.HIGH_LIMIT;
+Main.M23.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+Main.M25.nHomingMode := ENUM_EpicsHomeCmd.HIGH_LIMIT;
+Main.M26.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+
+
+fbSL2K4.rEncoderOffsetTop := rEncoderOffsetTop;
+fbSL2K4.rEncoderOffsetBottom := rEncoderOffsetBottom;
+fbSL2K4.rEncoderOffsetNorth := rEncoderOffsetNorth;
+fbSL2K4.rEncoderOffsetSouth := rEncoderOffsetSouth;
+
+fbSL2K4(stTopBlade:=  Main.M24,
+        stBottomBlade:= Main.M23,
+        stNorthBlade:=  Main.M25,
+        stSouthBlade:=  Main.M26,
+        bExecuteMotion:=bExecuteMotion,
+        io_fbFFHWO := GVL_PMPS.fbFastFaultOutput2,
+        fbArbiter := GVL_PMPS.fbArbiter);
+
+//fbSL2K4.M_CheckPMPS(2);
+
+
+
+END_IF
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

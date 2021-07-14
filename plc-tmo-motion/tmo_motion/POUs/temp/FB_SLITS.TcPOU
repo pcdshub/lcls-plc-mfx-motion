@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_SLITS" Id="{b20ac175-27c9-0d05-3c79-6a95fe08ff7d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_SLITS
+VAR_IN_OUT
+    stTopBlade: DUT_MotionStage;
+    stBottomBlade: DUT_MotionStage;
+    stNorthBlade: DUT_MotionStage;
+    stSouthBlade: DUT_MotionStage;
+    bExecuteMotion:BOOL ;
+    io_fbFFHWO    :    FB_HardwareFFOutput;
+    fbArbiter: FB_Arbiter();
+END_VAR
+
+VAR_INPUT
+
+    {attribute 'pytmc' := '
+    pv: PMPS_OK;
+    io: i;
+    field: ZNAM False
+    field: ONAM True
+    '}
+    bMoveOk:BOOL;
+
+        (*Offsets*)
+    {attribute 'pytmc' := '
+    pv: Offset_Top;
+    io: io;
+    '}
+    rEncoderOffsetTop: REAL;
+    {attribute 'pytmc' := '
+    pv: ZeroOffset_Bottom;
+    io: io;
+    '}
+    rEncoderOffsetBottom: REAL;
+    {attribute 'pytmc' := '
+    pv: ZeroOffset_North;
+    io: io;
+    '}
+    rEncoderOffsetNorth: REAL;
+    {attribute 'pytmc' := '
+    pv: ZeroOffset_South;
+    io: io;
+    '}
+    rEncoderOffsetSouth: REAL;
+    i_DevName : STRING; //device name for FFO and PMPS diagnostics
+     {attribute 'pytmc' := '
+    pv: Home;
+    io: i;
+    field: ZNAM False
+    field: ONAM True
+    '}
+    bHome:BOOL:=FALSE;
+END_VAR
+
+VAR
+    fbTopBlade: FB_MotionStage;
+    fbBottomBlade: FB_MotionStage;
+    fbNorthBlade: FB_MotionStage;
+    fbSouthBlade: FB_MotionStage;
+    fPosTopBlade: LREAL;
+    fPosBottomBlade: LREAL;
+    fPosNorthBlade: LREAL;
+    fPosSouthBlade: LREAL;
+
+    (*Motion Parameters*)
+    fSmallDelta: LREAL := 0.01;
+    fBigDelta: LREAL := 10;
+    fMaxVelocity: LREAL := 0.2;
+    fHighAccel: LREAL := 0.8;
+    fLowAccel: LREAL := 0.1;
+
+    stTop: DUT_PositionState;
+    stBOTTOM: DUT_PositionState;
+    stNorth: DUT_PositionState;
+    stSouth: DUT_PositionState;
+
+    {attribute 'pytmc' := 'pv: TOP'}
+    fbTop: FB_StatePTPMove;
+    {attribute 'pytmc' := 'pv: BOTTOM'}
+    fbBottom: FB_StatePTPMove;
+    {attribute 'pytmc' := 'pv: NORTH'}
+    fbNorth: FB_StatePTPMove;
+    {attribute 'pytmc' := 'pv: SOUTH'}
+    fbSouth: FB_StatePTPMove;
+
+    (*EPICS pvs*)
+    {attribute 'pytmc' := '
+    pv: XWID_REQ;
+    io: io;
+    '}
+    rReqApertureSizeX : REAL;
+    {attribute 'pytmc' := '
+    pv: YWID_REQ;
+    io: io;
+    '}
+    rReqApertureSizeY : REAL;
+    {attribute 'pytmc' := '
+    pv: XCEN_REQ;
+    io: io;
+    '}
+    rReqCenterX: REAL;
+    {attribute 'pytmc' := '
+    pv: YCEN_REQ;
+    io: io;
+    '}
+    rReqCenterY: REAL;
+
+    {attribute 'pytmc' := '
+    pv: ACTUAL_XWIDTH;
+    io: io;
+    '}
+    rActApertureSizeX : REAL;
+
+    {attribute 'pytmc' := '
+    pv: ACTUAL_YWIDTH;
+    io: io;
+    '}
+    rActApertureSizeY : REAL;
+    {attribute 'pytmc' := '
+    pv: ACTUAL_XCENTER;
+    io: io;
+    '}
+    rActCenterX: REAL;
+    {attribute 'pytmc' := '
+    pv: ACTUAL_YCENTER;
+    io: io;
+    '}
+    rActCenterY: REAL;
+
+    {attribute 'pytmc' := '
+    pv: XCEN_SETZERO;
+    io: io;
+    '}
+    rSetCenterX: BOOL;
+    {attribute 'pytmc' := '
+    pv: YCEN_SETZERO;
+    io: io;
+    '}
+    rSetCenterY: BOOL;
+
+
+    {attribute 'pytmc' := '
+    pv: OPEN;
+    io: io;
+    field: ZNAM False
+    field: ONAM True
+    '}
+    bOpen: BOOL;
+
+    {attribute 'pytmc' := '
+    pv: CLOSE;
+    io: io;
+    field: ZNAM False
+    field: ONAM True
+    '}
+    bClose: BOOL;
+
+    {attribute 'pytmc' := '
+    pv: BLOCK;
+    io: io;
+    field: ZNAM False
+    field: ONAM True
+    '}
+    bBlock: BOOL;
+
+
+     {attribute 'pytmc' := '
+    pv: HOME_READY;
+    io: i;
+    field: ZNAM False
+    field: ONAM True
+    '}
+    bHomeReady:BOOL:=FALSE;
+
+
+        //Local variables
+    bInit: BOOL :=true;
+    rTrig_Block: R_TRIG;
+    rTrig_Open: R_TRIG;
+    rTrig_Close: R_TRIG;
+
+    //old values
+    rOldReqApertureSizeX : REAL;
+    rOldReqApertureSizeY : REAL;
+    rOldReqCenterX: REAL;
+    rOldReqCenterY: REAL;
+
+    bExecuteMotionX: BOOL;
+    bExecuteMotionY: BOOL;
+
+
+    fPosBlock: LREAL;
+    fPosClose: LREAL;
+    fPosOpen: LREAL;
+
+    stSetPositionOptions:ST_SetPositionOptions;
+    fbSetPosition_TOP: MC_SetPosition;
+    fbSetPosition_Bottom: MC_SetPosition;
+    fbSetPosition_North: MC_SetPosition;
+    fbSetPosition_South: MC_SetPosition;
+
+    // For logging
+    fbLogger : FB_LogMessage := (eSubsystem:=E_SubSystem.MOTION);
+    tErrorPresent : R_TRIG;
+    tAction : R_TRIG;
+    tOverrideActivated : R_TRIG;
+
+    FFO    :    FB_FastFault :=(
+        i_DevName := 'Slits',
+        i_Desc := 'Fault occurs when center is greated than that requested',
+        i_TypeCode := 16#1010);
+
+
+    bTest: BOOL;
+
+    AptArrayStatus AT %Q* : ST_PMPS_Aperture_IO;
+    AptArrayReq AT %I* : ST_PMPS_Aperture_IO;
+
+END_VAR
+
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[ACT_init();
+
+// Instantiate Function block for all the blades
+ACT_Motion();
+//SET and GET the requested and Actual values
+ACT_CalculatePositions();
+//ACT_BLOCK();]]></ST>
+    </Implementation>
+    <Action Name="ACT_BLOCK" Id="{906452df-02eb-097e-38ae-3a6de3e72e72}">
+      <Implementation>
+        <ST><![CDATA[rTrig_Block (CLK:= bBlock);
+rTrig_Open (CLK:= bOpen);
+rTrig_Close (CLK:= bClose);
+
+if (rTrig_Block.Q) THEN
+    //BLOCK
+
+    bBlock := false;
+END_IF
+
+if (rTrig_Open.Q) THEN
+
+
+    bOpen := false;
+END_IF
+
+if (rTrig_Close.Q) THEN
+
+
+    bClose := false;
+END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_CalculatePositions" Id="{213af7c8-f6e0-07f8-143d-8f2da7508ac0}">
+      <Implementation>
+        <ST><![CDATA[//check if requested center or gap has changed
+//check that the requested values are within acceptable motion range
+IF (rOldReqApertureSizeX <> rReqApertureSizeX) THEN
+        rOldReqApertureSizeX := rReqApertureSizeX;
+        bExecuteMotionX := TRUE;
+        fbLogger(sMsg:='Requested new X gap.', eSevr:=TcEventSeverity.Verbose);
+END_IF
+
+IF (rOldReqCenterX <> rReqCenterX) THEN
+    rOldReqCenterX := rReqCenterX;
+    bExecuteMotionX := TRUE;
+    fbLogger(sMsg:='Requested new X center', eSevr:=TcEventSeverity.Verbose);
+   // ELSE
+      //  rReqCenterX := rActCenterX;
+END_IF
+
+IF (rOldReqApertureSizeY <> rReqApertureSizeY) THEN
+        rOldReqApertureSizeY := rReqApertureSizeY;
+        bExecuteMotionY := TRUE;
+        fbLogger(sMsg:='Requested new Y gap.', eSevr:=TcEventSeverity.Verbose);
+
+END_IF
+
+IF (rOldReqCenterY <> rReqCenterY) THEN
+    rOldReqCenterY := rReqCenterY;
+    bExecuteMotionY := TRUE;
+    fbLogger(sMsg:='Requested new Y center.', eSevr:=TcEventSeverity.Verbose);
+   // ELSE
+      //  rReqCenterY := rActCenterY;
+END_IF
+
+
+//Calculate requested target positions from requested gap and center
+fPosTopBlade := (rReqApertureSizeY/2) + (rReqCenterY + rEncoderOffsetTop) ;
+fPosBottomBlade := (-1*rReqApertureSizeY/2) + (rReqCenterY+rEncoderOffsetBottom);
+
+fPosNorthBlade := (rReqApertureSizeX/2) + (rReqCenterX + rEncoderOffsetNorth);
+fPosSouthBlade := (-1*rReqApertureSizeX/2) + (rReqCenterX + rEncoderOffsetSouth);
+
+
+//Calculate actual gap and center from actual stages positions
+rActApertureSizeX := LREAL_TO_REAL((stNorthBlade.stAxisStatus.fActPosition - rEncoderOffsetNorth) - (stSouthBlade.stAxisStatus.fActPosition- rEncoderOffsetSouth));
+
+rActApertureSizeY := LREAL_TO_REAL((stTopBlade.stAxisStatus.fActPosition - rEncoderOffsetTop) - (stBottomBlade.stAxisStatus.fActPosition - rEncoderOffsetBottom));
+
+rActCenterX := LREAL_TO_REAL((((stNorthBlade.stAxisStatus.fActPosition - rEncoderOffsetNorth)  + (stSouthBlade.stAxisStatus.fActPosition - rEncoderOffsetSouth ))/2));
+
+rActCenterY := LREAL_TO_REAL((((stTopBlade.stAxisStatus.fActPosition - rEncoderOffsetTop) + (stBottomBlade.stAxisStatus.fActPosition - rEncoderOffsetBottom))/2));
+
+
+
+//Update PMPS Arbiter with the Actual Size and Center of the Aperture
+
+
+
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_Home" Id="{c9c2742f-fb28-0461-314d-2346c0d0ac12}">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_Init" Id="{d74ad752-5668-0668-02f7-332a424a678a}">
+      <Implementation>
+        <ST><![CDATA[
+//  init the motion stages parameters
+IF ( bInit) THEN
+    stTopBlade.bHardwareEnable := TRUE;
+    stBottomBlade.bHardwareEnable := TRUE;
+    stNorthBlade.bHardwareEnable := TRUE;
+    stSouthBlade.bHardwareEnable := TRUE;
+    stTopBlade.bPowerSelf :=TRUE;
+    stBottomBlade.bPowerSelf :=TRUE;
+    stNorthBlade.bPowerSelf :=TRUE;
+    stSouthBlade.bPowerSelf :=TRUE;
+    stTopBlade.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    stBottomBlade.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    stNorthBlade.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    stSouthBlade.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    FFO.i_DevName := i_DevName;
+END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_Motion" Id="{1115effc-f5e6-0ba0-030f-25f2a6eb6d15}">
+      <Implementation>
+        <ST><![CDATA[// Instantiate Function block for all the blades
+fbTopBlade(stMotionStage:=stTopBlade);
+fbBottomBlade(stMotionStage:=stBottomBlade);
+fbNorthBlade(stMotionStage:=stNorthBlade);
+fbSouthBlade(stMotionStage:=stSouthBlade);
+
+// PTP Motion for each blade
+stTop.sName := 'Top';
+stTop.fPosition := fPosTopBlade;
+stTop.fDelta := fSmallDelta;
+stTop.fVelocity := fMaxVelocity;
+stTop.fAccel := fHighAccel;
+stTop.fDecel := fHighAccel;
+
+stBOTTOM.sName := 'Bottom';
+stBOTTOM.fPosition := fPosBottomBlade;
+stBOTTOM.fDelta := fSmallDelta;
+stBOTTOM.fVelocity := fMaxVelocity;
+stBOTTOM.fAccel := fHighAccel;
+stBOTTOM.fDecel := fHighAccel;
+
+stNorth.sName := 'North';
+stNorth.fPosition := fPosNorthBlade;
+stNorth.fDelta := fSmallDelta;
+stNorth.fVelocity := fMaxVelocity;
+stNorth.fAccel := fHighAccel;
+stNorth.fDecel := fHighAccel;
+
+stSouth.sName := 'South';
+stSouth.fPosition := fPosSouthBlade;
+stSouth.fDelta := fSmallDelta;
+stSouth.fVelocity := fMaxVelocity;
+stSouth.fAccel := fHighAccel;
+stSouth.fDecel := fHighAccel;
+
+IF (bExecuteMotionY) THEN
+    fbTop.bExecute := fbBottom.bExecute := bExecuteMotionY;
+    bExecuteMotionY:= FALSE;
+END_IF
+
+IF (bExecuteMotionX) THEN
+    fbNorth.bExecute := fbSouth.bExecute := bExecuteMotionX;
+    bExecuteMotionX:= FALSE;
+END_IF
+
+
+fbTop(
+    stPositionState:=stTop,
+    bMoveOk:=bMoveOk,
+    stMotionStage:=stTopBlade);
+
+fbBottom(
+    stPositionState:=stBOTTOM,
+    bMoveOk:=bMoveOk,
+    stMotionStage:=stBottomBlade);
+
+fbNorth(
+    stPositionState:=stNorth,
+    bMoveOk:=bMoveOk,
+    stMotionStage:=stNorthBlade);
+
+fbSouth(
+    stPositionState:=stSouth,
+    bMoveOk:=bMoveOk,
+    stMotionStage:=stSouthBlade);
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_Zero" Id="{d0d8d9a1-499a-0282-08f7-c517261af3b1}">
+      <Implementation>
+        <ST><![CDATA[//ZERO BIAS
+
+// Set Y center to zero
+
+// Set X center to zero
+(*
+if (rSetCenterY)THEN
+        rSetCenterY := false;
+        // Set Current Position
+        fbSetPosition_TOP.Position :=  stTopBlade.stAxisStatus.fActPosition - rActCenterY ;
+        fbSetPosition_TOP.Execute := TRUE;
+        fbSetPosition_Bottom.Position := stBottomBlade.stAxisStatus.fActPosition - rActCenterY;
+        fbSetPosition_Bottom.Execute := TRUE;
+END_IF
+
+if (rSetCenterX)THEN
+        rSetCenterX := false;
+        // Set Current Position
+        fbSetPosition_North.Position := stNorthBlade.stAxisStatus.fActPosition - rActCenterX ;
+        fbSetPosition_North.Execute := TRUE;
+        fbSetPosition_South.Position := stSouthBlade.stAxisStatus.fActPosition - rActCenterX ; ;
+        fbSetPosition_South.Execute := TRUE;
+END_IF
+
+
+//Reset
+if (fbSetPosition_TOP.Done ) THEN
+    fbSetPosition_TOP.Execute := FALSE;
+END_IF
+if (fbSetPosition_Bottom.Done ) THEN
+    fbSetPosition_Bottom.Execute := FALSE;
+END_IF
+if (fbSetPosition_North.Done ) THEN
+    fbSetPosition_North.Execute := FALSE;
+END_IF
+if (fbSetPosition_South.Done ) THEN
+    fbSetPosition_South.Execute := FALSE;
+END_IF
+
+// Set Encoder Position
+//Clear position lag error
+stSetPositionOptions.ClearPositionLag := TRUE;
+fbSetPosition_TOP(
+    Axis:=  stTopBlade.Axis ,
+    Execute:= ,
+    Position:= 0 ,
+    Mode:= FALSE,
+    Options:= stSetPositionOptions,
+    Done=> ,
+    Busy=> ,
+    Error=> ,
+    ErrorID=> );
+fbSetPosition_Bottom(
+    Axis:= stBottomBlade.Axis ,
+    Execute:= ,
+    Position:= 0 ,
+    Mode:= FALSE,
+    Options:= stSetPositionOptions,
+    Done=> ,
+    Busy=> ,
+    Error=> ,
+    ErrorID=> );
+fbSetPosition_North(
+    Axis:= stNorthBlade.Axis ,
+    Execute:= ,
+    Position:= 0 ,
+    Mode:= FALSE,
+    Options:= stSetPositionOptions,
+    Done=> ,
+    Busy=> ,
+    Error=> ,
+    ErrorID=> );
+fbSetPosition_South(
+    Axis:= stSouthBlade.Axis ,
+    Execute:= ,
+    Position:= 0 ,
+    Mode:= FALSE,
+    Options:= stSetPositionOptions,
+    Done=> ,
+    Busy=> ,
+    Error=> ,
+    ErrorID=> );
+
+    *)]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="M_CheckPMPS" Id="{5a65fdb2-ca05-46d5-ae39-949e671ee7ac}">
+      <Declaration><![CDATA[METHOD M_CheckPMPS : BOOL
+VAR_INPUT
+     index: int;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF(rActApertureSizeX < (PMPS_GVL.stCurrentBeamParameters.astApertures[index].Width)+0.001)
+    OR (rActApertureSizeY < (PMPS_GVL.stCurrentBeamParameters.astApertures[index].Height)+0.001) THEN
+        FFO.i_xOK := FALSE;
+    ELSE
+        FFO.i_xOK := TRUE;
+END_IF
+
+(*FAST FAULT*)
+FFO(i_xOK := ,
+    i_xReset := ,
+    i_xAutoReset :=TRUE,
+    io_fbFFHWO := this^.io_fbFFHWO);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_HomeBlade" Id="{8cbb5b1e-da93-4c77-b208-73c680cd39fe}">
+      <Declaration><![CDATA[METHOD M_HomeBlade : BOOL
+VAR_IN_OUT
+      stBlade: DUT_MotionStage;
+END_VAR
+VAR
+    fPosBlade: LREAL;
+    HomeState: E_HomeState;
+    rHomingDistance: REAL:=0.2;
+    rHomingVelocity: REAL:=0.1;
+    Axis: AXIS_REF;
+    fbSetPosition: MC_SetPosition;
+    fbWriteParameter: MC_WriteBoolParameter;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+
+CASE HomeState OF
+    H_READY:
+        fbWriteParameter.Execute := FALSE;
+        IF (bHome) THEN
+            HomeState := H_INIT;
+            bHomeReady := FALSE;
+        END_IF
+
+
+    H_INIT:
+    HomeState:=H_RESET_LL;
+
+
+    H_RESET_LL:
+        // disable soft limits in order to be able to move the drive
+        fbWriteParameter.ParameterNumber := MC_AxisParameter.EnableLimitNeg;
+        fbWriteParameter.Value := FALSE;
+        fbWriteParameter.Execute := TRUE;
+        if (fbWriteParameter.Done) THEN
+            fbWriteParameter.Execute := FALSE;
+            HomeState:= H_RESET_HL;
+        END_IF
+
+    H_RESET_HL:
+        // disable soft limits in order to be able to move the drive
+        fbWriteParameter.ParameterNumber := MC_AxisParameter.EnableLimitPos;
+        fbWriteParameter.Value := FALSE;
+        fbWriteParameter.Execute := TRUE;
+        if (fbWriteParameter.Done) THEN
+            fbWriteParameter.Execute := FALSE;
+            HomeState:= H_ENABLE;
+        END_IF
+
+    H_ENABLE:
+        // Make Sure there are no errors
+        IF stBlade.bError THEN
+            HomeState := H_ERROR;
+            ELSE
+             stBlade.fPosition := stBlade.fPosition - rHomingDistance;
+             HomeState:= H_MOVING;
+        END_IF
+
+
+
+    H_MOVING:
+        stBlade.bExecute :=TRUE;
+        IF stBlade.bBusy  THEN
+            (* axis is executing job but is not yet finished *)
+            stBlade.bExecute:= FALSE;
+            (* leave this state and buffer a second command *)
+            HomeState := H_KEEP_MOVING;
+        ElSIF stBlade.bDone THEN
+            stBlade.bExecute:= FALSE;
+            stBlade.fPosition := stBlade.fPosition - rHomingDistance;
+            HomeState := H_KEEP_MOVING;
+        ELSIF stBlade.bError THEN
+            stBlade.bExecute:= FALSE;
+            HomeState := H_CHECK;
+        END_IF
+
+    H_KEEP_MOVING:
+        IF stBlade.bError THEN
+            HomeState := H_CHECK;
+        END_IF
+        IF  stBlade.bDone THEN
+            HomeState := H_MOVING;
+            stBlade.fPosition := stBlade.fPosition + rHomingDistance;
+            stBlade.bExecute  := TRUE;
+        END_IF
+
+    H_CHECK:
+        //Check the mpositive limit switch is reached or erro losing positive limit
+        IF (stBlade.bError) AND NOT (stBlade.bLimitForwardEnable) THEN
+            HomeState := H_RESET;
+            stBlade.bReset := TRUE;
+        ELSE
+            HomeState := H_ERROR;
+        END_IF
+
+    H_RESET:
+        IF NOT(stBlade.bError) THEN
+            HomeState := H_SET_POS;
+        END_IF
+
+    H_SET_POS:
+     // Set Current Position
+        fbSetPosition.Position := 0;
+        fbSetPosition.Execute := TRUE;
+        IF ( fbSetPosition.Done ) THEN
+            fbSetPosition.Execute := FALSE;
+            HomeState:= H_WRITE_LL;
+        ELSIF (fbSetPosition.Error) THEN
+            HomeState := H_ERROR;
+        END_IF
+
+
+    H_WRITE_LL:
+    // Re Enable the Soft limits
+        fbWriteParameter.ParameterNumber := MC_AxisParameter.AxisEnMinSoftPosLimit;//AxisEnMaxSoftPosLimit;// .AxisEnMinSoftPosLimit;
+        fbWriteParameter.Value := TRUE;
+        fbWriteParameter.Execute := TRUE;
+        if (fbWriteParameter.Done) THEN
+            fbWriteParameter.Execute := FALSE;
+            HomeState:= H_WRITE_HL;
+        END_IF
+
+    H_WRITE_HL:
+    // Re Enable the Soft limits
+        fbWriteParameter.ParameterNumber := MC_AxisParameter.AxisEnMaxSoftPosLimit;
+        fbWriteParameter.Value := TRUE;
+        fbWriteParameter.Execute := TRUE;
+        if (fbWriteParameter.Done) THEN
+            fbWriteParameter.Execute := FALSE;
+            HomeState:= H_DONE;
+        END_IF
+
+
+    H_ERROR:
+        //What to do?  User reset through epics??
+        IF NOT (stBlade.bError) (*AND (bHome)*) THEN
+            HomeState := H_INIT;
+        END_IF
+
+    H_DONE:
+        HomeState := H_INIT;
+        bHomeReady := TRUE;
+
+END_CASE
+
+
+
+// Set Encoder Position
+fbSetPosition(
+    Axis:= stBlade.Axis ,
+    Execute:= ,
+    Position:= 0 ,
+    Mode:= FALSE, //Absolute
+    Options:= ,
+    Done=> ,
+    Busy=> ,
+    Error=> ,
+    ErrorID=> );
+
+// Write Parameters
+fbWriteParameter(
+    Axis:= stBlade.Axis ,
+    Execute:= ,
+    ParameterNumber:= ,
+    Value:= ,
+    Done=> ,
+    Busy=> ,
+    Error=> ,
+    ErrorID=> );
+
+If ( fbWriteParameter.Error) OR (fbSetPosition.Error) THEN
+    HomeState:= H_ERROR;
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_UpdatePMPS" Id="{01fb8a68-875e-498e-8761-a7079873ebc2}">
+      <Declaration><![CDATA[METHOD M_UpdatePMPS : BOOL
+VAR_INPUT
+    index: int;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[//Keep updating the status of the apertures PMPS
+This^.AptArrayStatus.Height := This^.rActApertureSizeY;
+This^.AptArrayStatus.Width := This^.rActApertureSizeX;
+This^.AptArrayStatus.xOK := NOT (This^.stTopBlade.bError) AND NOT (This^.stBottomBlade.bError)
+                                 AND NOT (This^.stNorthBlade.bError) AND NOT (This^.stNorthBlade.bError);
+
+//Evaluate that the current center on the X and the y direction didn't exceed limits
+//Fast fault when it does.
+IF(rActCenterX > (PMPS_GVL.stCurrentBeamParameters.astApertures[index].Width/2))
+    OR (rActCenterY > (PMPS_GVL.stCurrentBeamParameters.astApertures[index].Height/2)) THEN
+        FFO.i_xOK := FALSE;
+    ELSE
+        FFO.i_xOK := TRUE;
+END_IF
+
+//Evaluate that the requested gaps on the X and the y direction is not larger than the current gap
+// narrow  the gap if the requested is larger
+IF(bTest) THEN
+    IF (This^.rActApertureSizeX > AptArrayReq.Width) THEN
+        rReqApertureSizeX := AptArrayReq.Width;
+    END_IF
+    IF (This^.rActApertureSizeY > AptArrayReq.Height) THEN
+         rReqApertureSizeY := AptArrayReq.Height;
+    END_IF
+END_IF
+
+
+(*FAST FAULT*)
+FFO(i_xOK := ,
+    i_xReset := ,
+    i_xAutoReset :=TRUE,
+    io_fbFFHWO := io_fbFFHWO);]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
