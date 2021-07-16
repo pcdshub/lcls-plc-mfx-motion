@@ -14,25 +14,25 @@
 			<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044c2c52" RevisionNo="#x00120000" PortPhys="305" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1100 EtherCAT Coupler (2A E-Bus)" Desc="EK1100" PortABoxInfo="#x0300006a"/>
 		</Box>
 		<Box Id="103" BoxType="9099">
-			<Name>TM1K4-ATM (EK1100)</Name>
+			<Name>ATM-ATM (EK1100)</Name>
 			<ImageId>1001</ImageId>
 			<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044c2c52" RevisionNo="#x00120000" PortPhys="305" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1100 EtherCAT Coupler (2A E-Bus)" Desc="EK1100" PortABoxInfo="#x0100006a"/>
-			<Box File="TM1K4-EL7041-E1.xti" Id="197">
+			<Box File="ATM-EL7041-E1.xti" Id="197">
 				<EtherCAT PortABoxInfo="#x01000067"/>
 			</Box>
-			<Box File="TM1K4-EL7041-E2.xti" Id="198">
+			<Box File="ATM-EL7041-E2.xti" Id="198">
 				<EtherCAT PortABoxInfo="#x010000c5"/>
 			</Box>
-			<Box File="TM1K4-EL5042-E3.xti" Id="199">
+			<Box File="ATM-EL5042-E3.xti" Id="199">
 				<EtherCAT PortABoxInfo="#x010000c6"/>
 			</Box>
-			<Box File="TM1K4-EL2004-E4.xti" Id="200">
+			<Box File="ATM-EL2004-E4.xti" Id="200">
 				<EtherCAT PortABoxInfo="#x010000c7"/>
 			</Box>
-			<Box File="TM1K4-EL3314-E5.xti" Id="207">
+			<Box File="ATM-EL3314-E5.xti" Id="207">
 				<EtherCAT PortABoxInfo="#x010000c8"/>
 			</Box>
-			<Box File="TM1K4-EL9011.xti" Id="240">
+			<Box File="ATM-EL9011.xti" Id="240">
 				<EtherCAT PortABoxInfo="#x010000cf"/>
 			</Box>
 		</Box>

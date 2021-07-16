@@ -38,9 +38,6 @@
 		<Image Id="1" AddrType="9" ImageType="3">
 			<Name>Image</Name>
 		</Image>
-		<Image Id="4" AddrType="10" ImageType="3">
-			<Name>Image-2</Name>
-		</Image>
 		<Box File="Power (EK1200).xti" Id="1">
 			<EtherCAT PortABoxInfo="#x00ffffff"/>
 		</Box>

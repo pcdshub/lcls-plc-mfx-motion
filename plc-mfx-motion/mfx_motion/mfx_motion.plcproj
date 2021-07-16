@@ -24,10 +24,6 @@
     <Compile Include="DUTs\E_HomeState.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GVLs\GVL_PMPS.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
     <Compile Include="GVLs\Main.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -41,26 +37,16 @@
     <Compile Include="POUs\PRG_4_LOG.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\PRG_AL1K4_L2SI.TcPOU">
+    <Compile Include="POUs\PRG_LIB.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\PRG_TM1K4.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\temp\FB_SLITS.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\temp\FB_SLITS_POWER.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\temp\FB_SLITS_SCATTER.TcPOU">
+    <Compile Include="POUs\PRG_ATM.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
-    <Folder Include="POUs\temp" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>

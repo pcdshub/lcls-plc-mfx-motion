@@ -6,8 +6,8 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[PRG_AL1K4_L2SI();
-PRG_TM1K4();
+      <ST><![CDATA[PRG_LIB();
+PRG_ATM();
 
 PRG_4_LOG();
 ]]></ST>

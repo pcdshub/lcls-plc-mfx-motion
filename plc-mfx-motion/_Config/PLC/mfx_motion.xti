@@ -1138,11 +1138,11 @@ External Setpoint Generation:
 					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 				</Var>
 				<Var>
-					<Name>PRG_AL1K4_L2SI.fbAL1K4.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
+					<Name>PRG_LIB.fbLIB.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
 				</Var>
 				<Var>
-					<Name>PRG_AL1K4_L2SI.fbAL1K4.fbLaser.fbGetLasPercent.iRaw</Name>
+					<Name>PRG_LIB.fbLIB.fbLaser.fbGetLasPercent.iRaw</Name>
 					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
 					<Type>INT</Type>
 				</Var>
@@ -1465,27 +1465,27 @@ External Setpoint Generation:
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_TM1K4.fbTM1K4.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
+					<Name>PRG_ATM.fbATM.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
 				</Var>
 				<Var>
-					<Name>PRG_TM1K4.fbTM1K4.fbXStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
+					<Name>PRG_ATM.fbATM.fbXStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
 				</Var>
 				<Var>
-					<Name>PRG_TM1K4.fbTM1K4.fbThermoCouple1.bError</Name>
+					<Name>PRG_ATM.fbATM.fbThermoCouple1.bError</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_TM1K4.fbTM1K4.fbThermoCouple1.bUnderrange</Name>
+					<Name>PRG_ATM.fbATM.fbThermoCouple1.bUnderrange</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_TM1K4.fbTM1K4.fbThermoCouple1.bOverrange</Name>
+					<Name>PRG_ATM.fbATM.fbThermoCouple1.bOverrange</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_TM1K4.fbTM1K4.fbThermoCouple1.iRaw</Name>
+					<Name>PRG_ATM.fbATM.fbThermoCouple1.iRaw</Name>
 					<Type>INT</Type>
 				</Var>
 				<Var>
@@ -2518,19 +2518,19 @@ External Setpoint Generation:
 			<Vars VarGrpType="2" AreaNo="1">
 				<Name>PlcTask Outputs</Name>
 				<Var>
-					<Name>PRG_AL1K4_L2SI.fbAL1K4.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Name>PRG_LIB.fbLIB.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>PRG_AL1K4_L2SI.fbAL1K4.fbLaser.iShutdownINT</Name>
+					<Name>PRG_LIB.fbLIB.fbLaser.iShutdownINT</Name>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>PRG_AL1K4_L2SI.fbAL1K4.fbLaser.iLaserINT</Name>
+					<Name>PRG_LIB.fbLIB.fbLaser.iLaserINT</Name>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>PRG_AL1K4_L2SI.fbAL1K4.fbLaser.fbSetLasPercent.iRaw</Name>
+					<Name>PRG_LIB.fbLIB.fbLaser.fbSetLasPercent.iRaw</Name>
 					<Comment><![CDATA[ Connect this output to the terminal]]></Comment>
 					<Type>INT</Type>
 				</Var>
@@ -2671,11 +2671,11 @@ External Setpoint Generation:
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_TM1K4.fbTM1K4.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Name>PRG_ATM.fbATM.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>PRG_TM1K4.fbTM1K4.fbXStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Name>PRG_ATM.fbATM.fbXStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
@@ -2958,17 +2958,17 @@ External Setpoint Generation:
 	</Project>
 	<Mappings>
 		<OwnerA Name="mfx_motion Instance">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 AL1K4-L2SI (EK1100)^AL1K4-EL2004-E3">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 LIB- (EK1100)^LIB-EL2004-E3">
 				<Link VarA="PlcTask Outputs^Main.M1.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 AL1K4-L2SI (EK1100)^AL1K4-EL4004-E4">
-				<Link VarA="PlcTask Outputs^PRG_AL1K4_L2SI.fbAL1K4.fbLaser.iLaserINT" VarB="AO Outputs Channel 1^Analog output" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^PRG_AL1K4_L2SI.fbAL1K4.fbLaser.iShutdownINT" VarB="AO Outputs Channel 2^Analog output" AutoLink="true"/>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 LIB- (EK1100)^LIB-EL4004-E4">
+				<Link VarA="PlcTask Outputs^PRG_LIB.fbLIB.fbLaser.iLaserINT" VarB="AO Outputs Channel 1^Analog output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^PRG_LIB.fbLIB.fbLaser.iShutdownINT" VarB="AO Outputs Channel 2^Analog output" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 AL1K4-L2SI (EK1100)^AL1K4-EL5042-E2">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 LIB- (EK1100)^LIB-EL5042-E2">
 				<Link VarA="PlcTask Inputs^Main.M1.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 AL1K4-L2SI (EK1100)^AL1K4-EL7041-E1">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 LIB- (EK1100)^LIB-EL7041-E1">
 				<Link VarA="PlcTask Inputs^Main.M1.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M1.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
 			</OwnerB>
@@ -3112,20 +3112,20 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^Main.M18.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M18.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^TM1K4-ATM (EK1100)^TM1K4-EL2004-E4">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^ATM-ATM (EK1100)^ATM-EL2004-E4">
 				<Link VarA="PlcTask Outputs^Main.M21.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^TM1K4-ATM (EK1100)^TM1K4-EL3314-E5">
-				<Link VarA="PlcTask Inputs^PRG_TM1K4.fbTM1K4.fbThermoCouple1.bError" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_TM1K4.fbTM1K4.fbThermoCouple1.bOverrange" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_TM1K4.fbTM1K4.fbThermoCouple1.bUnderrange" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_TM1K4.fbTM1K4.fbThermoCouple1.iRaw" VarB="TC Inputs Channel 1^Value" AutoLink="true"/>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^ATM-ATM (EK1100)^ATM-EL3314-E5">
+				<Link VarA="PlcTask Inputs^PRG_ATM.fbATM.fbThermoCouple1.bError" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_ATM.fbATM.fbThermoCouple1.bOverrange" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_ATM.fbATM.fbThermoCouple1.bUnderrange" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_ATM.fbATM.fbThermoCouple1.iRaw" VarB="TC Inputs Channel 1^Value" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^TM1K4-ATM (EK1100)^TM1K4-EL5042-E3">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^ATM-ATM (EK1100)^ATM-EL5042-E3">
 				<Link VarA="PlcTask Inputs^Main.M21.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^Main.M22.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^TM1K4-ATM (EK1100)^TM1K4-EL7041-E1">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^ATM-ATM (EK1100)^ATM-EL7041-E1">
 				<Link VarA="PlcTask Inputs^Main.M21.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M21.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
 			</OwnerB>
@@ -3199,15 +3199,15 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^PRG_3_PMPS_POST.fbArbiterIO.xTxPDO_toggle" VarB="SYNC Inputs^TxPDO toggle" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^PRG_3_PMPS_POST.fbArbiterIO.q_stRequestedBP" VarB="IO Outputs^RequestedBP" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 1 AL1K4-L2SI-MMS">
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 1 LIB--MMS">
 				<Link VarA="PlcTask Inputs^Main.M1.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^Main.M1.Axis.PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 21 TM1K4-MMS-Y">
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 21 ATM-MMS-Y">
 				<Link VarA="PlcTask Inputs^Main.M21.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^Main.M21.Axis.PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 22 TM1K4-MMS-X">
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 22 ATM-MMS-X">
 				<Link VarA="PlcTask Inputs^Main.M22.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^Main.M22.Axis.PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
