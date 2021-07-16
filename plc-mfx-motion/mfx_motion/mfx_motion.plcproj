@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9dd0ba81-4a92-4d5e-8bd9-e101c02702d4}</ProjectGuid>
     <SubObjectsSortedByName>True</SubObjectsSortedByName>
-    <Name>tmo_motion</Name>
+    <Name>mfx_motion</Name>
     <ProgramVersion>3.1.4022.7</ProgramVersion>
     <Application>{a4c97a60-c95c-4787-a832-16aa681fd195}</Application>
     <TypeSystem>{473f9b86-a88d-4466-8a1f-0ccde2a35e73}</TypeSystem>
@@ -16,7 +16,7 @@
     <CombineIds>false</CombineIds>
     <Released>true</Released>
     <ProjectVersion>0.0.0</ProjectVersion>
-    <Title>lcls-plc-tmo-motion</Title>
+    <Title>lcls-plc-mfx-motion</Title>
     <Company>SLAC</Company>
     <CompilerDefines>K</CompilerDefines>
   </PropertyGroup>
@@ -38,46 +38,10 @@
     <Compile Include="POUs\PRG_1_PlcTask.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\PRG_2_PMPS_PRE.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_3_PMPS_POST.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\PRG_4_LOG.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\PRG_AL1K4_L2SI.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_IM2K4_PPM.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_IM3K4_PPM.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_IM4K4_PPM.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_IM5K4_PPM.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_LI1K4_IP1.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_PF1K4_WFS_TARGET.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_SL1K4_SCATTER.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_SL2K4_SCATTER.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_ST4K4_TMO_TERM.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_ST5K4_TMO_TERM_FIXED.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\PRG_TM1K4.TcPOU">
@@ -171,7 +135,7 @@
     </PlaceholderResolution>
   </ItemGroup>
   <ItemGroup>
-    <None Include="tmo_motion.tmc">
+    <None Include="mfx_motion.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>

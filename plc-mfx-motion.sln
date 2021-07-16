@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "plc-tmo-motion", "plc-tmo-motion\plc-tmo-motion.tsproj", "{7D2E9C2C-2FAE-4003-A512-C4812204568A}"
+Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "plc-mfx-motion", "plc-mfx-motion\plc-mfx-motion.tsproj", "{7D2E9C2C-2FAE-4003-A512-C4812204568A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
