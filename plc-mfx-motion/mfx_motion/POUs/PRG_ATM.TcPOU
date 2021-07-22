@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="PRG_ATM" Id="{c02e8350-6bfd-4c3f-8509-cf01c04221fa}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_ATM
 VAR
@@ -7,10 +7,10 @@ VAR
         pv: ATM:ATM
         io: io
     '}
-    {attribute 'TcLinkTo' := '.fbThermoCouple1.bError := TIIB[ATM-EL3314-E5]^TC Inputs Channel 1^Status^Error;
-                              .fbThermoCouple1.bUnderrange := TIIB[ATM-EL3314-E5]^TC Inputs Channel 1^Status^Underrange;
-                              .fbThermoCouple1.bOverrange := TIIB[ATM-EL3314-E5]^TC Inputs Channel 1^Status^Overrange;
-                              .fbThermoCouple1.iRaw := TIIB[ATM-EL3314-E5]^TC Inputs Channel 1^Value'}
+    {attribute 'TcLinkTo' := '.fbThermoCouple1.bError := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Status^Error;
+                              .fbThermoCouple1.bUnderrange := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Status^Underrange;
+                              .fbThermoCouple1.bOverrange := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Status^Overrange;
+                              .fbThermoCouple1.iRaw := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Value'}
     fbATM: FB_ATM;
 END_VAR
 ]]></Declaration>
