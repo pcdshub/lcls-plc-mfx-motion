@@ -14,7 +14,7 @@
     <Implicit_Jitter_Distribution>{a1ad1a30-91af-400b-bcbb-1b8302e9d456}</Implicit_Jitter_Distribution>
     <LibraryReferences>{84341175-e12c-4e9b-9706-9693db60f176}</LibraryReferences>
     <CombineIds>false</CombineIds>
-    <Released>true</Released>
+    <Released>false</Released>
     <ProjectVersion>0.0.0</ProjectVersion>
     <Title>lcls-plc-mfx-motion</Title>
     <Company>SLAC</Company>
@@ -25,6 +25,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GVLs\Main.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\PMPS.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>

@@ -20,7 +20,7 @@
 			</Format>
 		</DataType>
 		<DataType>
-			<Name GUID="{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_STATE_OLD</Name>
+			<Name GUID="{CBC83B73-B816-4597-A9E5-2B03263CA131}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_STATE</Name>
 			<BitSize>32</BitSize>
 			<SubItem>
 				<Name>Operational</Name>
@@ -131,6 +131,12 @@
 				<BitOffs>17</BitOffs>
 			</SubItem>
 			<SubItem>
+				<Name>IsDriveLimitActive</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>18</BitOffs>
+			</SubItem>
+			<SubItem>
 				<Name>ContinuousMotion</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
 				<BitSize>1</BitSize>
@@ -217,6 +223,11 @@
 			<Format Name="IEC">
 				<Printf>16#%08X</Printf>
 			</Format>
+			<Relations>
+				<Relation Priority="100">
+					<Type>{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}</Type>
+				</Relation>
+			</Relations>
 		</DataType>
 		<DataType>
 			<Name GUID="{6EF49753-C72C-4F50-AA44-3C7498E76CFE}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_OPMODE</Name>
@@ -412,11 +423,11 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF_OLD4</Name>
+			<Name GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF</Name>
 			<BitSize>2048</BitSize>
 			<SubItem>
 				<Name>StateDWord</Name>
-				<Type GUID="{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}" Namespace="MC">NCTOPLC_AXIS_REF_STATE_OLD</Type>
+				<Type GUID="{CBC83B73-B816-4597-A9E5-2B03263CA131}" Namespace="MC">NCTOPLC_AXIS_REF_STATE</Type>
 				<BitSize>32</BitSize>
 				<BitOffs>0</BitOffs>
 			</SubItem>
@@ -665,6 +676,18 @@ External Setpoint Generation:
 				<BitOffs>1600</BitOffs>
 			</SubItem>
 			<SubItem>
+				<Name>AbsPhasingPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1664</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TorqueOffset</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1728</BitOffs>
+			</SubItem>
+			<SubItem>
 				<Name>ActPosWithoutPosCorrection</Name>
 				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
 				<BitSize>64</BitSize>
@@ -710,242 +733,10 @@ External Setpoint Generation:
 				<Relation Priority="100">
 					<Type GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}"></Type>
 				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}"></Type>
+				</Relation>
 			</Relations>
-		</DataType>
-		<DataType>
-			<Name GUID="{67AC048F-B785-4A4D-B941-B11E2213F502}">ST_PMPS_Aperture_IO</Name>
-			<BitSize>96</BitSize>
-			<SubItem>
-				<Name>Width</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
-				<Comment><![CDATA[distance between horizontal slits (x)]]></Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Width
-            io: i
-            field: EGU mm</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>Height</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
-				<Comment><![CDATA[distance between vertical slits (y)]]></Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>32</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Height
-            io: i
-            field: EGU mm</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>xOK</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
-				<Comment><![CDATA[status of aperture, false if error or in motion]]></Comment>
-				<BitSize>8</BitSize>
-				<BitOffs>64</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: OK
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-		</DataType>
-		<DataType>
-			<Name GUID="{7E016B85-166E-4B4F-AAC4-ECA8DDD44F13}">ST_PMPS_Attenuator_IO</Name>
-			<BitSize>64</BitSize>
-			<SubItem>
-				<Name>nTran</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>xAttOK</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
-				<BitSize>16</BitSize>
-				<BitOffs>32</BitOffs>
-			</SubItem>
-			<Hides>
-				<Hide GUID="{76269EAC-36F0-4513-B811-3725FD02409A}"/>
-				<Hide GUID="{E96BEA56-6301-4A6A-BF6A-F08340C87594}"/>
-				<Hide GUID="{FE32F9A9-7E7A-413D-8D77-0C99C34D8CD9}"/>
-				<Hide GUID="{D01709AA-9B4A-464A-B4D1-4BF476CFE7DE}"/>
-				<Hide GUID="{D6F0EA12-B425-4603-9C4B-B4FD442416C3}"/>
-				<Hide GUID="{0FF3CAED-DFFA-453E-8BDC-2F6EE7142B14}"/>
-				<Hide GUID="{AC42932A-79BD-4670-8CF2-1DDEA2EE41C7}"/>
-				<Hide GUID="{EE241488-3DC7-4C48-A9D8-BB32379587BC}"/>
-				<Hide GUID="{EE241488-3DC7-4C48-A9D8-BB32379587BC}"/>
-			</Hides>
-		</DataType>
-		<DataType>
-			<Name GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Name>
-			<BitSize>1696</BitSize>
-			<SubItem>
-				<Name>nTran</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
-				<Comment TxtId=""><![CDATA[Requested pre-optic attenuation - 1 is full transmission]]></Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-				<Default>
-					<Min>0</Min>
-					<Max>1</Max>
-					<Value>1</Value>
-				</Default>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Attenuation
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>nRate</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<Comment><![CDATA[ Pulse-rate ]]></Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>32</BitOffs>
-				<Default>
-					<Value>120</Value>
-				</Default>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Rate
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>neVRange</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
-				<Comment><![CDATA[ Photon energy ranges ]]></Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>64</BitOffs>
-				<Default>
-					<Value>4294967295</Value>
-				</Default>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: PhotonEnergy
-        io: i</Value>
-					</Property>
-					<Property>
-						<Name>plcAttribute_displaymode</Name>
-						<Value>binary</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>astAttenuators</Name>
-				<Type GUID="{7E016B85-166E-4B4F-AAC4-ECA8DDD44F13}">ST_PMPS_Attenuator_IO</Type>
-				<ArrayInfo>
-					<LBound>1</LBound>
-					<Elements>16</Elements>
-				</ArrayInfo>
-				<Comment><![CDATA[ Beamline attenuators ]]></Comment>
-				<BitSize>1024</BitSize>
-				<BitOffs>96</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: AuxAttenuator
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>astApertures</Name>
-				<Type GUID="{67AC048F-B785-4A4D-B941-B11E2213F502}">ST_PMPS_Aperture_IO</Type>
-				<ArrayInfo>
-					<LBound>1</LBound>
-					<Elements>4</Elements>
-				</ArrayInfo>
-				<BitSize>384</BitSize>
-				<BitOffs>1120</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>aVetoDevices</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
-				<ArrayInfo>
-					<LBound>1</LBound>
-					<Elements>16</Elements>
-				</ArrayInfo>
-				<Comment><![CDATA[ Stopper statuses ]]></Comment>
-				<BitSize>128</BitSize>
-				<BitOffs>1504</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: AuxAttenuator
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>xValidToggle</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
-				<Comment><![CDATA[ Toggle for watchdog]]></Comment>
-				<BitSize>8</BitSize>
-				<BitOffs>1632</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>xValid</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
-				<Comment><![CDATA[ Beam parameter set is valid (if readback), or acknowledged (if request)]]></Comment>
-				<BitSize>8</BitSize>
-				<BitOffs>1640</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Valid
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>nCohortInt</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<Comment><![CDATA[ Cohort index. Identifies which cohort this BP set was included in arbitration]]></Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>1664</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Attenuation
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<Hides>
-				<Hide GUID="{ADE62DDD-CAE3-4FE3-BE11-F358D7D0CDD8}"/>
-				<Hide GUID="{729DFDAA-EB68-494E-B247-D86DA3C0AE5E}"/>
-				<Hide GUID="{41059C79-1015-4C2C-AFF4-697A824775D7}"/>
-				<Hide GUID="{80E871EC-0C36-49B0-AD5D-F1F0FB351299}"/>
-				<Hide GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}"/>
-				<Hide GUID="{C64C88BE-2BD8-4AC6-ACD6-2A08570B4923}"/>
-				<Hide GUID="{B472A77E-9430-445F-AD24-21E649F6ACD1}"/>
-				<Hide GUID="{559ADF00-CB27-4B7D-8DEA-9DBCF390B12B}"/>
-				<Hide GUID="{E1A510FA-6CE5-40B2-9617-7C29C5B7C692}"/>
-				<Hide GUID="{3F6D5E74-4433-4A11-8ADE-14BBEED361D6}"/>
-				<Hide GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}"/>
-				<Hide GUID="{5F9FBCD0-8C11-4386-87CB-253F17D55690}"/>
-				<Hide GUID="{5F9FBCD0-8C11-4386-87CB-253F17D55690}"/>
-				<Hide GUID="{F4D82764-2299-4BB7-86C4-99ED0EBA5A76}"/>
-				<Hide GUID="{1E08C18A-0551-4C52-916A-1A7A2B58BA24}"/>
-				<Hide GUID="{1E08C18A-0551-4C52-916A-1A7A2B58BA24}"/>
-			</Hides>
 		</DataType>
 		<DataType>
 			<Name GUID="{875D2B22-B7EB-497E-B933-0C004593CCF3}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">PLCTONC_AXIS_REF_CTRL</Name>
@@ -1138,339 +929,28 @@ External Setpoint Generation:
 					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 				</Var>
 				<Var>
-					<Name>PRG_LIB.fbLIB.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
+					<Name>PRG_LIB.fbLIB_1.fbDriveVirtual.MasterAxis.NcToPlc</Name>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>PRG_LIB.fbLIB.fbLaser.fbGetLasPercent.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
+					<Name>PRG_LIB.fbLIB_2.fbDriveVirtual.MasterAxis.NcToPlc</Name>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
+					<Name>PRG_LIB.fbLIB_3.fbDriveVirtual.MasterAxis.NcToPlc</Name>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.iVoltageINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbGetPMVoltage.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbGige.fbGetIllPercent.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbFlowMeter.fRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.iVoltageINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbGetPMVoltage.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbGige.fbGetIllPercent.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbFlowMeter.fRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.iVoltageINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbGetPMVoltage.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbGige.fbGetIllPercent.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbFlowMeter.fRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.iVoltageINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbGetPMVoltage.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbGige.fbGetIllPercent.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbFlowMeter.fRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_LI1K4_IP1.fbLI1K4.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbZStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K4_SCATTER.fbSL1K4.fbTopBlade.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K4_SCATTER.fbSL1K4.fbBottomBlade.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K4_SCATTER.fbSL1K4.fbNorthBlade.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K4_SCATTER.fbSL1K4.fbSouthBlade.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K4_SCATTER.fbSL1K4.AptArrayReq</Name>
-					<Type GUID="{67AC048F-B785-4A4D-B941-B11E2213F502}">ST_PMPS_Aperture_IO</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL2K4_SCATTER.fbSL2K4.fbTopBlade.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL2K4_SCATTER.fbSL2K4.fbBottomBlade.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL2K4_SCATTER.fbSL2K4.fbNorthBlade.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL2K4_SCATTER.fbSL2K4.fbSouthBlade.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL2K4_SCATTER.fbSL2K4.AptArrayReq</Name>
-					<Type GUID="{67AC048F-B785-4A4D-B941-B11E2213F502}">ST_PMPS_Aperture_IO</Type>
-				</Var>
-				<Var>
-					<Name>PRG_ST4K4_TMO_TERM.ST4K4.i_xInsertedLS</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_ST4K4_TMO_TERM.ST4K4.i_xRetractedLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_ST5K4_TMO_TERM_FIXED.ST4K4.i_xInsertedLS</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_ST5K4_TMO_TERM_FIXED.ST4K4.i_xRetractedLS</Name>
-					<Type>BOOL</Type>
+					<Name>PRG_LIB.fbLIB_4.fbDriveVirtual.MasterAxis.NcToPlc</Name>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>PRG_ATM.fbATM.fbYStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>PRG_ATM.fbATM.fbXStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>PRG_ATM.fbATM.fbThermoCouple1.bError</Name>
@@ -1489,20 +969,8 @@ External Setpoint Generation:
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>PRG_3_PMPS_POST.fbArbiterIO.i_stCurrentBP</Name>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
-				</Var>
-				<Var>
-					<Name>PRG_3_PMPS_POST.fbArbiterIO.xTxPDO_toggle</Name>
-					<Type>BIT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_3_PMPS_POST.fbArbiterIO.xTxPDO_state</Name>
-					<Type>BIT</Type>
-				</Var>
-				<Var>
 					<Name>Main.M1.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>Main.M1.bLimitForwardEnable</Name>
@@ -1541,7 +1009,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M2.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>Main.M2.bLimitForwardEnable</Name>
@@ -1580,7 +1048,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M3.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>Main.M3.bLimitForwardEnable</Name>
@@ -1619,7 +1087,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M4.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>Main.M4.bLimitForwardEnable</Name>
@@ -1658,7 +1126,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M5.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>Main.M5.bLimitForwardEnable</Name>
@@ -1697,7 +1165,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M6.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>Main.M6.bLimitForwardEnable</Name>
@@ -1734,941 +1202,24 @@ External Setpoint Generation:
 					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
 					<Type>INT</Type>
 				</Var>
-				<Var>
-					<Name>Main.M7.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M7.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M7.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M7.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M7.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M7.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M7.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M7.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M8.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M8.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M8.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M8.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M8.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M8.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M8.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M8.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M9.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M9.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M9.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M9.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M9.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M9.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M9.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M9.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M10.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M10.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M10.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M10.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M10.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M10.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M10.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M10.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M11.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M11.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M11.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M11.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M11.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M11.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M11.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M11.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M12.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M12.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M12.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M12.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M12.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M12.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M12.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M12.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M13.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M13.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M13.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M13.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M13.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M13.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M13.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M13.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M14.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M14.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M14.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M14.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M14.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M14.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M14.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M14.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M15.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M15.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M15.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M15.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M15.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M15.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M15.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M15.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M16.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M16.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M16.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M16.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M16.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M16.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M16.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M16.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M17.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M17.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M17.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M17.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M17.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M17.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M17.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M17.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M18.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M18.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M18.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M18.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M18.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M18.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M18.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M18.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M19.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M19.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M19.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M19.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M19.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M19.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M19.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M19.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M20.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M20.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M20.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M20.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M20.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M20.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M20.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M20.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M21.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M21.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M21.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M21.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M21.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M21.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M21.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M21.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M22.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M22.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M22.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M22.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M22.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M22.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M22.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M22.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M23.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M23.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M23.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M23.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M23.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M23.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M23.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M23.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M24.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M24.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M24.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M24.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M24.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M24.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M24.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M24.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M25.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M25.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M25.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M25.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M25.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M25.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M25.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M25.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M26.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
-				</Var>
-				<Var>
-					<Name>Main.M26.bLimitForwardEnable</Name>
-					<Comment><![CDATA[ NC Forward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M26.bLimitBackwardEnable</Name>
-					<Comment><![CDATA[ NC Backward Limit Switch: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M26.bHome</Name>
-					<Comment><![CDATA[ NO Home Switch: TRUE if at home]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M26.bHardwareEnable</Name>
-					<Comment><![CDATA[ NC STO Input: TRUE if ok to move]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M26.nRawEncoderULINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for ULINT (Biss-C)]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M26.nRawEncoderUINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for UINT (Relative Encoders)]]></Comment>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M26.nRawEncoderINT</Name>
-					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
-					<Type>INT</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="2" AreaNo="1">
 				<Name>PlcTask Outputs</Name>
 				<Var>
-					<Name>PRG_LIB.fbLIB.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Name>PRG_LIB.fbLIB_1.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>PRG_LIB.fbLIB.fbLaser.iShutdownINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_LIB.fbLIB.fbLaser.iLaserINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_LIB.fbLIB.fbLaser.fbSetLasPercent.iRaw</Name>
-					<Comment><![CDATA[ Connect this output to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Name>PRG_LIB.fbLIB_2.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbGige.iIlluminatorINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbGige.bGigePower</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM2K4_PPM.fbIM2K4.fbGige.fbSetIllPercent.iRaw</Name>
-					<Comment><![CDATA[ Connect this output to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Name>PRG_LIB.fbLIB_3.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbGige.iIlluminatorINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbGige.bGigePower</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM3K4_PPM.fbIM3K4.fbGige.fbSetIllPercent.iRaw</Name>
-					<Comment><![CDATA[ Connect this output to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Name>PRG_LIB.fbLIB_4.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbGige.iIlluminatorINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbGige.bGigePower</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM4K4_PPM.fbIM4K4.fbGige.fbSetIllPercent.iRaw</Name>
-					<Comment><![CDATA[ Connect this output to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbGige.iIlluminatorINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbGige.bGigePower</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_IM5K4_PPM.fbIM5K4.fbGige.fbSetIllPercent.iRaw</Name>
-					<Comment><![CDATA[ Connect this output to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_LI1K4_IP1.fbLI1K4.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_PF1K4_WFS_TARGET.fbPF1K4.fbZStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K4_SCATTER.fbSL1K4.fbTopBlade.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K4_SCATTER.fbSL1K4.fbBottomBlade.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K4_SCATTER.fbSL1K4.fbNorthBlade.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K4_SCATTER.fbSL1K4.fbSouthBlade.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K4_SCATTER.fbSL1K4.AptArrayStatus</Name>
-					<Type GUID="{67AC048F-B785-4A4D-B941-B11E2213F502}">ST_PMPS_Aperture_IO</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL2K4_SCATTER.fbSL2K4.fbTopBlade.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL2K4_SCATTER.fbSL2K4.fbBottomBlade.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL2K4_SCATTER.fbSL2K4.fbNorthBlade.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL2K4_SCATTER.fbSL2K4.fbSouthBlade.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL2K4_SCATTER.fbSL2K4.AptArrayStatus</Name>
-					<Type GUID="{67AC048F-B785-4A4D-B941-B11E2213F502}">ST_PMPS_Aperture_IO</Type>
-				</Var>
-				<Var>
-					<Name>PRG_ST4K4_TMO_TERM.ST4K4.q_xInsert_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_ST4K4_TMO_TERM.ST4K4.q_xRetract_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_ST5K4_TMO_TERM_FIXED.ST4K4.q_xInsert_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_ST5K4_TMO_TERM_FIXED.ST4K4.q_xRetract_DO</Name>
-					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_ATM.fbATM.fbYStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
@@ -2679,15 +1230,7 @@ External Setpoint Generation:
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>PRG_3_PMPS_POST.fbArbiterIO.q_stRequestedBP</Name>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
-				</Var>
-				<Var>
-					<Name>GVL_PMPS.fbFastFaultOutput1.q_xFastFaultOut</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut</Name>
+					<Name>PMPS.fbFastFaultOutput1.q_xFastFaultOut</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -2744,186 +1287,6 @@ External Setpoint Generation:
 					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
-				<Var>
-					<Name>Main.M7.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M7.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M8.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M8.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M9.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M9.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M10.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M10.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M11.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M11.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M12.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M12.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M13.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M13.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M14.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M14.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M15.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M15.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M16.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M16.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M17.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M17.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M18.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M18.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M19.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M19.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M20.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M20.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M21.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M21.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M22.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M22.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M23.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M23.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M24.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M24.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M25.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M25.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Main.M26.Axis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>Main.M26.bBrakeRelease</Name>
-					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="8" AreaNo="4">
 				<Name>PlcTask Retains</Name>
@@ -2940,6 +1303,226 @@ External Setpoint Generation:
 					<InOut>7</InOut>
 				</Var>
 			</Vars>
+			<UnrestoredVarLinks ImportTime="2021-07-15T20:09:35">
+				<OwnerA Name="OutputSrc" Prefix="TIPC^mfx_motion^mfx_motion Instance" Type="2">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL2004-E3">
+						<Link VarA="Main.M9.bBrakeRelease" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbGige.bGigePower" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL4004-E7">
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbGige.iIlluminatorINT" TypeA="INT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AO Outputs Channel 1^Analog output" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL2004-E3">
+						<Link VarA="Main.M15.bBrakeRelease" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbGige.bGigePower" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL4004-E7">
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbGige.iIlluminatorINT" TypeA="INT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AO Outputs Channel 1^Analog output" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL2004-E3">
+						<Link VarA="Main.M16.bBrakeRelease" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbGige.bGigePower" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL4004-E7">
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbGige.iIlluminatorINT" TypeA="INT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AO Outputs Channel 1^Analog output" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 6 (EK1122)^LI1K4-LIC (EK1100)^LI1K4-EL2004-E3">
+						<Link VarA="Main.M20.bBrakeRelease" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 10 (EK1122)^PF1K4-WFS (EK1100)^PF1K4-EL2004-E4">
+						<Link VarA="Main.M18.bBrakeRelease" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL2004-E3">
+						<Link VarA="Main.M17.bBrakeRelease" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbGige.bGigePower" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL4004-E7">
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbGige.iIlluminatorINT" TypeA="INT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AO Outputs Channel 1^Analog output" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^ST4K4-TERM (EP2338-0001)">
+						<Link VarA="PRG_ST4K4_TMO_TERM.ST4K4.q_xRetract_DO" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 9^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PMPS_FFO">
+						<Link VarA="GVL_PMPS.fbFastFaultOutput1.q_xFastFaultOut" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PMPS_PRE">
+						<Link VarA="PRG_3_PMPS_POST.fbArbiterIO.q_stRequestedBP" TypeA="ST_BeamParams_IO" InOutA="1" GuidA="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}" VarB="IO Outputs^RequestedBP" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+				<OwnerA Name="InputDst" Prefix="TIPC^mfx_motion^mfx_motion Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL5101-E2">
+						<Link VarA="Main.M10.nRawEncoderUINT" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Status compact^Counter value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL5101-E4">
+						<Link VarA="Main.M11.nRawEncoderUINT" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Status compact^Counter value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL5101-E6">
+						<Link VarA="Main.M12.nRawEncoderUINT" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Status compact^Counter value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL5101-E8">
+						<Link VarA="Main.M13.nRawEncoderUINT" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Status compact^Counter value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL7031-E1">
+						<Link VarA="Main.M10.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M10.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL7031-E3">
+						<Link VarA="Main.M11.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M11.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL7031-E5">
+						<Link VarA="Main.M12.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M12.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL7031-E7">
+						<Link VarA="Main.M13.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M13.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL3062-E6">
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.iVoltageINT" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AI Standard Channel 1^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL3314-E4">
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="TC Inputs Channel 1^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="TC Inputs Channel 2^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL5042-E2">
+						<Link VarA="Main.M9.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL7041-E1">
+						<Link VarA="Main.M9.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M9.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL3062-E6">
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.iVoltageINT" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AI Standard Channel 1^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL3314-E4">
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="TC Inputs Channel 1^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="TC Inputs Channel 2^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL5042-E2">
+						<Link VarA="Main.M15.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL7041-E1">
+						<Link VarA="Main.M15.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M15.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL3062-E6">
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.iVoltageINT" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AI Standard Channel 1^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL3314-E4">
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="TC Inputs Channel 1^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="TC Inputs Channel 2^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL5042-E2">
+						<Link VarA="Main.M16.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL7041-E1">
+						<Link VarA="Main.M16.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M16.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 6 (EK1122)^LI1K4-LIC (EK1100)^LI1K4-EL5042-E2">
+						<Link VarA="Main.M20.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 6 (EK1122)^LI1K4-LIC (EK1100)^LI1K4-EL7041-E1">
+						<Link VarA="Main.M20.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M20.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 10 (EK1122)^PF1K4-WFS (EK1100)^PF1K4-EL3314-E5">
+						<Link VarA="PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="TC Inputs Channel 1^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="TC Inputs Channel 2^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 10 (EK1122)^PF1K4-WFS (EK1100)^PF1K4-EL5042-E3">
+						<Link VarA="Main.M18.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 2^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M19.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 10 (EK1122)^PF1K4-WFS (EK1100)^PF1K4-EL7041-E1">
+						<Link VarA="Main.M18.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M18.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL3062-E6">
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.iVoltageINT" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AI Standard Channel 1^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL3314-E4">
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="TC Inputs Channel 1^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="TC Inputs Channel 2^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL5042-E2">
+						<Link VarA="Main.M17.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL7041-E1">
+						<Link VarA="Main.M17.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M17.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^ST4K4-TERM (EP2338-0001)">
+						<Link VarA="PRG_ST4K4_TMO_TERM.ST4K4.i_xInsertedLS" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 4^Input" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_ST4K4_TMO_TERM.ST4K4.i_xRetractedLS" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 3^Input" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL5101-E2">
+						<Link VarA="Main.M23.nRawEncoderUINT" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Status compact^Counter value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL5101-E4">
+						<Link VarA="Main.M24.nRawEncoderUINT" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Status compact^Counter value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL5101-E6">
+						<Link VarA="Main.M25.nRawEncoderUINT" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Status compact^Counter value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL5101-E8">
+						<Link VarA="Main.M26.nRawEncoderUINT" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Status compact^Counter value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL7031-E1">
+						<Link VarA="Main.M23.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M23.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL7031-E3">
+						<Link VarA="Main.M24.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M24.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL7031-E5">
+						<Link VarA="Main.M25.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M25.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL7031-E7">
+						<Link VarA="Main.M26.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M26.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PMPS_PRE">
+						<Link VarA="PRG_3_PMPS_POST.fbArbiterIO.i_stCurrentBP" TypeA="ST_BeamParams_IO" InOutA="0" GuidA="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}" VarB="IO Inputs^CurrentBP" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_3_PMPS_POST.fbArbiterIO.xTxPDO_state" TypeA="BIT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000010}" VarB="SYNC Inputs^TxPDO state" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_3_PMPS_POST.fbArbiterIO.xTxPDO_toggle" TypeA="BIT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000010}" VarB="SYNC Inputs^TxPDO toggle" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
 			<Contexts>
 				<Context>
 					<Id NeedCalleeCall="true">0</Id>
@@ -2956,261 +1539,4 @@ External Setpoint Generation:
 			</TaskPouOids>
 		</Instance>
 	</Project>
-	<Mappings>
-		<OwnerA Name="mfx_motion Instance">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 LIB- (EK1100)^LIB-EL2004-E3">
-				<Link VarA="PlcTask Outputs^Main.M1.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 LIB- (EK1100)^LIB-EL4004-E4">
-				<Link VarA="PlcTask Outputs^PRG_LIB.fbLIB.fbLaser.iLaserINT" VarB="AO Outputs Channel 1^Analog output" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^PRG_LIB.fbLIB.fbLaser.iShutdownINT" VarB="AO Outputs Channel 2^Analog output" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 LIB- (EK1100)^LIB-EL5042-E2">
-				<Link VarA="PlcTask Inputs^Main.M1.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X1 LIB- (EK1100)^LIB-EL7041-E1">
-				<Link VarA="PlcTask Inputs^Main.M1.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M1.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL5101-E2">
-				<Link VarA="PlcTask Inputs^Main.M10.nRawEncoderUINT" VarB="ENC Status compact^Counter value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL5101-E4">
-				<Link VarA="PlcTask Inputs^Main.M11.nRawEncoderUINT" VarB="ENC Status compact^Counter value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL5101-E6">
-				<Link VarA="PlcTask Inputs^Main.M12.nRawEncoderUINT" VarB="ENC Status compact^Counter value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL5101-E8">
-				<Link VarA="PlcTask Inputs^Main.M13.nRawEncoderUINT" VarB="ENC Status compact^Counter value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL7031-E1">
-				<Link VarA="PlcTask Inputs^Main.M10.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M10.bLimitForwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL7031-E3">
-				<Link VarA="PlcTask Inputs^Main.M11.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M11.bLimitForwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL7031-E5">
-				<Link VarA="PlcTask Inputs^Main.M12.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M12.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E1 (EK1122)^X2 SL1K4-SCATTER^SL1K4-EL7031-E7">
-				<Link VarA="PlcTask Inputs^Main.M13.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M13.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL2004-E3">
-				<Link VarA="PlcTask Outputs^Main.M9.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Outputs^PRG_IM2K4_PPM.fbIM2K4.fbGige.bGigePower" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL3062-E6">
-				<Link VarA="PlcTask Inputs^PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.iVoltageINT" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL3314-E4">
-				<Link VarA="PlcTask Inputs^PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.bError" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.bOverrange" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.bUnderrange" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM2K4_PPM.fbIM2K4.fbPowerMeter.fbThermoCouple.iRaw" VarB="TC Inputs Channel 1^Value" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.bError" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.bOverrange" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.bUnderrange" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM2K4_PPM.fbIM2K4.fbYagThermoCouple.iRaw" VarB="TC Inputs Channel 2^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL4004-E7">
-				<Link VarA="PlcTask Outputs^PRG_IM2K4_PPM.fbIM2K4.fbGige.iIlluminatorINT" VarB="AO Outputs Channel 1^Analog output" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL5042-E2">
-				<Link VarA="PlcTask Inputs^Main.M9.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^X2 TMO FEE EC2 (EK1100)^FEE EC2 E2 (EK1122)^X1 IM2K4-PPM (EK1100)^IM2K4-EL7041-E1">
-				<Link VarA="PlcTask Inputs^Main.M9.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M9.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL2004-E3">
-				<Link VarA="PlcTask Outputs^Main.M15.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Outputs^PRG_IM3K4_PPM.fbIM3K4.fbGige.bGigePower" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL3062-E6">
-				<Link VarA="PlcTask Inputs^PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.iVoltageINT" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL3314-E4">
-				<Link VarA="PlcTask Inputs^PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.bError" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.bOverrange" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.bUnderrange" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM3K4_PPM.fbIM3K4.fbPowerMeter.fbThermoCouple.iRaw" VarB="TC Inputs Channel 1^Value" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.bError" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.bOverrange" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.bUnderrange" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM3K4_PPM.fbIM3K4.fbYagThermoCouple.iRaw" VarB="TC Inputs Channel 2^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL4004-E7">
-				<Link VarA="PlcTask Outputs^PRG_IM3K4_PPM.fbIM3K4.fbGige.iIlluminatorINT" VarB="AO Outputs Channel 1^Analog output" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL5042-E2">
-				<Link VarA="PlcTask Inputs^Main.M15.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM3K4-PPM (EK1100)^IM3K4-EL7041-E1">
-				<Link VarA="PlcTask Inputs^Main.M15.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M15.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL2004-E3">
-				<Link VarA="PlcTask Outputs^Main.M16.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Outputs^PRG_IM4K4_PPM.fbIM4K4.fbGige.bGigePower" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL3062-E6">
-				<Link VarA="PlcTask Inputs^PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.iVoltageINT" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL3314-E4">
-				<Link VarA="PlcTask Inputs^PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.bError" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.bOverrange" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.bUnderrange" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM4K4_PPM.fbIM4K4.fbPowerMeter.fbThermoCouple.iRaw" VarB="TC Inputs Channel 1^Value" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.bError" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.bOverrange" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.bUnderrange" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM4K4_PPM.fbIM4K4.fbYagThermoCouple.iRaw" VarB="TC Inputs Channel 2^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL4004-E7">
-				<Link VarA="PlcTask Outputs^PRG_IM4K4_PPM.fbIM4K4.fbGige.iIlluminatorINT" VarB="AO Outputs Channel 1^Analog output" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL5042-E2">
-				<Link VarA="PlcTask Inputs^Main.M16.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 5 (EK1122)^IM4K4-PPM (EK1100)^IM4K4-EL7041-E1">
-				<Link VarA="PlcTask Inputs^Main.M16.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M16.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 6 (EK1122)^LI1K4-LIC (EK1100)^LI1K4-EL2004-E3">
-				<Link VarA="PlcTask Outputs^Main.M20.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 6 (EK1122)^LI1K4-LIC (EK1100)^LI1K4-EL5042-E2">
-				<Link VarA="PlcTask Inputs^Main.M20.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 1(EK1100)^PLC Junction 6 (EK1122)^LI1K4-LIC (EK1100)^LI1K4-EL7041-E1">
-				<Link VarA="PlcTask Inputs^Main.M20.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M20.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 10 (EK1122)^PF1K4-WFS (EK1100)^PF1K4-EL2004-E4">
-				<Link VarA="PlcTask Outputs^Main.M18.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 10 (EK1122)^PF1K4-WFS (EK1100)^PF1K4-EL3314-E5">
-				<Link VarA="PlcTask Inputs^PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.bError" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.bOverrange" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.bUnderrange" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple1.iRaw" VarB="TC Inputs Channel 1^Value" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.bError" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.bOverrange" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.bUnderrange" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_PF1K4_WFS_TARGET.fbPF1K4.fbThermoCouple2.iRaw" VarB="TC Inputs Channel 2^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 10 (EK1122)^PF1K4-WFS (EK1100)^PF1K4-EL5042-E3">
-				<Link VarA="PlcTask Inputs^Main.M18.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.M19.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 10 (EK1122)^PF1K4-WFS (EK1100)^PF1K4-EL7041-E1">
-				<Link VarA="PlcTask Inputs^Main.M18.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M18.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^ATM-ATM (EK1100)^ATM-EL2004-E4">
-				<Link VarA="PlcTask Outputs^Main.M21.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^ATM-ATM (EK1100)^ATM-EL3314-E5">
-				<Link VarA="PlcTask Inputs^PRG_ATM.fbATM.fbThermoCouple1.bError" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_ATM.fbATM.fbThermoCouple1.bOverrange" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_ATM.fbATM.fbThermoCouple1.bUnderrange" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_ATM.fbATM.fbThermoCouple1.iRaw" VarB="TC Inputs Channel 1^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^ATM-ATM (EK1100)^ATM-EL5042-E3">
-				<Link VarA="PlcTask Inputs^Main.M21.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.M22.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 7 (EK1122)^ATM-ATM (EK1100)^ATM-EL7041-E1">
-				<Link VarA="PlcTask Inputs^Main.M21.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M21.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL2004-E3">
-				<Link VarA="PlcTask Outputs^Main.M17.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Outputs^PRG_IM5K4_PPM.fbIM5K4.fbGige.bGigePower" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL3062-E6">
-				<Link VarA="PlcTask Inputs^PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.iVoltageINT" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL3314-E4">
-				<Link VarA="PlcTask Inputs^PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.bError" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.bOverrange" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.bUnderrange" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM5K4_PPM.fbIM5K4.fbPowerMeter.fbThermoCouple.iRaw" VarB="TC Inputs Channel 1^Value" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.bError" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.bOverrange" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.bUnderrange" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_IM5K4_PPM.fbIM5K4.fbYagThermoCouple.iRaw" VarB="TC Inputs Channel 2^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL4004-E7">
-				<Link VarA="PlcTask Outputs^PRG_IM5K4_PPM.fbIM5K4.fbGige.iIlluminatorINT" VarB="AO Outputs Channel 1^Analog output" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL5042-E2">
-				<Link VarA="PlcTask Inputs^Main.M17.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^IM5K4-PPM (EK1100)^IM5K4-EL7041-E1">
-				<Link VarA="PlcTask Inputs^Main.M17.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M17.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 8 (EK1122)^ST4K4-TERM (EP2338-0001)">
-				<Link VarA="PlcTask Inputs^PRG_ST4K4_TMO_TERM.ST4K4.i_xInsertedLS" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_ST4K4_TMO_TERM.ST4K4.i_xRetractedLS" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Outputs^PRG_ST4K4_TMO_TERM.ST4K4.q_xRetract_DO" VarB="Channel 9^Output" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL5101-E2">
-				<Link VarA="PlcTask Inputs^Main.M23.nRawEncoderUINT" VarB="ENC Status compact^Counter value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL5101-E4">
-				<Link VarA="PlcTask Inputs^Main.M24.nRawEncoderUINT" VarB="ENC Status compact^Counter value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL5101-E6">
-				<Link VarA="PlcTask Inputs^Main.M25.nRawEncoderUINT" VarB="ENC Status compact^Counter value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL5101-E8">
-				<Link VarA="PlcTask Inputs^Main.M26.nRawEncoderUINT" VarB="ENC Status compact^Counter value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL7031-E1">
-				<Link VarA="PlcTask Inputs^Main.M23.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M23.bLimitForwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL7031-E3">
-				<Link VarA="PlcTask Inputs^Main.M24.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M24.bLimitForwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL7031-E5">
-				<Link VarA="PlcTask Inputs^Main.M25.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M25.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^PLC Coupler 2 (EK1100)^PLC Junction 9 (EK1122)^X2 SL2K4-SCATTER^SL2K4-EL7031-E7">
-				<Link VarA="PlcTask Inputs^Main.M26.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M26.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PMPS_FFO">
-				<Link VarA="PlcTask Outputs^GVL_PMPS.fbFastFaultOutput1.q_xFastFaultOut" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PMPS_PRE">
-				<Link VarA="PlcTask Inputs^PRG_3_PMPS_POST.fbArbiterIO.i_stCurrentBP" VarB="IO Inputs^CurrentBP" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_3_PMPS_POST.fbArbiterIO.xTxPDO_state" VarB="SYNC Inputs^TxPDO state" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_3_PMPS_POST.fbArbiterIO.xTxPDO_toggle" VarB="SYNC Inputs^TxPDO toggle" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^PRG_3_PMPS_POST.fbArbiterIO.q_stRequestedBP" VarB="IO Outputs^RequestedBP" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 1 LIB--MMS">
-				<Link VarA="PlcTask Inputs^Main.M1.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
-				<Link VarA="PlcTask Outputs^Main.M1.Axis.PlcToNc" VarB="Inputs^FromPlc"/>
-			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 21 ATM-MMS-Y">
-				<Link VarA="PlcTask Inputs^Main.M21.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
-				<Link VarA="PlcTask Outputs^Main.M21.Axis.PlcToNc" VarB="Inputs^FromPlc"/>
-			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 22 ATM-MMS-X">
-				<Link VarA="PlcTask Inputs^Main.M22.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
-				<Link VarA="PlcTask Outputs^Main.M22.Axis.PlcToNc" VarB="Inputs^FromPlc"/>
-			</OwnerB>
-		</OwnerA>
-	</Mappings>
 </TcSmItem>

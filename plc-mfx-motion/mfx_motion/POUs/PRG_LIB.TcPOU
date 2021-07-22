@@ -1,37 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
   <POU Name="PRG_LIB" Id="{41f87cec-8d4f-488b-ae3e-a2c9e5843eec}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_LIB
 VAR
-    {attribute 'pytmc' := '
-        pv: LIB:
-        io: io
-    '}
-    {attribute 'TcLinkTo' := '.fbLaser.iLaserINT := TIIB[LIB-EL4004-E4]^AO Outputs Channel 1^Analog output;
-                              .fbLaser.iShutdownINT := TIIB[LIB-EL4004-E4]^AO Outputs Channel 2^Analog output'}
-    fbLIB: FB_REF;
+    fbLIB_1: FB_MOTIONSTAGE;
+    fbLIB_2: FB_MOTIONSTAGE;
+    fbLIB_3: FB_MOTIONSTAGE;
+    fbLIB_4: FB_MOTIONSTAGE;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbLIB.nTransitionAssertionID := 16#6140;
-fbLIB.nUnknownAssertionID := 16#6149;
-
-fbLIB.stOut.fPosition := -33.5; // Upper limit
-fbLIB.stOut.bUseRawCounts := FALSE;
-fbLIB.stOut.nRequestAssertionID := 16#6141;
-fbLIB.stOut.stBeamParams := PMPS_GVL.cstFullBeam;
-fbLIB.stOut.bValid := TRUE;
-
-fbLIB.stIn.fPosition := -75; // Current position at time of edit
-fbLIB.stIn.bUseRawCounts := FALSE;
-fbLIB.stIn.nRequestAssertionID := 16#6142;
-fbLIB.stIn.stBeamParams := PMPS_GVL.cst0RateBeam;
-fbLIB.stIn.bValid := TRUE;
-
-//fbLIB(
-//    stYStage := Main.M1,
-//    fbArbiter := fbArbiter,
-//    fbFFHWO := fbFastFaultOutput1);]]></ST>
+      <ST><![CDATA[
+ fbLIB_1(
+    stMotionStage := Main.M3);
+    
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
