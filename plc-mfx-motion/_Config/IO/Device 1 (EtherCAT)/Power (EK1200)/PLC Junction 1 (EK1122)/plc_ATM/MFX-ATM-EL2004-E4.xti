@@ -9,6 +9,7 @@
 		<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x07d43052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2004 4Ch. Dig. Output 24V, 0.5A" Desc="EL2004">
 			<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 			<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+			<SuName>ATM</SuName>
 			<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 				<Entry Name="Output" Index="#x7000" Sub="#x01">
 					<Type>BIT</Type>
