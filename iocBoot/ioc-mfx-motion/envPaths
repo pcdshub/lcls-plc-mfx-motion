@@ -1,0 +1,2 @@
+epicsEnvSet("IOC_TOP", "/c/Users/espov/Documents/lcls-plc-mfx-motion/iocBoot/ioc-mfx-motion")
+epicsEnvSet("IOC_DATA", "C:\Users\espov/iocData")

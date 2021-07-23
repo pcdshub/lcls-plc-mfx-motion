@@ -17,10 +17,10 @@ VAR_GLOBAL
 	
     // LIB-: 4 Axes
     {attribute 'pytmc' := 'pv: MFX:LIB:MMS'}
-    M3: DUT_MotionStage := (sName := 'MFX:LIB:MMS:01');
-	M4: DUT_MotionStage := (sName := 'MFX:LIB:MMS:02');
-	M5: DUT_MotionStage := (sName := 'MFX:LIB:MMS:03');
-	M6: DUT_MotionStage := (sName := 'MFX:LIB:MMS:04');
+//    M3: DUT_MotionStage := (sName := 'MFX:LIB:MMS:01');
+//	M4: DUT_MotionStage := (sName := 'MFX:LIB:MMS:02');
+//	M5: DUT_MotionStage := (sName := 'MFX:LIB:MMS:03');
+//	M6: DUT_MotionStage := (sName := 'MFX:LIB:MMS:04');
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

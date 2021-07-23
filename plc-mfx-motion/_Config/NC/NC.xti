@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.12" ClassName="CNcSafTaskDef" SubType="0">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4022.30" ClassName="CNcSafTaskDef" SubType="0">
 	<NC>
 		<SafTask Priority="4" CycleTime="20000" AmsPort="501" IoAtBegin="true">
 			<Name>NC-Task 1 SAF</Name>
@@ -18,7 +18,7 @@
 		</SvbTask>
 		<AxisFolder Name="LIB"/>
 		<AxisFolder Name="ATM"/>
-		<Axis File="Axis 1 TM1K4-MMS-Y.xti" Id="21"/>
-		<Axis File="Axis 2 TM1K4-MMS-X.xti" Id="22"/>
+		<Axis File="Axis 1 TM1K4-MMS-Y.xti" Id="1"/>
+		<Axis File="Axis 2 TM1K4-MMS-X.xti" Id="2"/>
 	</NC>
 </TcSmItem>
