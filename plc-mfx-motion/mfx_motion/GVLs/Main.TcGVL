@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="Main" Id="{1691e643-5c47-48e9-bb1a-9f3fc0d078a1}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -14,12 +14,9 @@ VAR_GLOBAL
     {attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 2^Position'}
     M2: DUT_MotionStage := (sName := 'MFX:ATM:MMS:X');
 	
-    // LIB-: 1 Axis
+	
+    // LIB-: 4 Axes
     {attribute 'pytmc' := 'pv: MFX:LIB:MMS'}
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[LIB-EL7041-E1]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable := TIIB[LIB-EL7041-E1]^STM Status^Status^Digital input 2;
-                              .bBrakeRelease        := TIIB[LIB-EL2004-E3]^Channel 1^Output;
-                              .nRawEncoderULINT     := TIIB[LIB-EL5042-E2]^FB Inputs Channel 1^Position'}
     M3: DUT_MotionStage := (sName := 'MFX:LIB:MMS:01');
 	M4: DUT_MotionStage := (sName := 'MFX:LIB:MMS:02');
 	M5: DUT_MotionStage := (sName := 'MFX:LIB:MMS:03');
