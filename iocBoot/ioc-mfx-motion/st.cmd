@@ -1,13 +1,14 @@
-#!/reg/g/pcds/epics/ioc/common/ads-ioc/v0.2.1/bin/rhel7-x86_64/adsIoc
+#!c:/Repos/ads-ioc/R0.4.1///bin/rhel7-x86_64/adsIoc
+###### AUTO-GENERATED DO NOT EDIT ##############
 
 < envPaths
 
 epicsEnvSet("ADS_IOC_TOP", "$(TOP)" )
 
-epicsEnvSet("IOCNAME", "ioc-mfx-motion" )
-epicsEnvSet("ENGINEER", "bosum123" )
+epicsEnvSet("ENGINEER", "espov" )
 epicsEnvSet("LOCATION", "PLC:mfx_motion" )
-epicsEnvSet("IOCSH_PS1", "$(IOCNAME)> " )
+epicsEnvSet("IOCSH_PS1", "$(IOC)> " )
+epicsEnvSet("ACF_FILE", "$(ADS_IOC_TOP)/iocBoot/templates/unrestricted.acf")
 
 # Run common startup commands for linux soft IOC's
 < /reg/d/iocCommon/All/pre_linux.cmd
@@ -120,6 +121,11 @@ dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(
 
 dbLoadRecords("iocSoft.db", "IOC=PLC:mfx_motion")
 dbLoadRecords("save_restoreStatus.db", "P=PLC:mfx_motion:")
+dbLoadRecords("caPutLog.db", "IOC=${IOC}")
+
+## TwinCat System Databse files ##
+dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=ASYN_PLC, PREFIX=PLC:mfx_motion")
+dbLoadRecords("TwinCAT_AppInfo.db", "PORT=ASYN_PLC, PREFIX=PLC:mfx_motion")
 
 cd "$(IOC_TOP)"
 
@@ -141,8 +147,28 @@ cd "$(IOC_TOP)/autosave"
 makeAutosaveFiles()
 cd "$(IOC_TOP)"
 
+# Create the archiver file
+makeArchiveFromDbInfo("$(IOC_DATA)/$(IOC)/archive/$(IOC).archive", "archive")
+
+# Configure access security: this is required for caPutLog.
+asSetFilename("$(ACF_FILE)")
+
 # Initialize the IOC and start processing records
 iocInit()
+
+# Enable logging
+iocLogInit()
+
+# Configure and start the caPutLogger after iocInit
+epicsEnvSet(EPICS_AS_PUT_LOG_PV, "${IOC}:caPutLog:Last")
+
+# caPutLogInit("HOST:PORT", config)
+# config options:
+#       caPutLogNone       -1: no logging (disable)
+#       caPutLogOnChange    0: log only on value change
+#       caPutLogAll         1: log all puts
+#       caPutLogAllNoFilter 2: log all puts no filtering on same PV
+caPutLogInit("${EPICS_CAPUTLOG_HOST}:${EPICS_CAPUTLOG_PORT}", 0)
 
 # Start autosave backups
 create_monitor_set( "info_positions.req", 10, "" )
