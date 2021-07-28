@@ -9,7 +9,8 @@ VAR_GLOBAL
                               .bLimitBackwardEnable := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 2;
                               .bBrakeRelease        := TIIB[MFX-ATM-EL2004-E4]^Channel 1^Output;
                               .nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 1^Position'}
-    M1: DUT_MotionStage := (sName := 'MFX:ATM:MMS:Y');
+    M1: DUT_MotionStage := (sName := 'MFX:ATM:MMS:Y',
+		bPowerSelf:=TRUE);
     {attribute 'pytmc' := 'pv: MFX:ATM:MMS:X'}
     {attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 2^Position'}
     M2: DUT_MotionStage := (sName := 'MFX:ATM:MMS:X');

@@ -61,5 +61,9 @@ fbATM(
     stXStage := Main.M2);
 ]]></ST>
     </Implementation>
+    <LineIds Name="PRG_ATM">
+      <LineId Id="3" Count="43" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
