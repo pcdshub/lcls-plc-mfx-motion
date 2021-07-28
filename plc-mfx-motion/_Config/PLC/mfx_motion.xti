@@ -1726,8 +1726,11 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^PRG_ATM.fbATM.fbThermoCouple1.iRaw" VarB="TC Inputs Channel 1^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^plc_ATM^MFX-ATM-EL5042-E3">
-				<Link VarA="PlcTask Inputs^Main.M1.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^Main.M2.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^plc_ATM^MFX-ATM-EL7041-E1">
+				<Link VarA="PlcTask Inputs^Main.M1.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.M1.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 1 MFX-ATM-MMS-Y">
 				<Link VarA="PlcTask Inputs^Main.M1.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
