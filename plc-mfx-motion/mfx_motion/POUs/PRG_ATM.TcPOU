@@ -4,14 +4,14 @@
     <Declaration><![CDATA[PROGRAM PRG_ATM
 VAR
     {attribute 'pytmc' := '
-        pv: ATM:ATM
+        pv: MFX:ATM
         io: io
     '}
     {attribute 'TcLinkTo' := '.fbThermoCouple1.bError := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Status^Error;
                               .fbThermoCouple1.bUnderrange := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Status^Underrange;
                               .fbThermoCouple1.bOverrange := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Status^Overrange;
                               .fbThermoCouple1.iRaw := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Value'}
-    fbATM: FB_ATM;
+    fbATM: FB_ATM_MFX;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -61,9 +61,5 @@ fbATM(
     stXStage := Main.M2);
 ]]></ST>
     </Implementation>
-    <LineIds Name="PRG_ATM">
-      <LineId Id="3" Count="43" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
