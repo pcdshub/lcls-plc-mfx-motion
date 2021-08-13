@@ -16,11 +16,22 @@ VAR_GLOBAL
 	
 	
     // LIB-: 4 Axes
-    {attribute 'pytmc' := 'pv: MFX:LIB:MMS'}
-//    M3: DUT_MotionStage := (sName := 'MFX:LIB:MMS:01');
-//	M4: DUT_MotionStage := (sName := 'MFX:LIB:MMS:02');
-//	M5: DUT_MotionStage := (sName := 'MFX:LIB:MMS:03');
-//	M6: DUT_MotionStage := (sName := 'MFX:LIB:MMS:04');
+    {attribute 'pytmc' := 'pv: MFX:LIB:MMS:01'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL7031-E1]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable := TIIB[MFX-LIB-EL7031-E1]^STM Status^Status^Digital input 2}
+    M3: DUT_MotionStage := (sName := 'MFX:LIB:MMS:01');
+	{attribute 'pytmc' := 'pv: MFX:LIB:MMS:02'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL7031-E2]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable := TIIB[MFX-LIB-EL7031-E2]^STM Status^Status^Digital input 2}
+	M4: DUT_MotionStage := (sName := 'MFX:LIB:MMS:02');
+	{attribute 'pytmc' := 'pv: MFX:LIB:MMS:03'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL7031-E3]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable := TIIB[MFX-LIB-EL7031-E3]^STM Status^Status^Digital input 2}
+	M5: DUT_MotionStage := (sName := 'MFX:LIB:MMS:03');
+	{attribute 'pytmc' := 'pv: MFX:LIB:MMS:04'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL7031-E4]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable := TIIB[MFX-LIB-EL7031-E4]^STM Status^Status^Digital input 2}
+	M6: DUT_MotionStage := (sName := 'MFX:LIB:MMS:04');
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

@@ -22,7 +22,7 @@
 		<Box File="MFX-ATM-EL3314-E5.xti" Id="15">
 			<EtherCAT PortABoxInfo="#x0100000e"/>
 		</Box>
-		<Box File="Endcap-EL9011.xti" Id="18">
+		<Box File="Endcap-EL9011-E6.xti" Id="18">
 			<EtherCAT PortABoxInfo="#x0100000f"/>
 		</Box>
 	</Box>
