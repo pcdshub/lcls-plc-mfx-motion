@@ -10,8 +10,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-fbLIB_1 := Main.M3;
+      <ST><![CDATA[fbLIB_1 := Main.M3;
 fbLIB_2 := Main.M4;
 fbLIB_3 := Main.M5;
 fbLIB_4 := Main.M6;
