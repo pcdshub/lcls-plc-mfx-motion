@@ -2085,10 +2085,12 @@ External Setpoint Generation:
 			<Name>Axis 3 MFX-LIB-MMS-01</Name>
 			<AxisPara>
 				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<ParameterChanged>257</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="0.005" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -2157,7 +2159,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="11" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -2314,10 +2316,12 @@ External Setpoint Generation:
 			<Name>Axis 4 MFX-LIB-MMS-02</Name>
 			<AxisPara>
 				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<ParameterChanged>257</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="0.005" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -2386,7 +2390,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="11" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -2545,10 +2549,12 @@ External Setpoint Generation:
 			<Name>Axis 5 MFX-LIB-MMS-03</Name>
 			<AxisPara>
 				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<ParameterChanged>257</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="0.005" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -2617,7 +2623,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="11" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -2776,10 +2782,12 @@ External Setpoint Generation:
 			<Name>Axis 6 MFX-LIB-MMS-04</Name>
 			<AxisPara>
 				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<ParameterChanged>257</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="0.005" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -2848,7 +2856,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="11" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
