@@ -3,19 +3,27 @@
   <POU Name="PRG_LIB" Id="{41f87cec-8d4f-488b-ae3e-a2c9e5843eec}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_LIB
 VAR
-    fbLIB_1: DUT_MOTIONSTAGE;
-    fbLIB_2: DUT_MOTIONSTAGE;
-    fbLIB_3: DUT_MOTIONSTAGE;
-    fbLIB_4: DUT_MOTIONSTAGE;
+    stLIB_1: DUT_MOTIONSTAGE;
+    stLIB_2: DUT_MOTIONSTAGE;
+    stLIB_3: DUT_MOTIONSTAGE;
+    stLIB_4: DUT_MOTIONSTAGE;
+	
+	fbLIB_1: FB_MotionStage;
+	fbLIB_2: FB_MotionStage;
+	fbLIB_3: FB_MotionStage;
+	fbLIB_4: FB_MotionStage;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbLIB_1 := Main.M3;
-fbLIB_2 := Main.M4;
-fbLIB_3 := Main.M5;
-fbLIB_4 := Main.M6;
-    
-]]></ST>
+      <ST><![CDATA[stLIB_1 := Main.M3;
+stLIB_2 := Main.M4;
+stLIB_3 := Main.M5;
+stLIB_4 := Main.M6;
+
+fbLIB_1(stMotionStage:=stLIB_1);
+fbLIB_2(stMotionStage:=stLIB_2);
+fbLIB_3(stMotionStage:=stLIB_3);
+fbLIB_4(stMotionStage:=stLIB_4);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
