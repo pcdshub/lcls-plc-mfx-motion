@@ -2245,7 +2245,7 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="1">
+			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
 					<Observer BandWidth="20"/>
 				</CtrPara>
@@ -2474,7 +2474,7 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="1">
+			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
 					<Observer BandWidth="20"/>
 				</CtrPara>
@@ -2705,7 +2705,7 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="1">
+			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
 					<Observer BandWidth="20"/>
 				</CtrPara>
@@ -2936,7 +2936,7 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="1">
+			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
 					<Observer BandWidth="20"/>
 				</CtrPara>

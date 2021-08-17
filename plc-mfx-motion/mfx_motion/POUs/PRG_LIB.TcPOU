@@ -3,27 +3,52 @@
   <POU Name="PRG_LIB" Id="{41f87cec-8d4f-488b-ae3e-a2c9e5843eec}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_LIB
 VAR
-    stLIB_1: DUT_MOTIONSTAGE;
-    stLIB_2: DUT_MOTIONSTAGE;
-    stLIB_3: DUT_MOTIONSTAGE;
-    stLIB_4: DUT_MOTIONSTAGE;
-	
 	fbLIB_1: FB_MotionStage;
 	fbLIB_2: FB_MotionStage;
 	fbLIB_3: FB_MotionStage;
 	fbLIB_4: FB_MotionStage;
+	
+	// Only do some of the puts on init
+    bInit: BOOL := FALSE;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[stLIB_1 := Main.M3;
-stLIB_2 := Main.M4;
-stLIB_3 := Main.M5;
-stLIB_4 := Main.M6;
+      <ST><![CDATA[fbLIB_1(stMotionStage:=Main.M3);
+fbLIB_2(stMotionStage:=Main.M4);
+fbLIB_3(stMotionStage:=Main.M5);
+fbLIB_4(stMotionStage:=Main.M6);
 
-fbLIB_1(stMotionStage:=stLIB_1);
-fbLIB_2(stMotionStage:=stLIB_2);
-fbLIB_3(stMotionStage:=stLIB_3);
-fbLIB_4(stMotionStage:=stLIB_4);]]></ST>
+IF NOT bInit THEN // Easier to debug if you can write to these
+    Main.M3.bLimitForwardEnable := TRUE;
+    Main.M3.bLimitBackwardEnable := TRUE;
+    Main.M3.bHardwareEnable := TRUE;
+    Main.M3.bPowerSelf := TRUE;
+    Main.M3.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    //Main.M3.nEnableMode := ENUM_StageEnableMode.NEVER;
+	
+	Main.M4.bLimitForwardEnable := TRUE;
+    Main.M4.bLimitBackwardEnable := TRUE;
+    Main.M4.bHardwareEnable := TRUE;
+    Main.M4.bPowerSelf := TRUE;
+    Main.M4.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    //Main.M4.nEnableMode := ENUM_StageEnableMode.NEVER;
+	
+	Main.M5.bLimitForwardEnable := TRUE;
+    Main.M5.bLimitBackwardEnable := TRUE;
+    Main.M5.bHardwareEnable := TRUE;
+    Main.M5.bPowerSelf := TRUE;
+    Main.M5.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    //Main.M5.nEnableMode := ENUM_StageEnableMode.NEVER;
+	
+	Main.M6.bLimitForwardEnable := TRUE;
+    Main.M6.bLimitBackwardEnable := TRUE;
+    Main.M6.bHardwareEnable := TRUE;
+    Main.M6.bPowerSelf := TRUE;
+    Main.M6.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    //Main.M6.nEnableMode := ENUM_StageEnableMode.NEVER;
+	
+	bInit := TRUE;
+END_IF]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
