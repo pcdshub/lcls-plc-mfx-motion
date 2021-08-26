@@ -2084,11 +2084,18 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LIB" Id="3">
 			<Name>Axis 3 MFX-LIB-MMS-01</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.1" FastManual="1"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
+				<ParameterChanged>25</ParameterChanged>
+				<ParameterChanged>8</ParameterChanged>
 				<ParameterChanged>257</ParameterChanged>
+				<ParameterChanged>24</ParameterChanged>
+				<ParameterChanged>7</ParameterChanged>
+				<ParameterChanged>9</ParameterChanged>
+				<ParameterChanged>6</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="0.005" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="7.8125e-05" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
@@ -2159,7 +2166,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog VeloReferenz="11" ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -2247,9 +2254,11 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="2">
+			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="1"/>
 					<Observer BandWidth="20"/>
+					<ParameterChanged>18</ParameterChanged>
 				</CtrPara>
 			</Controller>
 			<Vars VarGrpType="1" InsertType="1">
@@ -2315,11 +2324,18 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LIB" Id="4">
 			<Name>Axis 4 MFX-LIB-MMS-02</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.1" FastManual="1"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
+				<ParameterChanged>25</ParameterChanged>
+				<ParameterChanged>8</ParameterChanged>
 				<ParameterChanged>257</ParameterChanged>
+				<ParameterChanged>24</ParameterChanged>
+				<ParameterChanged>7</ParameterChanged>
+				<ParameterChanged>9</ParameterChanged>
+				<ParameterChanged>6</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="0.005" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="7.8125e-05" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
@@ -2390,7 +2406,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog VeloReferenz="11" ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -2478,9 +2494,11 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="2">
+			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="1"/>
 					<Observer BandWidth="20"/>
+					<ParameterChanged>18</ParameterChanged>
 				</CtrPara>
 			</Controller>
 			<Vars VarGrpType="1" InsertType="1">
@@ -2548,11 +2566,18 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LIB" Id="5">
 			<Name>Axis 5 MFX-LIB-MMS-03</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.1" FastManual="1"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
+				<ParameterChanged>25</ParameterChanged>
+				<ParameterChanged>8</ParameterChanged>
 				<ParameterChanged>257</ParameterChanged>
+				<ParameterChanged>24</ParameterChanged>
+				<ParameterChanged>7</ParameterChanged>
+				<ParameterChanged>9</ParameterChanged>
+				<ParameterChanged>6</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="0.005" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="6.25e-06" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
@@ -2623,7 +2648,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog VeloReferenz="11" ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="0.8" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -2711,9 +2736,11 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="2">
+			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="0.5"/>
 					<Observer BandWidth="20"/>
+					<ParameterChanged>18</ParameterChanged>
 				</CtrPara>
 			</Controller>
 			<Vars VarGrpType="1" InsertType="1">
@@ -2781,11 +2808,18 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LIB" Id="6">
 			<Name>Axis 6 MFX-LIB-MMS-04</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.1" FastManual="1"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
+				<ParameterChanged>25</ParameterChanged>
+				<ParameterChanged>8</ParameterChanged>
 				<ParameterChanged>257</ParameterChanged>
+				<ParameterChanged>24</ParameterChanged>
+				<ParameterChanged>7</ParameterChanged>
+				<ParameterChanged>9</ParameterChanged>
+				<ParameterChanged>6</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="0.005" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="3.90625e-05" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
@@ -2856,7 +2890,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog VeloReferenz="11" ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="5" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -2944,9 +2978,11 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="2">
+			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="1"/>
 					<Observer BandWidth="20"/>
+					<ParameterChanged>18</ParameterChanged>
 				</CtrPara>
 			</Controller>
 			<Vars VarGrpType="1" InsertType="1">
