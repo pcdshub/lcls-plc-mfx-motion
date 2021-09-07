@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ProjectGuid>{6edfb85f-8f11-4b5a-8aed-b4d53fa4c7c6}</ProjectGuid>
     <AssemblyName>TwinCAT Measurement Project1</AssemblyName>
-    <Name>TwinCAT Measurement Project1</Name>
+    <Name>TwinCAT Measurement</Name>
     <RootNamespace>TwinCAT Measurement Project1</RootNamespace>
   </PropertyGroup>
   <ItemGroup>

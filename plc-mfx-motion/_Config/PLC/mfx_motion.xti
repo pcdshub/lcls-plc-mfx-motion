@@ -2174,8 +2174,8 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^Main.M3.bLimitForwardEnable" VarB="Channel 1^Input"/>
 				<Link VarA="PlcTask Inputs^Main.M4.bLimitBackwardEnable" VarB="Channel 4^Input"/>
 				<Link VarA="PlcTask Inputs^Main.M4.bLimitForwardEnable" VarB="Channel 3^Input"/>
-				<Link VarA="PlcTask Inputs^Main.M5.bLimitBackwardEnable" VarB="Channel 6^Input"/>
-				<Link VarA="PlcTask Inputs^Main.M5.bLimitForwardEnable" VarB="Channel 5^Input"/>
+				<Link VarA="PlcTask Inputs^Main.M5.bLimitBackwardEnable" VarB="Channel 5^Input"/>
+				<Link VarA="PlcTask Inputs^Main.M5.bLimitForwardEnable" VarB="Channel 6^Input"/>
 				<Link VarA="PlcTask Inputs^Main.M6.bLimitBackwardEnable" VarB="Channel 8^Input"/>
 				<Link VarA="PlcTask Inputs^Main.M6.bLimitForwardEnable" VarB="Channel 7^Input"/>
 			</OwnerB>
