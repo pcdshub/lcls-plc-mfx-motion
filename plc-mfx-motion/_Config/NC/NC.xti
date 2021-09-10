@@ -2552,9 +2552,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="6.25e-05" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="0.0003125" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
-					<ParameterChanged>8</ParameterChanged>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -2623,7 +2623,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara Inverse="true">
-					<Analog VeloReferenz="0.8" ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="40" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -2715,7 +2715,6 @@ Drive Status 4 (manually linked):
 				<CtrPara PriorControlFactor="1">
 					<PosDiffControl Enable="false" Range="0.5"/>
 					<Observer BandWidth="20"/>
-					<ParameterChanged>16</ParameterChanged>
 				</CtrPara>
 			</Controller>
 			<Vars VarGrpType="1" InsertType="1">
