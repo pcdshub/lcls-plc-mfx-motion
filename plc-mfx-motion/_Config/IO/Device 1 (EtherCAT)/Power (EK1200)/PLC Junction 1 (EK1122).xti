@@ -207,10 +207,10 @@
 						<Entry Name="Status__Error" Index="#x6010" Sub="#x04">
 							<Type>BIT</Type>
 						</Entry>
-						<Entry Name="Status__Moving positive" Index="#x6010" Sub="#x05">
+						<Entry Name="Status__Moving positive" Index="#x6010" Sub="#x05" Flags="#x00008020">
 							<Type>BIT</Type>
 						</Entry>
-						<Entry Name="Status__Moving negative" Index="#x6010" Sub="#x06">
+						<Entry Name="Status__Moving negative" Index="#x6010" Sub="#x06" Flags="#x00008020">
 							<Type>BIT</Type>
 						</Entry>
 						<Entry Name="Status__Torque reduced" Index="#x6010" Sub="#x07">
@@ -222,10 +222,10 @@
 						<Entry Name="Status__">
 							<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
 						</Entry>
-						<Entry Name="Status__Digital input 1" Index="#x6010" Sub="#x0c">
+						<Entry Name="Status__Digital input 1" Index="#x6010" Sub="#x0c" Flags="#x00008020">
 							<Type>BIT</Type>
 						</Entry>
-						<Entry Name="Status__Digital input 2" Index="#x6010" Sub="#x0d">
+						<Entry Name="Status__Digital input 2" Index="#x6010" Sub="#x0d" Flags="#x00008020">
 							<Type>BIT</Type>
 						</Entry>
 						<Entry Name="Status__Sync error" Index="#x6010" Sub="#x0e">

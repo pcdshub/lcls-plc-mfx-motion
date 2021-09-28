@@ -2548,15 +2548,13 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LIB" Id="5">
 			<Name>Axis 5 MFX-LIB-MMS-03</Name>
 			<AxisPara>
-				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.05" FastManual="0.1"/>
+				<Dynamic AccelerationMaximum="50" DecelerationMaximum="50" Acceleration="50" Deceleration="50"/>
+				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.05" FastManual="0.1" Maximum="38"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
-				<ParameterChanged>257</ParameterChanged>
-				<ParameterChanged>18</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="0.015625" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="0.0003125" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
-					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -2624,9 +2622,10 @@ External Setpoint Generation:
 				</Vars>
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
-				<DrvPara Inverse="true">
-					<Analog VeloReferenz="2000" ScaleFactorActTorque="0.1"/>
+				<DrvPara>
+					<Analog VeloReferenz="40" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
+					<ParameterChanged>6</ParameterChanged>
 				</DrvPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -2715,7 +2714,7 @@ Drive Status 4 (manually linked):
 			</Drive>
 			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
-					<PosDiffControl Range="100"/>
+					<PosDiffControl Range="2"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -3576,7 +3575,7 @@ External Setpoint Generation:
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="Axes^Axis 5 MFX-LIB-MMS-03">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^plc_LIB (EK1100)^MFX-LIB-EL7031-E7">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^plc_LIB (EK1100)^MFX-LIB-EL7031-E3">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving positive" Size="1" OffsA="4"/>
