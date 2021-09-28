@@ -2246,7 +2246,7 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="1">
+			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
 					<PosDiffControl Range="1"/>
 					<Observer BandWidth="20"/>
@@ -2477,7 +2477,7 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="1">
+			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
 					<PosDiffControl Range="1"/>
 					<Observer BandWidth="20"/>
@@ -2550,9 +2550,11 @@ External Setpoint Generation:
 			<AxisPara>
 				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.05" FastManual="0.1"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
+				<ParameterChanged>257</ParameterChanged>
+				<ParameterChanged>18</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="0.0003125" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="0.015625" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
@@ -2623,7 +2625,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara Inverse="true">
-					<Analog VeloReferenz="40" ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="2000" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -2711,9 +2713,9 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="1">
+			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
-					<PosDiffControl Enable="false" Range="0.5"/>
+					<PosDiffControl Range="100"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -2944,7 +2946,7 @@ Drive Status 4 (manually linked):
 					</Var>
 				</Vars>
 			</Drive>
-			<Controller Name="Ctrl" CtrType="1">
+			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
 					<PosDiffControl Range="1"/>
 					<Observer BandWidth="20"/>
@@ -3574,7 +3576,7 @@ External Setpoint Generation:
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="Axes^Axis 5 MFX-LIB-MMS-03">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^plc_LIB (EK1100)^MFX-LIB-EL7031-E3">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 1 (EK1122)^plc_LIB (EK1100)^MFX-LIB-EL7031-E7">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving positive" Size="1" OffsA="4"/>
