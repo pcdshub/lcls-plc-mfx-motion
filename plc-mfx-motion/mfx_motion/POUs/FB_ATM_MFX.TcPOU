@@ -27,7 +27,7 @@ VAR
         io: i
         arrStates.array: 1..6
     '}
-    fbStates: FB_ATM_States;
+    fbStates: FB_MFX_ATM_States;
 
     {attribute 'pytmc' := '
         pv: STC:01
@@ -59,10 +59,10 @@ IF NOT bInit THEN // Easier to debug if you can write to these
 END_IF
 
 fbStates(
-    fbArbiter:=fbArbiter,
-    fbFFHWO:=fbFFHWO,
-    nTransitionAssertionID:=nTransitionAssertionID,
-    nUnknownAssertionID:=nUnknownAssertionID,
+//    fbArbiter:=fbArbiter,
+//    fbFFHWO:=fbFFHWO,
+//    nTransitionAssertionID:=nTransitionAssertionID,
+//    nUnknownAssertionID:=nUnknownAssertionID,
     stMotionStage:=stYStage,
     bEnable := TRUE,
     stOut:=stOut,

@@ -19,33 +19,28 @@ fbLIB_3(stMotionStage:=Main.M5);
 fbLIB_4(stMotionStage:=Main.M6);
 
 IF NOT bInit THEN // Easier to debug if you can write to these
-//    Main.M3.bLimitForwardEnable := TRUE;
-//    Main.M3.bLimitBackwardEnable := TRUE;
     Main.M3.bHardwareEnable := TRUE;
     Main.M3.bPowerSelf := TRUE;
     Main.M3.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 //	Main.M3.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
 //    Main.M3.nEnableMode := ENUM_StageEnableMode.ALWAYS;
-	
-//	 Main.M4.bLimitForwardEnable := TRUE;
-//   Main.M4.bLimitBackwardEnable := TRUE;
+
     Main.M4.bHardwareEnable := TRUE;
     Main.M4.bPowerSelf := TRUE;
     Main.M4.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M4.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
 //    Main.M4.nEnableMode := ENUM_StageEnableMode.ALWAYS;
-	
-//	  Main.M5.bLimitForwardEnable := TRUE;
-//    Main.M5.bLimitBackwardEnable := TRUE;
+
     Main.M5.bHardwareEnable := TRUE;
     Main.M5.bPowerSelf := TRUE;
     Main.M5.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M5.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
 //    Main.M5.nEnableMode := ENUM_StageEnableMode.ALWAYS;
-	
-//	  Main.M6.bLimitForwardEnable := TRUE;
-//    Main.M6.bLimitBackwardEnable := TRUE;
+
     Main.M6.bHardwareEnable := TRUE;
     Main.M6.bPowerSelf := TRUE;
     Main.M6.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M6.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
 //    Main.M6.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 	
 	bInit := True;

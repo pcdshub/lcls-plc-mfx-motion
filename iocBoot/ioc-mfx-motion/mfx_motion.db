@@ -1601,52 +1601,6 @@ record(bi, "MFX:ATM:MMS:STATE:06:VALID_RBV") {
   info(archive, "VAL")
 }
 
-record(bi, "MFX:ATM:MMS:STATE:PMPS:ARB:ENABLE_RBV") {
-  field(DESC, "PRG_ATM.fbATM.fbStates.bArbiterEnabled")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_ATM.fbATM.fbStates.bArbiterEnabled?")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(archive, "VAL")
-}
-
-record(bo, "MFX:ATM:MMS:STATE:PMPS:ARB:ENABLE") {
-  field(DESC, "PRG_ATM.fbATM.fbStates.bArbiterEnabled")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_ATM.fbATM.fbStates.bArbiterEnabled=")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "VAL")
-  info(archive, "VAL")
-}
-
-record(bi, "MFX:ATM:MMS:STATE:PMPS:MAINT_RBV") {
-  # PRG_ATM.fbATM.fbStates.fbStatePMPS.bMaintMode
-  field(DESC, "PRG_ATM.fbATM.fbStat...tePMPS.bMaintMode")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_ATM.fbATM.fbStates.fbStatePMPS.bMaintMode?")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(archive, "VAL")
-}
-
-record(bo, "MFX:ATM:MMS:STATE:PMPS:MAINT") {
-  # PRG_ATM.fbATM.fbStates.fbStatePMPS.bMaintMode
-  field(DESC, "PRG_ATM.fbATM.fbStat...tePMPS.bMaintMode")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_ATM.fbATM.fbStates.fbStatePMPS.bMaintMode=")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "VAL")
-  info(archive, "VAL")
-}
-
 record(mbbi, "MFX:ATM:MMS:STATE:SET_RBV") {
   field(DESC, "PRG_ATM.fbATM.fbStates.enumSet")
   field(SCAN, "I/O Intr")
