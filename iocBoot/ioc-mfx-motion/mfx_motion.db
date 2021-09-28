@@ -37,6 +37,8 @@ record(waveform, "$(PREFIX)LCLSGeneral:LogHost_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_Logger.cLogHost?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -46,6 +48,8 @@ record(waveform, "$(PREFIX)LCLSGeneral:LogHost") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_Logger.cLogHost=")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(autosaveFields_pass0, "VAL")
   info(archive, "VAL")
 }
@@ -536,6 +540,8 @@ record(waveform, "MFX:ATM:MMS:STATE:ERRMSG_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_ATM.fbATM.fbStates.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -572,6 +578,8 @@ record(waveform, "MFX:ATM:MMS:STATE:01:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_ATM.fbATM.fbStates.arrStates[1].sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -584,6 +592,8 @@ record(waveform, "MFX:ATM:MMS:STATE:02:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_ATM.fbATM.fbStates.arrStates[2].sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -596,6 +606,8 @@ record(waveform, "MFX:ATM:MMS:STATE:03:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_ATM.fbATM.fbStates.arrStates[3].sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -608,6 +620,8 @@ record(waveform, "MFX:ATM:MMS:STATE:04:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_ATM.fbATM.fbStates.arrStates[4].sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -620,6 +634,8 @@ record(waveform, "MFX:ATM:MMS:STATE:05:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_ATM.fbATM.fbStates.arrStates[5].sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -632,6 +648,8 @@ record(waveform, "MFX:ATM:MMS:STATE:06:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_ATM.fbATM.fbStates.arrStates[6].sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1877,6 +1895,8 @@ record(waveform, "MFX:ATM:MMS:Y:PLC:sName_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M1.sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -2353,6 +2373,8 @@ record(waveform, "MFX:ATM:MMS:Y:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M1.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -2509,6 +2531,8 @@ record(waveform, "MFX:ATM:MMS:X:PLC:sName_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M2.sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -2985,6 +3009,8 @@ record(waveform, "MFX:ATM:MMS:X:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M2.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3141,6 +3167,8 @@ record(waveform, "MFX:LIB:MMS:01:PLC:sName_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M3.sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3617,6 +3645,8 @@ record(waveform, "MFX:LIB:MMS:01:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M3.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3773,6 +3803,8 @@ record(waveform, "MFX:LIB:MMS:02:PLC:sName_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M4.sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -4249,6 +4281,8 @@ record(waveform, "MFX:LIB:MMS:02:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M4.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -4405,6 +4439,8 @@ record(waveform, "MFX:LIB:MMS:03:PLC:sName_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M5.sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -4881,6 +4917,8 @@ record(waveform, "MFX:LIB:MMS:03:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M5.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -5037,6 +5075,8 @@ record(waveform, "MFX:LIB:MMS:04:PLC:sName_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M6.sName?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -5513,6 +5553,8 @@ record(waveform, "MFX:LIB:MMS:04:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M6.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
