@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_LIB" Id="{41f87cec-8d4f-488b-ae3e-a2c9e5843eec}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_LIB
+VAR
+	fbLIB_1: FB_MotionStage;
+	fbLIB_2: FB_MotionStage;
+	fbLIB_3: FB_MotionStage;
+	fbLIB_4: FB_MotionStage;
+	
+	// Only do some of the puts on init
+    bInit: BOOL := FALSE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbLIB_1(stMotionStage:=Main.M3);
+fbLIB_2(stMotionStage:=Main.M4);
+fbLIB_3(stMotionStage:=Main.M5);
+fbLIB_4(stMotionStage:=Main.M6);
+
+IF NOT bInit THEN // Easier to debug if you can write to these
+    Main.M3.bHardwareEnable := TRUE;
+    Main.M3.bPowerSelf := TRUE;
+    Main.M3.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M3.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M3.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    Main.M4.bHardwareEnable := TRUE;
+    Main.M4.bPowerSelf := TRUE;
+    Main.M4.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M4.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M4.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    Main.M5.bHardwareEnable := TRUE;
+    Main.M5.bPowerSelf := TRUE;
+    Main.M5.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M5.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M5.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    Main.M6.bHardwareEnable := TRUE;
+    Main.M6.bPowerSelf := TRUE;
+    Main.M6.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M6.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M6.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+	
+	bInit := True;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

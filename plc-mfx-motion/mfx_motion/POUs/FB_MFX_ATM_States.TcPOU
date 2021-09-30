@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_MFX_ATM_States" Id="{858c00a9-2ff9-4971-8760-08e841475958}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_MFX_ATM_States EXTENDS FB_PositionStateBase
+VAR_INPUT
+    {attribute 'pytmc' := '
+        pv: SET
+        io: io
+    '}
+    enumSet: ENUM_ATM_states;
+
+    stOut: DUT_PositionState;
+    stTarget1: DUT_PositionState;
+    stTarget2: DUT_PositionState;
+    stTarget3: DUT_PositionState;
+    stTarget4: DUT_PositionState;
+    stTarget5: DUT_PositionState;
+
+    bStatesLock: BOOL;
+END_VAR
+VAR_OUTPUT
+    {attribute 'pytmc' := '
+        pv: GET
+        io: i
+    '}
+    enumGet: ENUM_ATM_States;
+END_VAR
+VAR
+    bATMInit: BOOL;
+END_VAR
+VAR CONSTANT
+    fInDelta: LREAL := 2;
+    fOutDelta: LREAL := 2;
+    fInVelocity: LREAL := 5;
+    fOutVelocity: LREAL := 5;
+    fAccel: LREAL := 200;
+    fOutDecel: LREAL := 25;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT bATMInit THEN
+    bATMInit := TRUE;
+
+    stOut.sName := 'OUT';
+    stOut.fVelocity := fOutVelocity;
+    stOut.fDelta := fOutDelta;
+    stOut.fAccel := fAccel;
+    stOut.fDecel := fOutDecel;
+    stOut.bMoveOk := TRUE;
+
+    stTarget1.sName := 'TARGET1';
+    stTarget1.fVelocity := fInVelocity;
+    stTarget1.fDelta := fInDelta;
+    stTarget1.fAccel := fAccel;
+    stTarget1.fDecel := fAccel;
+    stTarget1.bMoveOk := TRUE;
+
+    stTarget2.sName := 'TARGET2';
+    stTarget2.fVelocity := fInVelocity;
+    stTarget2.fDelta := fInDelta;
+    stTarget2.fAccel := fAccel;
+    stTarget2.fDecel := fAccel;
+    stTarget2.bMoveOk := TRUE;
+
+    stTarget3.sName := 'TARGET3';
+    stTarget3.fVelocity := fInVelocity;
+    stTarget3.fDelta := fInDelta;
+    stTarget3.fAccel := fAccel;
+    stTarget3.fDecel := fAccel;
+    stTarget3.bMoveOk := TRUE;
+
+    stTarget4.sName := 'TARGET4';
+    stTarget4.fVelocity := fInVelocity;
+    stTarget4.fDelta := fInDelta;
+    stTarget4.fAccel := fAccel;
+    stTarget4.fDecel := fAccel;
+    stTarget4.bMoveOk := TRUE;
+
+    stTarget5.sName := 'TARGET5';
+    stTarget5.fVelocity := fInVelocity;
+    stTarget5.fDelta := fInDelta;
+    stTarget5.fAccel := fAccel;
+    stTarget5.fDecel := fAccel;
+    stTarget5.bMoveOk := TRUE;
+
+    arrStates[1] := stOut;
+    arrStates[2] := stTarget1;
+    arrStates[3] := stTarget2;
+    arrStates[4] := stTarget3;
+    arrStates[5] := stTarget4;
+    arrStates[6] := stTarget5;
+END_IF
+
+setState := enumSet;
+Exec();
+enumGet := getState;
+enumSet := setState;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

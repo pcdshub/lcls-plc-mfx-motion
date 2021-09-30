@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_1_PlcTask" Id="{42048787-7ba9-4c4c-a68e-bba60d5038d8}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_1_PlcTask
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[PRG_LIB();
+PRG_ATM();
+
+PRG_4_LOG();
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

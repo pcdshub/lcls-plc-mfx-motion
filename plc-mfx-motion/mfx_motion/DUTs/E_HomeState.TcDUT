@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="E_HomeState" Id="{d736ea3b-71fe-4ca6-9b67-e0522fcd9bc9}">
+    <Declaration><![CDATA[TYPE E_HomeState :
+(
+    H_READY,
+    H_INIT,
+    H_RESET_LL,
+    H_RESET_HL,
+    H_ENABLE,
+    H_MOVING,
+    H_KEEP_MOVING,
+    H_CHECK,
+    H_RESET,
+    H_SET_POS,
+    H_ERROR,
+    H_WRITE_LL,
+    H_WRITE_HL,
+    H_DONE
+
+) UDINT;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

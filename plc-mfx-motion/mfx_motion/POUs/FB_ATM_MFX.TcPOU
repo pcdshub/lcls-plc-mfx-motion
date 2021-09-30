@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_ATM_MFX" Id="{2f5a266c-a319-48e1-b797-55a7489c8358}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ATM_MFX
+VAR_IN_OUT // pass by reference, not value
+    stYStage: DUT_MotionStage;
+    stXStage: DUT_MotionStage;
+    fbArbiter: FB_Arbiter;
+    fbFFHWO: FB_HardwareFFOutput;
+END_VAR
+VAR_INPUT
+    stOut: DUT_PositionState;
+    stTarget1: DUT_PositionState;
+    stTarget2: DUT_PositionState;
+    stTarget3: DUT_PositionState;
+    stTarget4: DUT_PositionState;
+    stTarget5: DUT_PositionState;
+    nTransitionAssertionID: UDINT;
+    nUnknownAssertionID: UDINT;
+END_VAR
+VAR
+    fbYStage: FB_MotionStage;
+    fbXStage: FB_MotionStage;
+
+    {attribute 'pytmc' := '
+        pv: MMS:STATE
+        io: i
+        arrStates.array: 1..6
+    '}
+    fbStates: FB_MFX_ATM_States;
+
+    {attribute 'pytmc' := '
+        pv: STC:01
+        io: input
+    '}
+    fbThermoCouple1: FB_TempSensor;
+    
+    // Only do some of the puts on init
+    bInit: BOOL := FALSE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbYStage(stMotionStage:=stYStage);
+IF NOT bInit THEN // Easier to debug if you can write to these
+    stYStage.bHardwareEnable := TRUE;
+    stYStage.bPowerSelf := TRUE; // Changed from standard because no PMPS
+    stYStage.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    //stYStage.nEnableMode := ENUM_StageEnableMode.NEVER;
+END_IF
+
+fbXStage(stMotionStage:=stXStage);
+IF NOT bInit THEN // Easier to debug if you can write to these
+    stXStage.bLimitForwardEnable := TRUE;
+    stXStage.bLimitBackwardEnable := TRUE;
+    stXStage.bHardwareEnable := TRUE;
+    stXStage.bPowerSelf := TRUE;
+    stXStage.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    //stXStage.nEnableMode := ENUM_StageEnableMode.NEVER;
+END_IF
+
+fbStates(
+//    fbArbiter:=fbArbiter,
+//    fbFFHWO:=fbFFHWO,
+//    nTransitionAssertionID:=nTransitionAssertionID,
+//    nUnknownAssertionID:=nUnknownAssertionID,
+    stMotionStage:=stYStage,
+    bEnable := TRUE,
+    stOut:=stOut,
+    stTarget1:=stTarget1,
+    stTarget2:=stTarget2,
+    stTarget3:=stTarget3,
+    stTarget4:=stTarget4,
+    stTarget5:=stTarget5);
+
+fbThermoCouple1();
+
+IF NOT bInit THEN
+    bInit := TRUE;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
