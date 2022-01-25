@@ -18,37 +18,83 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[fbLJ_1(stMotionStage:=Main.M7);
-fbLIB_2(stMotionStage:=Main.M4);
-fbLIB_3(stMotionStage:=Main.M5);
-fbLIB_4(stMotionStage:=Main.M6);
+fbLJ_2(stMotionStage:=Main.M8);
+fbLJ_3(stMotionStage:=Main.M9);
+fbLJ_4(stMotionStage:=Main.M10);
+fbLJ_5(stMotionStage:=Main.M11);
+fbLJ_6(stMotionStage:=Main.M12);
+fbLJ_7(stMotionStage:=Main.M13);
+fbLJ_8(stMotionStage:=Main.M14);
 
 IF NOT bInit THEN // Easier to debug if you can write to these
-    Main.M3.bHardwareEnable := TRUE;
-    Main.M3.bPowerSelf := TRUE;
-    Main.M3.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-//	Main.M3.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
-//    Main.M3.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+    Main.M7.bHardwareEnable := TRUE;
+    Main.M7.bPowerSelf := TRUE;
+    Main.M7.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M7.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M7.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
-    Main.M4.bHardwareEnable := TRUE;
-    Main.M4.bPowerSelf := TRUE;
-    Main.M4.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-//	Main.M4.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
-//    Main.M4.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+    Main.M8.bHardwareEnable := TRUE;
+    Main.M8.bPowerSelf := TRUE;
+    Main.M8.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M8.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M8.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
-    Main.M5.bHardwareEnable := TRUE;
-    Main.M5.bPowerSelf := TRUE;
-    Main.M5.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-//	Main.M5.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
-//    Main.M5.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+    Main.M9.bHardwareEnable := TRUE;
+    Main.M9.bPowerSelf := TRUE;
+    Main.M9.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M9.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M9.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
-    Main.M6.bHardwareEnable := TRUE;
-    Main.M6.bPowerSelf := TRUE;
-    Main.M6.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-//	Main.M6.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
-//    Main.M6.nEnableMode := ENUM_StageEnableMode.ALWAYS;
-	
+    Main.M10.bHardwareEnable := TRUE;
+    Main.M10.bPowerSelf := TRUE;
+    Main.M10.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M10.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M10.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    Main.M11.bHardwareEnable := TRUE;
+    Main.M11.bPowerSelf := TRUE;
+    Main.M11.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M11.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M11.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    Main.M12.bHardwareEnable := TRUE;
+    Main.M12.bPowerSelf := TRUE;
+    Main.M12.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M12.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M12.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    Main.M13.bHardwareEnable := TRUE;
+    Main.M13.bPowerSelf := TRUE;
+    Main.M13.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M13.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M13.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    Main.M14.bHardwareEnable := TRUE;
+    Main.M14.bPowerSelf := TRUE;
+    Main.M14.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M14.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//    Main.M14.nEnableMode := ENUM_StageEnableMode.ALWAYS;	
 	bInit := True;
 END_IF]]></ST>
     </Implementation>
+    <LineIds Name="PRG_LJ">
+      <LineId Id="3" Count="3" />
+      <LineId Id="48" Count="3" />
+      <LineId Id="7" Count="24" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="52" Count="3" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="57" Count="3" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="62" Count="3" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="67" Count="3" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
