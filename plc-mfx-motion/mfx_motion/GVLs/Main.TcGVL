@@ -5,9 +5,12 @@
 VAR_GLOBAL
 	// ATM: 2 Axes
     {attribute 'pytmc' := 'pv: MFX:ATM:MMS:Y'}
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 1;
+    //{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 1;
+    //                          .bLimitBackwardEnable := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 2;
+    //                          .bBrakeRelease        := TIIB[MFX-ATM-EL2004-E4]^Channel 1^Output;
+    //                          .nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 1^Position'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 2;
-                              .bBrakeRelease        := TIIB[MFX-ATM-EL2004-E4]^Channel 1^Output;
                               .nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 1^Position'}
     M1: DUT_MotionStage := (sName := 'MFX:ATM:MMS:Y');
     {attribute 'pytmc' := 'pv: MFX:ATM:MMS:X'}
@@ -18,7 +21,7 @@ VAR_GLOBAL
     // LIB-: 4 Axes
     {attribute 'pytmc' := 'pv: MFX:LIB:MMS:01'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 1^Input;
-                              .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 2^Input;}
+                              .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 2^Input'}
     M3: DUT_MotionStage := (sName := 'MFX:LIB:MMS:01');
 	{attribute 'pytmc' := 'pv: MFX:LIB:MMS:02'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 3^Input;
@@ -66,7 +69,6 @@ VAR_GLOBAL
 	{attribute 'pytmc' := 'pv: MFX:LJH:SS:BOT_Y'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E13]^Channel 4^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E13]^Channel 3^Input'}
-
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
