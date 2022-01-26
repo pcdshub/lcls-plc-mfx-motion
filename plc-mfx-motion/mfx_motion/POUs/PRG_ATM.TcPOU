@@ -65,6 +65,7 @@ fbATM(
     stYStage := Main.M1,
     stXStage := Main.M2);
 
+// Add custom delay to the brakeRelease
 fbBrakeDelayTimer(
 	IN := main.M1.bBrakeRelease,
 	PT := T#50ms);
