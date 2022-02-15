@@ -2626,7 +2626,6 @@ External Setpoint Generation:
 				<DrvPara>
 					<Analog VeloReferenz="40" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
-					<ParameterChanged>6</ParameterChanged>
 				</DrvPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -3440,7 +3439,9 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LJ" Id="7">
 			<Name>Axis 7 MFX-LJ-JET_X</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Dynamic AccelerationMaximum="50" DecelerationMaximum="50" Acceleration="23.8095" Deceleration="23.8095" Jerk="70.8615"/>
+				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.2" FastManual="0.5" Maximum="1"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
 				<EncPara MaxCount="#x0000ffff">
@@ -3513,7 +3514,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -3603,6 +3604,7 @@ Drive Status 4 (manually linked):
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="1"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -3671,7 +3673,9 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LJ" Id="8">
 			<Name>Axis 8 MFX-LJ-JET_Y</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Dynamic AccelerationMaximum="10" DecelerationMaximum="10" Acceleration="5.98802" Deceleration="5.98802" Jerk="17.9282"/>
+				<Velo RefSearch="0.2" RefSync="0.2" SlowManual="0.2" FastManual="0.5" Maximum="0.5"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
 				<EncPara MaxCount="#x0000ffff">
@@ -3744,7 +3748,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="2.5" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -3834,6 +3838,7 @@ Drive Status 4 (manually linked):
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="0.5"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -3902,7 +3907,9 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LJ" Id="9">
 			<Name>Axis 9 MFX-LJ-JET_Z</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Dynamic AccelerationMaximum="50" DecelerationMaximum="50" Acceleration="23.8095" Deceleration="23.8095" Jerk="70.8615"/>
+				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.2" FastManual="0.5" Maximum="1"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
 				<EncPara MaxCount="#x0000ffff">
@@ -3975,7 +3982,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -4065,6 +4072,7 @@ Drive Status 4 (manually linked):
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="1"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -4133,7 +4141,10 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LJ" Id="10">
 			<Name>Axis 10 MFX-LJ-VH_EPIX</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Dynamic AccelerationMaximum="50" DecelerationMaximum="50" Acceleration="23.8095" Deceleration="23.8095" Jerk="70.8615"/>
+				<Velo RefSearch="0.1" RefSync="0.1" SlowManual="0.1" FastManual="0.2" Maximum="1"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
+				<ParameterChanged>39</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
 				<EncPara MaxCount="#x0000ffff">
@@ -4206,7 +4217,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -4296,6 +4307,7 @@ Drive Status 4 (manually linked):
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="0.5"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -4364,7 +4376,9 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LJ" Id="11">
 			<Name>Axis 11 MFX-LJ-SS_TOP_X</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Dynamic AccelerationMaximum="50" DecelerationMaximum="50" Acceleration="23.8095" Deceleration="23.8095" Jerk="70.8615"/>
+				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.2" FastManual="0.5" Maximum="1"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
 				<EncPara MaxCount="#x0000ffff">
@@ -4437,7 +4451,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -4527,6 +4541,7 @@ Drive Status 4 (manually linked):
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="1"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -4595,7 +4610,9 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LJ" Id="12">
 			<Name>Axis 12 MFX-LJ-SS_TOP_Y</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Dynamic AccelerationMaximum="10" DecelerationMaximum="10" Acceleration="5.98802" Deceleration="5.98802" Jerk="17.9282"/>
+				<Velo RefSearch="0.2" RefSync="0.2" SlowManual="0.2" FastManual="0.5" Maximum="0.5"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
 				<EncPara MaxCount="#x0000ffff">
@@ -4668,7 +4685,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="2.5" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -4758,6 +4775,7 @@ Drive Status 4 (manually linked):
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="0.5"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -4826,7 +4844,9 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LJ" Id="13">
 			<Name>Axis 13 MFX-LJ-SS_BOT_X</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Dynamic AccelerationMaximum="50" DecelerationMaximum="50" Acceleration="23.8095" Deceleration="23.8095" Jerk="70.8615"/>
+				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="0.2" FastManual="0.5" Maximum="1"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
 				<EncPara MaxCount="#x0000ffff">
@@ -4899,7 +4919,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -4989,6 +5009,7 @@ Drive Status 4 (manually linked):
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="1"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -5057,7 +5078,9 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LJ" Id="14">
 			<Name>Axis 14 MFX-LJ-SS-BOT-Y</Name>
 			<AxisPara>
-				<OtherSettings AllowMotionCmdToSlave="true"/>
+				<Dynamic AccelerationMaximum="10" DecelerationMaximum="10" Acceleration="5.98802" Deceleration="5.98802" Jerk="17.9282"/>
+				<Velo RefSearch="0.2" RefSync="0.2" SlowManual="0.2" FastManual="0.5" Maximum="0.5"/>
+				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
 				<EncPara MaxCount="#x0000ffff">
@@ -5130,7 +5153,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="2.5" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -5220,6 +5243,7 @@ Drive Status 4 (manually linked):
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PosDiffControl Range="0.5"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -5320,7 +5344,7 @@ External Setpoint Generation:
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="Axes^Axis 10 MFX-LJ-VH_EPIX">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL7031-E10">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL7031-E9">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving positive" Size="1" OffsA="4"/>
@@ -5356,7 +5380,7 @@ External Setpoint Generation:
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="Axes^Axis 11 MFX-LJ-SS_TOP_X">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL7031-E12">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL7031-E11">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving positive" Size="1" OffsA="4"/>
@@ -5392,7 +5416,7 @@ External Setpoint Generation:
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="Axes^Axis 12 MFX-LJ-SS_TOP_Y">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL7031-E14">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL7031-E13">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving positive" Size="1" OffsA="4"/>
@@ -5428,7 +5452,7 @@ External Setpoint Generation:
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="Axes^Axis 13 MFX-LJ-SS_BOT_X">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL7031-E15">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL7031-E14">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving positive" Size="1" OffsA="4"/>
@@ -5464,7 +5488,7 @@ External Setpoint Generation:
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="Axes^Axis 14 MFX-LJ-SS-BOT-Y">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL7031-E16">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL7031-E15">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving positive" Size="1" OffsA="4"/>

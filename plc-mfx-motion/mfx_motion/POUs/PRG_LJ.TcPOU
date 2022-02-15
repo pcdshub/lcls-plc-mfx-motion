@@ -74,7 +74,8 @@ IF NOT bInit THEN // Easier to debug if you can write to these
     Main.M14.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 //	Main.M14.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
 //    Main.M14.nEnableMode := ENUM_StageEnableMode.ALWAYS;	
-	bInit := True;
+	
+    bInit := True;
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="PRG_LJ">
@@ -94,6 +95,7 @@ END_IF]]></ST>
       <LineId Id="67" Count="3" />
       <LineId Id="66" Count="0" />
       <LineId Id="33" Count="0" />
+      <LineId Id="89" Count="0" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>

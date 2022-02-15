@@ -37,38 +37,46 @@ VAR_GLOBAL
 	M6: DUT_MotionStage := (sName := 'MFX:LIB:MMS:04');
     
     // LJ-: 8 Axes
-    M7: DUT_MotionStage := (sName := 'MFX:LJH:JET:X');
+
 	{attribute 'pytmc' := 'pv: MFX:LJH:JET:X'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E3]^Channel 1^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E3]^Channel 2^Input'}
-    M8: DUT_MotionStage := (sName := 'MFX:LJH:JET:Y');
+    M7: DUT_MotionStage := (sName := 'MFX:LJH:JET:X');
+
 	{attribute 'pytmc' := 'pv: MFX:LJH:JET:Y'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E3]^Channel 5^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E3]^Channel 6^Input'}
-    M9: DUT_MotionStage := (sName := 'MFX:LJH:JET:Z');
+    M8: DUT_MotionStage := (sName := 'MFX:LJH:JET:Y');
+
 	{attribute 'pytmc' := 'pv: MFX:LJH:JET:Z'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E8]^Channel 1^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E8]^Channel 2^Input'}
-    M10: DUT_MotionStage := (sName := 'MFX:LJH:DET:X');
+    M9: DUT_MotionStage := (sName := 'MFX:LJH:JET:Z');
+    
 	{attribute 'pytmc' := 'pv: MFX:LJH:DET:X'}
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E8]^Channel 5^Input;
-                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E8]^Channel 6^Input'}
-    M11: DUT_MotionStage := (sName := 'MFX:LJH:SS:TOP_X');
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E8]^Channel 8^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E8]^Channel 7^Input'}
+    M10: DUT_MotionStage := (sName := 'MFX:LJH:DET:X');
+
 	{attribute 'pytmc' := 'pv: MFX:LJH:SS:TOP_X'}
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E13]^Channel 1^Input;
-                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E13]^Channel 2^Input'}
-    M12: DUT_MotionStage := (sName := 'MFX:LJH:SS:TOP_Y');
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E12]^Channel 1^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E12]^Channel 2^Input'}
+    M11: DUT_MotionStage := (sName := 'MFX:LJH:SS:TOP_X');
+
 	{attribute 'pytmc' := 'pv: MFX:LJH:SS:TOP_Y'}
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E13]^Channel 5^Input;
-                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E13]^Channel 6^Input'}
-    M13: DUT_MotionStage := (sName := 'MFX:LJH:SS:BOT_X');
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E12]^Channel 5^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E12]^Channel 6^Input'}
+    M12: DUT_MotionStage := (sName := 'MFX:LJH:SS:TOP_Y');
+
 	{attribute 'pytmc' := 'pv: MFX:LJH:SS:BOT_X'}
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E13]^Channel 8^Input;
-                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E13]^Channel 7^Input'}
-    M14: DUT_MotionStage := (sName := 'MFX:LJH:SS:BOT_Y');
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E12]^Channel 4^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E12]^Channel 3^Input'}
+    M13: DUT_MotionStage := (sName := 'MFX:LJH:SS:BOT_X');
+
 	{attribute 'pytmc' := 'pv: MFX:LJH:SS:BOT_Y'}
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E13]^Channel 4^Input;
-                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E13]^Channel 3^Input'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E12]^Channel 8^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E12]^Channel 7^Input'}
+    M14: DUT_MotionStage := (sName := 'MFX:LJH:SS:BOT_Y');
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
