@@ -3444,8 +3444,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="7.8125e-05" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -3678,8 +3679,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="1.953125e-05" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -3912,8 +3914,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="7.8125e-05" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -4144,7 +4147,6 @@ External Setpoint Generation:
 				<Dynamic AccelerationMaximum="50" DecelerationMaximum="50" Acceleration="23.8095" Deceleration="23.8095" Jerk="70.8615"/>
 				<Velo RefSearch="0.1" RefSync="0.1" SlowManual="0.1" FastManual="0.2" Maximum="1"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
-				<ParameterChanged>39</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
 				<EncPara MaxCount="#x0000ffff">
@@ -4381,8 +4383,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="7.8125e-05" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -4615,8 +4618,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="1.953125e-05" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -4849,8 +4853,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="7.8125e-05" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -5078,13 +5083,15 @@ External Setpoint Generation:
 		<Axis CreateSymbols="true" AxisType="1" AxisFolder="LJ" Id="14">
 			<Name>Axis 14 MFX-LJ-SS-BOT-Y</Name>
 			<AxisPara>
-				<Dynamic AccelerationMaximum="10" DecelerationMaximum="10" Acceleration="5.98802" Deceleration="5.98802" Jerk="17.9282"/>
+				<Dynamic AccelerationMaximum="10" DecelerationMaximum="10" Acceleration="5.98802" Deceleration="5.98802" Jerk="17.9282" DelayTime="0.008"/>
 				<Velo RefSearch="0.2" RefSync="0.2" SlowManual="0.2" FastManual="0.5" Maximum="0.5"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
+				<ParameterChanged>260</ParameterChanged>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="1.953125e-05" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>35</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
