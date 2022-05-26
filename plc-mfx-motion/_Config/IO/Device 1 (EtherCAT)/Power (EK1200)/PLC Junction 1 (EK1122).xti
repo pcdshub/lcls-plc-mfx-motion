@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.12" ClassName="CFlbTermDef" SubType="9099">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4022.30" ClassName="CFlbTermDef" SubType="9099">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BIT</Name>
@@ -11,7 +11,7 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..2] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..2] OF BIT</Name>
 			<BitSize>3</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -38,7 +38,7 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
 			<BitSize>5</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -79,11 +79,11 @@
 		<Box File="plc_ATM (EK1100).xti" Id="10">
 			<EtherCAT PortABoxInfo="#x03000009"/>
 		</Box>
-		<Box Id="22" BoxType="9099">
+		<Box BoxType="9099" Id="22">
 			<Name>plc_LIB (EK1100)</Name>
 			<ImageId>1001</ImageId>
 			<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044c2c52" RevisionNo="#x00120000" PortPhys="305" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1100 EtherCAT Coupler (2A E-Bus)" Desc="EK1100" PortABoxInfo="#x01000009"/>
-			<Box Id="23" BoxType="9099" BoxFlags="#x00000020">
+			<Box BoxType="9099" BoxFlags="#x00000020" Id="23">
 				<Name>MFX-LIB-EL7031-E1</Name>
 				<ImageId>1002</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b773052" RevisionNo="#x001a0000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7031 1Ch. Stepper motor output stage (24V, 1.5A)" Desc="EL7031" PortABoxInfo="#x01000016">
@@ -500,7 +500,7 @@
 					<CoeProfile ProfileNo="46142345" DisplayName="Positioning interfa"/>
 				</EtherCAT>
 			</Box>
-			<Box Id="24" BoxType="9099" BoxFlags="#x00000020">
+			<Box BoxType="9099" BoxFlags="#x00000020" Id="24">
 				<Name>MFX-LIB-EL7031-E2</Name>
 				<ImageId>1002</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b773052" RevisionNo="#x001a0000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7031 1Ch. Stepper motor output stage (24V, 1.5A)" Desc="EL7031" PortABoxInfo="#x01000017">
@@ -917,7 +917,7 @@
 					<CoeProfile ProfileNo="46142345" DisplayName="Positioning interfa"/>
 				</EtherCAT>
 			</Box>
-			<Box Id="25" BoxType="9099" BoxFlags="#x00000020">
+			<Box BoxType="9099" BoxFlags="#x00000020" Id="25">
 				<Name>MFX-LIB-EL7031-E3</Name>
 				<ImageId>1002</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b773052" RevisionNo="#x001a0000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7031 1Ch. Stepper motor output stage (24V, 1.5A)" Desc="EL7031" PortABoxInfo="#x01000018">
@@ -1334,7 +1334,7 @@
 					<CoeProfile ProfileNo="46142345" DisplayName="Positioning interfa"/>
 				</EtherCAT>
 			</Box>
-			<Box Id="26" BoxType="9099" BoxFlags="#x00000020">
+			<Box BoxType="9099" BoxFlags="#x00000020" Id="26">
 				<Name>MFX-LIB-EL7031-E4</Name>
 				<ImageId>1002</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b773052" RevisionNo="#x001a0000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7031 1Ch. Stepper motor output stage (24V, 1.5A)" Desc="EL7031" PortABoxInfo="#x01000019">
@@ -1754,7 +1754,7 @@
 			<Box File="MFX-LIB-EL1088-E5.xti" Id="39">
 				<EtherCAT PortABoxInfo="#x0100001a"/>
 			</Box>
-			<Box Id="27" BoxType="9099" BoxFlags="#x00000020">
+			<Box BoxType="9099" BoxFlags="#x00000020" Id="27">
 				<Name>MFX-LIB-EL7031-E6</Name>
 				<ImageId>1002</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b773052" RevisionNo="#x001a0000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7031 1Ch. Stepper motor output stage (24V, 1.5A)" Desc="EL7031" PortABoxInfo="#x01000027">
@@ -2166,7 +2166,7 @@
 					<CoeProfile ProfileNo="46142345" DisplayName="Positioning interfa"/>
 				</EtherCAT>
 			</Box>
-			<Box Id="28" BoxType="9099" BoxFlags="#x00000020">
+			<Box BoxType="9099" BoxFlags="#x00000020" Id="28">
 				<Name>MFX-LIB-EL7031-E7</Name>
 				<ImageId>1002</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b773052" RevisionNo="#x001a0000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7031 1Ch. Stepper motor output stage (24V, 1.5A)" Desc="EL7031" PortABoxInfo="#x0100001b">
@@ -2578,7 +2578,7 @@
 					<CoeProfile ProfileNo="46142345" DisplayName="Positioning interfa"/>
 				</EtherCAT>
 			</Box>
-			<Box Id="29" BoxType="9099" BoxFlags="#x00000020">
+			<Box BoxType="9099" BoxFlags="#x00000020" Id="29">
 				<Name>MFX-LIB-EL7031-E8</Name>
 				<ImageId>1002</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b773052" RevisionNo="#x001a0000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7031 1Ch. Stepper motor output stage (24V, 1.5A)" Desc="EL7031" PortABoxInfo="#x0100001c">
@@ -2990,7 +2990,7 @@
 					<CoeProfile ProfileNo="46142345" DisplayName="Positioning interfa"/>
 				</EtherCAT>
 			</Box>
-			<Box Id="30" BoxType="9099" BoxFlags="#x00000020">
+			<Box BoxType="9099" BoxFlags="#x00000020" Id="30">
 				<Name>MFX-LIB-EL5042-E9</Name>
 				<ImageId>1003</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x13b23052" RevisionNo="#x00100000" InfoDataAddr="true" TimeoutMailbox2="10000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL5042 2Ch. BiSS-C Encoder" Desc="EL5042" PortABoxInfo="#x0100001d">
@@ -3130,7 +3130,7 @@
 					<CoeProfile ProfileNo="33624969"/>
 				</EtherCAT>
 			</Box>
-			<Box Id="31" BoxType="9099" BoxFlags="#x00000020">
+			<Box BoxType="9099" BoxFlags="#x00000020" Id="31">
 				<Name>MFX-LIB-EL7031-E10</Name>
 				<ImageId>1002</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b773052" RevisionNo="#x001a0000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7031 1Ch. Stepper motor output stage (24V, 1.5A)" Desc="EL7031" PortABoxInfo="#x0100001e">
@@ -3542,7 +3542,7 @@
 					<CoeProfile ProfileNo="46142345" DisplayName="Positioning interfa"/>
 				</EtherCAT>
 			</Box>
-			<Box Id="32" BoxType="9099" BoxFlags="#x00000020">
+			<Box BoxType="9099" BoxFlags="#x00000020" Id="32">
 				<Name>MFX-LIB-EL5042-E11</Name>
 				<ImageId>1003</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x13b23052" RevisionNo="#x00100000" InfoDataAddr="true" TimeoutMailbox2="10000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL5042 2Ch. BiSS-C Encoder" Desc="EL5042" PortABoxInfo="#x0100001f">
@@ -3682,7 +3682,7 @@
 					<CoeProfile ProfileNo="33624969"/>
 				</EtherCAT>
 			</Box>
-			<Box Id="34" BoxType="9099">
+			<Box BoxType="9099" Id="34">
 				<Name>Endcap-EL9011-E12</Name>
 				<ImageId>1004</ImageId>
 				<EtherCAT CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x23333050" InfoDataState="false" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL9011 End Terminal" Desc="EL9011" PortABoxInfo="#x01000020"/>
