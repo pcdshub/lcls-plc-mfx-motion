@@ -911,6 +911,13 @@ External Setpoint Generation:
 					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 				</Var>
 				<Var>
+					<Name>lcls2_cc_lib.lcls_twincat_motion.PMPS.LCLS_General.DefaultGlobals.stSys.I_EcatMaster1</Name>
+					<Comment>
+						<![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]>
+					</Comment>
+					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+				</Var>
+				<Var>
 					<Name>PRG_LIB.fbLIB_1.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
@@ -3490,14 +3497,14 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^Main.M14.bLimitForwardEnable" VarB="Channel 7^Input" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL1088-E3">
-				<Link VarA="PlcTask Inputs^Main.M7.bLimitBackwardEnable" VarB="Channel 2^Input" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.M7.bLimitForwardEnable" VarB="Channel 1^Input" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.M8.bLimitBackwardEnable" VarB="Channel 3^Input" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.M8.bLimitForwardEnable" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.M7.bLimitBackwardEnable" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.M7.bLimitForwardEnable" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.M8.bLimitBackwardEnable" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.M8.bLimitForwardEnable" VarB="Channel 3^Input" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_LJ (EK1100)^MFX-LJ-EL1088-E8">
-				<Link VarA="PlcTask Inputs^Main.M10.bLimitBackwardEnable" VarB="Channel 4^Input" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.M10.bLimitForwardEnable" VarB="Channel 3^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.M10.bLimitBackwardEnable" VarB="Channel 3^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.M10.bLimitForwardEnable" VarB="Channel 4^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^Main.M9.bLimitBackwardEnable" VarB="Channel 2^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^Main.M9.bLimitForwardEnable" VarB="Channel 1^Input" AutoLink="true"/>
 			</OwnerB>

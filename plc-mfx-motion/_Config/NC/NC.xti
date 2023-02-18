@@ -3678,7 +3678,7 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="1.953125e-05" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="1.953125e-05" Inverse="true" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 				</EncPara>
 				<Vars VarGrpType="1">
@@ -3747,7 +3747,7 @@ External Setpoint Generation:
 				</Vars>
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
-				<DrvPara>
+				<DrvPara Inverse="true">
 					<Analog VeloReferenz="2.5" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
@@ -3912,8 +3912,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="7.8125e-05" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="7.8125e-05" Inverse="true" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>8</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -3981,9 +3982,10 @@ External Setpoint Generation:
 				</Vars>
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
-				<DrvPara>
+				<DrvPara Inverse="true">
 					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
+					<ParameterChanged>6</ParameterChanged>
 				</DrvPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -4146,7 +4148,7 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara MaxCount="#x0000ffff">
+				<EncPara Inverse="true" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 				</EncPara>
 				<Vars VarGrpType="1">
@@ -4215,7 +4217,7 @@ External Setpoint Generation:
 				</Vars>
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
-				<DrvPara>
+				<DrvPara Inverse="true">
 					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
@@ -4380,8 +4382,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="7.8125e-05" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="7.8125e-05" Inverse="true" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>8</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -4449,9 +4452,10 @@ External Setpoint Generation:
 				</Vars>
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
-				<DrvPara>
+				<DrvPara Inverse="true">
 					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
+					<ParameterChanged>6</ParameterChanged>
 				</DrvPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -4614,8 +4618,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="1.953125e-05" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="1.953125e-05" Inverse="true" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>8</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -4683,9 +4688,10 @@ External Setpoint Generation:
 				</Vars>
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
-				<DrvPara>
+				<DrvPara Inverse="true">
 					<Analog VeloReferenz="2.5" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
+					<ParameterChanged>6</ParameterChanged>
 				</DrvPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -4848,8 +4854,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="7.8125e-05" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="7.8125e-05" Inverse="true" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>8</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -4917,9 +4924,10 @@ External Setpoint Generation:
 				</Vars>
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
-				<DrvPara>
+				<DrvPara Inverse="true">
 					<Analog VeloReferenz="10" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
+					<ParameterChanged>6</ParameterChanged>
 				</DrvPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -5082,8 +5090,9 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara ScaleFactorNumerator="1.953125e-05" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="1.953125e-05" Inverse="true" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
+					<ParameterChanged>8</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
@@ -5151,9 +5160,10 @@ External Setpoint Generation:
 				</Vars>
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
-				<DrvPara>
+				<DrvPara Inverse="true">
 					<Analog VeloReferenz="2.5" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
+					<ParameterChanged>6</ParameterChanged>
 				</DrvPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>

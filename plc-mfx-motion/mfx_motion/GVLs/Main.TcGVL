@@ -39,13 +39,13 @@ VAR_GLOBAL
     // LJ-: 8 Axes
 
 	{attribute 'pytmc' := 'pv: MFX:LJH:JET:X'}
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E3]^Channel 1^Input;
-                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E3]^Channel 2^Input'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E3]^Channel 2^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E3]^Channel 1^Input'}
     M7: DUT_MotionStage := (sName := 'MFX:LJH:JET:X');
 
 	{attribute 'pytmc' := 'pv: MFX:LJH:JET:Y'}
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E3]^Channel 4^Input;
-                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E3]^Channel 3^Input'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E3]^Channel 3^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E3]^Channel 4^Input'}
     M8: DUT_MotionStage := (sName := 'MFX:LJH:JET:Y');
 
 	{attribute 'pytmc' := 'pv: MFX:LJH:JET:Z'}
@@ -54,8 +54,8 @@ VAR_GLOBAL
     M9: DUT_MotionStage := (sName := 'MFX:LJH:JET:Z');
     
 	{attribute 'pytmc' := 'pv: MFX:LJH:DET:X'}
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E8]^Channel 3^Input;
-                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E8]^Channel 4^Input'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E8]^Channel 4^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E8]^Channel 3^Input'}
     M10: DUT_MotionStage := (sName := 'MFX:LJH:DET:X');
 
 	{attribute 'pytmc' := 'pv: MFX:LJH:SS:TOP_X'}
