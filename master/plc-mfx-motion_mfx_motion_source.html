@@ -1,0 +1,1048 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DUTs &mdash; pcdshub/lcls-plc-mfx-motion  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data Types" href="plc-mfx-motion_mfx_motion_epics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pcdshub/lcls-plc-mfx-motion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">plc-mfx-motion</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_pragmas.html">Pragmas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_nc.html">NC Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_ethercat.html">EtherCAT Terminals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_boxes.html">Boxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_links.html">Links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">mfx_motion</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_mfx_motion_summary.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_mfx_motion_summary.html#pragmas">Pragmas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_mfx_motion_summary.html#libraries">Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_mfx_motion_summary.html#symbols">Symbols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_mfx_motion_epics.html">Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_mfx_motion_epics.html#database-records">Database Records</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DUTs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#e-homestate">E_HomeState</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#gvls">GVLs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main">Main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pmps">PMPS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#pous">POUs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fb-atm-mfx">FB_ATM_MFX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-mfx-atm-states">FB_MFX_ATM_States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-1-plctask">PRG_1_PlcTask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-4-log">PRG_4_LOG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-atm">PRG_ATM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-lib">PRG_LIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-lj">PRG_LJ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-spec">PRG_SPEC</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pcdshub/lcls-plc-mfx-motion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DUTs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/plc-mfx-motion_mfx_motion_source.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="duts">
+<h1>DUTs<a class="headerlink" href="#duts" title="Link to this heading"></a></h1>
+<section id="e-homestate">
+<h2>E_HomeState<a class="headerlink" href="#e-homestate" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TYPE</span> <span class="n">E_HomeState</span> <span class="p">:</span>
+<span class="p">(</span>
+    <span class="n">H_READY</span><span class="p">,</span>
+    <span class="n">H_INIT</span><span class="p">,</span>
+    <span class="n">H_RESET_LL</span><span class="p">,</span>
+    <span class="n">H_RESET_HL</span><span class="p">,</span>
+    <span class="n">H_ENABLE</span><span class="p">,</span>
+    <span class="n">H_MOVING</span><span class="p">,</span>
+    <span class="n">H_KEEP_MOVING</span><span class="p">,</span>
+    <span class="n">H_CHECK</span><span class="p">,</span>
+    <span class="n">H_RESET</span><span class="p">,</span>
+    <span class="n">H_SET_POS</span><span class="p">,</span>
+    <span class="n">H_ERROR</span><span class="p">,</span>
+    <span class="n">H_WRITE_LL</span><span class="p">,</span>
+    <span class="n">H_WRITE_HL</span><span class="p">,</span>
+    <span class="n">H_DONE</span>
+
+<span class="p">)</span> <span class="n">UDINT</span><span class="p">;</span>
+<span class="n">END_TYPE</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#e-homestate">E_HomeState</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="gvls">
+<h1>GVLs<a class="headerlink" href="#gvls" title="Link to this heading"></a></h1>
+<section id="main">
+<h2>Main<a class="headerlink" href="#main" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
+<span class="n">VAR_GLOBAL</span>
+    <span class="o">//</span> <span class="n">ATM</span><span class="p">:</span> <span class="mi">2</span> <span class="n">Axes</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:ATM:MMS:Y&#39;</span><span class="p">}</span>
+    <span class="o">//</span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 1;</span>
+    <span class="o">//</span>                          <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">ATM</span><span class="o">-</span><span class="n">EL7041</span><span class="o">-</span><span class="n">E1</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="o">//</span>                          <span class="o">.</span><span class="n">bBrakeRelease</span>        <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">ATM</span><span class="o">-</span><span class="n">EL2004</span><span class="o">-</span><span class="n">E4</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Output</span><span class="p">;</span>
+    <span class="o">//</span>                          <span class="o">.</span><span class="n">nRawEncoderULINT</span>     <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">ATM</span><span class="o">-</span><span class="n">EL5042</span><span class="o">-</span><span class="n">E3</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">ATM</span><span class="o">-</span><span class="n">EL7041</span><span class="o">-</span><span class="n">E1</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">nRawEncoderULINT</span>     <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">ATM</span><span class="o">-</span><span class="n">EL5042</span><span class="o">-</span><span class="n">E3</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M1</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:ATM:MMS:Y&#39;</span><span class="p">);</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:ATM:MMS:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 2^Position&#39;</span><span class="p">}</span>
+    <span class="n">M2</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:ATM:MMS:X&#39;</span><span class="p">);</span>
+
+
+    <span class="o">//</span> <span class="n">LIB</span><span class="o">-</span><span class="p">:</span> <span class="mi">4</span> <span class="n">Axes</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LIB:MMS:01&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 1^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LIB</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E5</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M3</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LIB:MMS:01&#39;</span><span class="p">);</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LIB:MMS:02&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 3^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LIB</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E5</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M4</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LIB:MMS:02&#39;</span><span class="p">);</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LIB:MMS:03&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 5^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LIB</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E5</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">6</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M5</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LIB:MMS:03&#39;</span><span class="p">);</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LIB:MMS:04&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 7^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LIB</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E5</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">8</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M6</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LIB:MMS:04&#39;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">LJ</span><span class="o">-</span><span class="p">:</span> <span class="mi">8</span> <span class="n">Axes</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LJH:JET:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E3]^Channel 2^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LJ</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E3</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M7</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LJH:JET:X&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LJH:JET:Y&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E3]^Channel 3^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LJ</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E3</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M8</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LJH:JET:Y&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LJH:JET:Z&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E8]^Channel 1^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LJ</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E8</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M9</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LJH:JET:Z&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LJH:DET:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E8]^Channel 4^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LJ</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E8</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M10</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LJH:DET:X&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LJH:SS:TOP_X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E12]^Channel 1^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LJ</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E12</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M11</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LJH:SS:TOP_X&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LJH:SS:TOP_Y&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E12]^Channel 3^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LJ</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E12</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M12</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LJH:SS:TOP_Y&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LJH:SS:BOT_X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E12]^Channel 5^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LJ</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E12</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">6</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M13</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LJH:SS:BOT_X&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:LJH:SS:BOT_Y&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E12]^Channel 7^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">LJ</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E12</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">8</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M14</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:LJH:SS:BOT_Y&#39;</span><span class="p">);</span>
+
+
+    <span class="o">//</span> <span class="n">SPEC</span><span class="o">-</span><span class="p">:</span> <span class="mi">22</span> <span class="n">Axes</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C1:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E4]^Channel 1^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E4</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M15</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C1:X&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C1:ROT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E4]^Channel 3^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E4</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M16</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C1:ROT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C1:TILT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E4]^Channel 5^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E4</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">6</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M17</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C1:TILT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C2:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E4]^Channel 7^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E4</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">8</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M18</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C2:X&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C2:ROT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E11]^Channel 1^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E11</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M19</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C2:ROT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C2:TILT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E11]^Channel 3^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E11</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M20</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C2:TILT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C3:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E11]^Channel 5^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E11</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">6</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bHome</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E11</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">7</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M21</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C3:X&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C3:ROT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E17]^Channel 1^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E17</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bHome</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E11</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">8</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M22</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C3:ROT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C3:TILT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E17]^Channel 3^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E17</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bHome</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E17</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">5</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M23</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C3:TILT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C4:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E17]^Channel 6^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E17</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">7</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bHome</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E17</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">8</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M24</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C4:X&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C4:ROT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E21]^Channel 1^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E21</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bHome</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E21</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M25</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C4:ROT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C4:TILT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E21]^Channel 4^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E21</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">5</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bHome</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC1</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E21</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">6</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M26</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C4:TILT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C5:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E4]^Channel 1^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E4</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M27</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C5:X&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C5:ROT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E4]^Channel 3^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E4</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M28</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C5:ROT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C5:TILT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E4]^Channel 5^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E4</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">6</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M29</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C5:TILT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C6:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E4]^Channel 7^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E4</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">8</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M30</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C6:X&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C6:ROT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E11]^Channel 1^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E11</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M31</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C6:ROT&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:C6:TILT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E11]^Channel 3^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E11</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M32</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:C6:TILT&#39;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="c1">#######################################################################################</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:T1&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 1^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E17</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bBrakeRelease</span>        <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL2004</span><span class="o">-</span><span class="n">E18</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Output</span><span class="s1">&#39;}</span>
+    <span class="n">M33</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:T1&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:T2&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 3^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E17</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bBrakeRelease</span>        <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL2004</span><span class="o">-</span><span class="n">E18</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Output</span><span class="s1">&#39;}</span>
+    <span class="n">M34</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:T2&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:T3&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 5^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E17</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">6</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bBrakeRelease</span>        <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL2004</span><span class="o">-</span><span class="n">E18</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Output</span><span class="s1">&#39;}</span>
+    <span class="n">M35</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:T3&#39;</span><span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MFX:SPEC:ROT&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 7^Input;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">SPEC2</span><span class="o">-</span><span class="n">EL1088</span><span class="o">-</span><span class="n">E17</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">8</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="n">M36</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;MFX:SPEC:ROT&#39;</span><span class="p">);</span>
+<span class="n">END_VAR</span>
+</pre></div>
+</div>
+</section>
+<section id="pmps">
+<h2>PMPS<a class="headerlink" href="#pmps" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VAR_GLOBAL</span>
+    <span class="o">//</span> <span class="n">Arbiter</span> <span class="n">linked</span> <span class="n">to</span> <span class="n">the</span> <span class="n">FFO</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">MPS</span>
+<span class="o">//</span>    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: PLC:TMO:MOTION:ARB&#39;</span><span class="p">}</span>
+    <span class="n">fbArbiter</span><span class="p">:</span> <span class="n">FB_Arbiter</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Fast</span> <span class="n">fault</span> <span class="k">for</span> <span class="n">before</span> <span class="n">ST4K4</span> <span class="p">(</span><span class="n">Most</span> <span class="n">Devices</span><span class="p">)</span>
+<span class="o">//</span>    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: PLC:TMO:MOTION:FFO:01&#39;</span><span class="p">}</span>
+<span class="o">//</span>    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output&#39;</span><span class="p">}</span>
+    <span class="n">fbFastFaultOutput1</span><span class="p">:</span> <span class="n">FB_HardwareFFOutput</span> <span class="o">:=</span> <span class="p">(</span><span class="n">bAutoReset</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">i_sNetID</span><span class="o">:=</span><span class="s1">&#39;172.21.92.73.1.1&#39;</span><span class="p">);</span>
+    <span class="o">//</span> <span class="n">Fast</span> <span class="n">fault</span> <span class="k">for</span> <span class="n">after</span> <span class="n">ST4K4</span> <span class="p">(</span><span class="n">Basically</span> <span class="n">just</span> <span class="n">DREAM</span><span class="p">)</span>
+<span class="o">//</span>    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: PLC:TMO:MOTION:FFO:02&#39;</span><span class="p">}</span>
+<span class="o">//</span>    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output&#39;</span><span class="p">}</span>
+<span class="o">//</span>    <span class="n">fbFastFaultOutput2</span><span class="p">:</span> <span class="n">FB_HardwareFFOutput</span> <span class="o">:=</span> <span class="p">(</span><span class="n">bAutoReset</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">i_sNetID</span><span class="o">:=</span><span class="s1">&#39;172.21.92.73.1.1&#39;</span><span class="p">);</span>
+<span class="n">END_VAR</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="pous">
+<h1>POUs<a class="headerlink" href="#pous" title="Link to this heading"></a></h1>
+<section id="fb-atm-mfx">
+<h2>FB_ATM_MFX<a class="headerlink" href="#fb-atm-mfx" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_ATM_MFX</span>
+<span class="n">VAR_IN_OUT</span> <span class="o">//</span> <span class="k">pass</span> <span class="n">by</span> <span class="n">reference</span><span class="p">,</span> <span class="ow">not</span> <span class="n">value</span>
+    <span class="n">stYStage</span><span class="p">:</span> <span class="n">DUT_MotionStage</span><span class="p">;</span>
+    <span class="n">stXStage</span><span class="p">:</span> <span class="n">DUT_MotionStage</span><span class="p">;</span>
+    <span class="n">fbArbiter</span><span class="p">:</span> <span class="n">FB_Arbiter</span><span class="p">;</span>
+    <span class="n">fbFFHWO</span><span class="p">:</span> <span class="n">FB_HardwareFFOutput</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">stOut</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stTarget1</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stTarget2</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stTarget3</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stTarget4</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stTarget5</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">nTransitionAssertionID</span><span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+    <span class="n">nUnknownAssertionID</span><span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR</span>
+    <span class="n">fbYStage</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbXStage</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MMS</span><span class="p">:</span><span class="n">STATE</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+        <span class="n">arrStates</span><span class="o">.</span><span class="n">array</span><span class="p">:</span> <span class="mf">1..6</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbStates</span><span class="p">:</span> <span class="n">FB_MFX_ATM_States</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">STC</span><span class="p">:</span><span class="mi">01</span>
+        <span class="n">io</span><span class="p">:</span> <span class="nb">input</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbThermoCouple1</span><span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Only</span> <span class="n">do</span> <span class="n">some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">puts</span> <span class="n">on</span> <span class="n">init</span>
+    <span class="n">bInit</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">fbYStage</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">stYStage</span><span class="p">);</span>
+<span class="n">IF</span> <span class="n">NOT</span> <span class="n">bInit</span> <span class="n">THEN</span> <span class="o">//</span> <span class="n">Easier</span> <span class="n">to</span> <span class="n">debug</span> <span class="k">if</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span> <span class="n">to</span> <span class="n">these</span>
+    <span class="n">stYStage</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">stYStage</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span> <span class="o">//</span> <span class="n">Changed</span> <span class="kn">from</span> <span class="nn">standard</span> <span class="n">because</span> <span class="n">no</span> <span class="n">PMPS</span>
+    <span class="n">stYStage</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+    <span class="o">//</span><span class="n">stYStage</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">NEVER</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">fbXStage</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">stXStage</span><span class="p">);</span>
+<span class="n">IF</span> <span class="n">NOT</span> <span class="n">bInit</span> <span class="n">THEN</span> <span class="o">//</span> <span class="n">Easier</span> <span class="n">to</span> <span class="n">debug</span> <span class="k">if</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span> <span class="n">to</span> <span class="n">these</span>
+    <span class="n">stXStage</span><span class="o">.</span><span class="n">bLimitForwardEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">stXStage</span><span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">stXStage</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">stXStage</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">stXStage</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+    <span class="o">//</span><span class="n">stXStage</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">NEVER</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">fbStates</span><span class="p">(</span>
+<span class="o">//</span>    <span class="n">fbArbiter</span><span class="o">:=</span><span class="n">fbArbiter</span><span class="p">,</span>
+<span class="o">//</span>    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">fbFFHWO</span><span class="p">,</span>
+<span class="o">//</span>    <span class="n">nTransitionAssertionID</span><span class="o">:=</span><span class="n">nTransitionAssertionID</span><span class="p">,</span>
+<span class="o">//</span>    <span class="n">nUnknownAssertionID</span><span class="o">:=</span><span class="n">nUnknownAssertionID</span><span class="p">,</span>
+    <span class="n">stMotionStage</span><span class="o">:=</span><span class="n">stYStage</span><span class="p">,</span>
+    <span class="n">bEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">stOut</span><span class="o">:=</span><span class="n">stOut</span><span class="p">,</span>
+    <span class="n">stTarget1</span><span class="o">:=</span><span class="n">stTarget1</span><span class="p">,</span>
+    <span class="n">stTarget2</span><span class="o">:=</span><span class="n">stTarget2</span><span class="p">,</span>
+    <span class="n">stTarget3</span><span class="o">:=</span><span class="n">stTarget3</span><span class="p">,</span>
+    <span class="n">stTarget4</span><span class="o">:=</span><span class="n">stTarget4</span><span class="p">,</span>
+    <span class="n">stTarget5</span><span class="o">:=</span><span class="n">stTarget5</span><span class="p">);</span>
+
+<span class="n">fbThermoCouple1</span><span class="p">();</span>
+
+<span class="n">IF</span> <span class="n">NOT</span> <span class="n">bInit</span> <span class="n">THEN</span>
+    <span class="n">bInit</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">END_FUNCTION_BLOCK</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#fb-mfx-atm-states">FB_MFX_ATM_States</a></p></li>
+<li><p><a class="reference internal" href="#pmps">PMPS</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="fb-mfx-atm-states">
+<h2>FB_MFX_ATM_States<a class="headerlink" href="#fb-mfx-atm-states" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_MFX_ATM_States</span> <span class="n">EXTENDS</span> <span class="n">FB_PositionStateBase</span>
+<span class="n">VAR_INPUT</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SET</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">enumSet</span><span class="p">:</span> <span class="n">ENUM_ATM_states</span><span class="p">;</span>
+
+    <span class="n">stOut</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stTarget1</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stTarget2</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stTarget3</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stTarget4</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stTarget5</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+
+    <span class="n">bStatesLock</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR_OUTPUT</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">GET</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">enumGet</span><span class="p">:</span> <span class="n">ENUM_ATM_States</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR</span>
+    <span class="n">bATMInit</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR</span> <span class="n">CONSTANT</span>
+    <span class="n">fInDelta</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">fOutDelta</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">fInVelocity</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="n">fOutVelocity</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="n">fAccel</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="n">fOutDecel</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">IF</span> <span class="n">NOT</span> <span class="n">bATMInit</span> <span class="n">THEN</span>
+    <span class="n">bATMInit</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">stOut</span><span class="o">.</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;OUT&#39;</span><span class="p">;</span>
+    <span class="n">stOut</span><span class="o">.</span><span class="n">fVelocity</span> <span class="o">:=</span> <span class="n">fOutVelocity</span><span class="p">;</span>
+    <span class="n">stOut</span><span class="o">.</span><span class="n">fDelta</span> <span class="o">:=</span> <span class="n">fOutDelta</span><span class="p">;</span>
+    <span class="n">stOut</span><span class="o">.</span><span class="n">fAccel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stOut</span><span class="o">.</span><span class="n">fDecel</span> <span class="o">:=</span> <span class="n">fOutDecel</span><span class="p">;</span>
+    <span class="n">stOut</span><span class="o">.</span><span class="n">bMoveOk</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">stTarget1</span><span class="o">.</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;TARGET1&#39;</span><span class="p">;</span>
+    <span class="n">stTarget1</span><span class="o">.</span><span class="n">fVelocity</span> <span class="o">:=</span> <span class="n">fInVelocity</span><span class="p">;</span>
+    <span class="n">stTarget1</span><span class="o">.</span><span class="n">fDelta</span> <span class="o">:=</span> <span class="n">fInDelta</span><span class="p">;</span>
+    <span class="n">stTarget1</span><span class="o">.</span><span class="n">fAccel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stTarget1</span><span class="o">.</span><span class="n">fDecel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stTarget1</span><span class="o">.</span><span class="n">bMoveOk</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">stTarget2</span><span class="o">.</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;TARGET2&#39;</span><span class="p">;</span>
+    <span class="n">stTarget2</span><span class="o">.</span><span class="n">fVelocity</span> <span class="o">:=</span> <span class="n">fInVelocity</span><span class="p">;</span>
+    <span class="n">stTarget2</span><span class="o">.</span><span class="n">fDelta</span> <span class="o">:=</span> <span class="n">fInDelta</span><span class="p">;</span>
+    <span class="n">stTarget2</span><span class="o">.</span><span class="n">fAccel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stTarget2</span><span class="o">.</span><span class="n">fDecel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stTarget2</span><span class="o">.</span><span class="n">bMoveOk</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">stTarget3</span><span class="o">.</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;TARGET3&#39;</span><span class="p">;</span>
+    <span class="n">stTarget3</span><span class="o">.</span><span class="n">fVelocity</span> <span class="o">:=</span> <span class="n">fInVelocity</span><span class="p">;</span>
+    <span class="n">stTarget3</span><span class="o">.</span><span class="n">fDelta</span> <span class="o">:=</span> <span class="n">fInDelta</span><span class="p">;</span>
+    <span class="n">stTarget3</span><span class="o">.</span><span class="n">fAccel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stTarget3</span><span class="o">.</span><span class="n">fDecel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stTarget3</span><span class="o">.</span><span class="n">bMoveOk</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">stTarget4</span><span class="o">.</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;TARGET4&#39;</span><span class="p">;</span>
+    <span class="n">stTarget4</span><span class="o">.</span><span class="n">fVelocity</span> <span class="o">:=</span> <span class="n">fInVelocity</span><span class="p">;</span>
+    <span class="n">stTarget4</span><span class="o">.</span><span class="n">fDelta</span> <span class="o">:=</span> <span class="n">fInDelta</span><span class="p">;</span>
+    <span class="n">stTarget4</span><span class="o">.</span><span class="n">fAccel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stTarget4</span><span class="o">.</span><span class="n">fDecel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stTarget4</span><span class="o">.</span><span class="n">bMoveOk</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">stTarget5</span><span class="o">.</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;TARGET5&#39;</span><span class="p">;</span>
+    <span class="n">stTarget5</span><span class="o">.</span><span class="n">fVelocity</span> <span class="o">:=</span> <span class="n">fInVelocity</span><span class="p">;</span>
+    <span class="n">stTarget5</span><span class="o">.</span><span class="n">fDelta</span> <span class="o">:=</span> <span class="n">fInDelta</span><span class="p">;</span>
+    <span class="n">stTarget5</span><span class="o">.</span><span class="n">fAccel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stTarget5</span><span class="o">.</span><span class="n">fDecel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stTarget5</span><span class="o">.</span><span class="n">bMoveOk</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">arrStates</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="n">stOut</span><span class="p">;</span>
+    <span class="n">arrStates</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="n">stTarget1</span><span class="p">;</span>
+    <span class="n">arrStates</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">:=</span> <span class="n">stTarget2</span><span class="p">;</span>
+    <span class="n">arrStates</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">:=</span> <span class="n">stTarget3</span><span class="p">;</span>
+    <span class="n">arrStates</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">:=</span> <span class="n">stTarget4</span><span class="p">;</span>
+    <span class="n">arrStates</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">:=</span> <span class="n">stTarget5</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">setState</span> <span class="o">:=</span> <span class="n">enumSet</span><span class="p">;</span>
+<span class="n">Exec</span><span class="p">();</span>
+<span class="n">enumGet</span> <span class="o">:=</span> <span class="n">getState</span><span class="p">;</span>
+<span class="n">enumSet</span> <span class="o">:=</span> <span class="n">setState</span><span class="p">;</span>
+
+<span class="n">END_FUNCTION_BLOCK</span>
+</pre></div>
+</div>
+</section>
+<section id="prg-1-plctask">
+<h2>PRG_1_PlcTask<a class="headerlink" href="#prg-1-plctask" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_1_PlcTask</span>
+<span class="n">VAR</span>
+<span class="n">END_VAR</span>
+<span class="n">PRG_LIB</span><span class="p">();</span>
+<span class="n">PRG_ATM</span><span class="p">();</span>
+<span class="n">PRG_LJ</span><span class="p">();</span>
+<span class="n">PRG_SPEC</span><span class="p">();</span>
+<span class="n">PRG_4_LOG</span><span class="p">();</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#prg-4-log">PRG_4_LOG</a></p></li>
+<li><p><a class="reference internal" href="#prg-atm">PRG_ATM</a></p></li>
+<li><p><a class="reference internal" href="#prg-lib">PRG_LIB</a></p></li>
+<li><p><a class="reference internal" href="#prg-lj">PRG_LJ</a></p></li>
+<li><p><a class="reference internal" href="#prg-spec">PRG_SPEC</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="prg-4-log">
+<h2>PRG_4_LOG<a class="headerlink" href="#prg-4-log" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_4_LOG</span>
+<span class="n">VAR</span>
+    <span class="n">fbLogHandler</span><span class="p">:</span> <span class="n">FB_LogHandler</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">fbLogHandler</span><span class="p">();</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+</section>
+<section id="prg-atm">
+<h2>PRG_ATM<a class="headerlink" href="#prg-atm" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_ATM</span>
+<span class="n">VAR</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MFX</span><span class="p">:</span><span class="n">ATM</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+    <span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.fbThermoCouple1.bError := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Status^Error;</span>
+                              <span class="o">.</span><span class="n">fbThermoCouple1</span><span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">ATM</span><span class="o">-</span><span class="n">EL3314</span><span class="o">-</span><span class="n">E5</span><span class="p">]</span><span class="o">^</span><span class="n">TC</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">fbThermoCouple1</span><span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">ATM</span><span class="o">-</span><span class="n">EL3314</span><span class="o">-</span><span class="n">E5</span><span class="p">]</span><span class="o">^</span><span class="n">TC</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">fbThermoCouple1</span><span class="o">.</span><span class="n">iRaw</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">MFX</span><span class="o">-</span><span class="n">ATM</span><span class="o">-</span><span class="n">EL3314</span><span class="o">-</span><span class="n">E5</span><span class="p">]</span><span class="o">^</span><span class="n">TC</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Value</span><span class="s1">&#39;}</span>
+    <span class="n">fbATM</span><span class="p">:</span> <span class="n">FB_ATM_MFX</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[MFX-ATM-EL2004-E4]^Channel 1^Output&#39;</span><span class="p">}</span>
+    <span class="n">bBrakeRelease</span> <span class="n">AT</span><span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span> <span class="nb">bool</span><span class="p">;</span>
+
+    <span class="n">fbBrakeDelayTimer</span><span class="p">:</span> <span class="n">TON</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">nTransitionAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#5140;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">nUnknownAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#5149;</span>
+
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="o">-</span><span class="mi">15</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#5141;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget1</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="o">-</span><span class="mf">39.124</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget1</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget1</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#5142;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget1</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget1</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget2</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="o">-</span><span class="mf">53.5</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget2</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget2</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#5143;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget2</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget2</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget3</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="o">-</span><span class="mf">67.874</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget3</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget3</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#5144;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget3</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget3</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget4</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="o">-</span><span class="mf">82.25</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget4</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget4</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#5145;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget4</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget4</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget5</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="o">-</span><span class="mf">96.623</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget5</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget5</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#5146;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget5</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
+<span class="n">fbATM</span><span class="o">.</span><span class="n">stTarget5</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+<span class="n">fbATM</span><span class="p">(</span>
+    <span class="n">fbArbiter</span> <span class="o">:=</span> <span class="n">fbArbiter</span><span class="p">,</span>
+    <span class="n">fbFFHWO</span> <span class="o">:=</span> <span class="n">fbFastFaultOutput1</span><span class="p">,</span>
+    <span class="n">stYStage</span> <span class="o">:=</span> <span class="n">Main</span><span class="o">.</span><span class="n">M1</span><span class="p">,</span>
+    <span class="n">stXStage</span> <span class="o">:=</span> <span class="n">Main</span><span class="o">.</span><span class="n">M2</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Add</span> <span class="n">custom</span> <span class="n">delay</span> <span class="n">to</span> <span class="n">the</span> <span class="n">brakeRelease</span>
+<span class="n">fbBrakeDelayTimer</span><span class="p">(</span>
+    <span class="n">IN</span> <span class="o">:=</span> <span class="n">main</span><span class="o">.</span><span class="n">M1</span><span class="o">.</span><span class="n">bBrakeRelease</span><span class="p">,</span>
+    <span class="n">PT</span> <span class="o">:=</span> <span class="n">T</span><span class="c1">#50ms);</span>
+<span class="n">bBrakeRelease</span> <span class="o">:=</span> <span class="n">fbBrakeDelayTimer</span><span class="o">.</span><span class="n">Q</span><span class="p">;</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#fb-atm-mfx">FB_ATM_MFX</a></p></li>
+<li><p><a class="reference internal" href="#main">Main</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="prg-lib">
+<h2>PRG_LIB<a class="headerlink" href="#prg-lib" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_LIB</span>
+<span class="n">VAR</span>
+    <span class="n">fbLIB_1</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbLIB_2</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbLIB_3</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbLIB_4</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Only</span> <span class="n">do</span> <span class="n">some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">puts</span> <span class="n">on</span> <span class="n">init</span>
+    <span class="n">bInit</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">fbLIB_1</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M3</span><span class="p">);</span>
+<span class="n">fbLIB_2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M4</span><span class="p">);</span>
+<span class="n">fbLIB_3</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M5</span><span class="p">);</span>
+<span class="n">fbLIB_4</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M6</span><span class="p">);</span>
+
+<span class="n">IF</span> <span class="n">NOT</span> <span class="n">bInit</span> <span class="n">THEN</span> <span class="o">//</span> <span class="n">Easier</span> <span class="n">to</span> <span class="n">debug</span> <span class="k">if</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span> <span class="n">to</span> <span class="n">these</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M3</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M3</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M3</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M3</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M3</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M4</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M4</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M4</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M4</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M4</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M5</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M5</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M5</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M5</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M5</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M6</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M6</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M6</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M6</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M6</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">bInit</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#main">Main</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="prg-lj">
+<h2>PRG_LJ<a class="headerlink" href="#prg-lj" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_LJ</span>
+<span class="n">VAR</span>
+    <span class="n">fbLJ_1</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbLJ_2</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbLJ_3</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbLJ_4</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbLJ_5</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbLJ_6</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbLJ_7</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbLJ_8</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Only</span> <span class="n">do</span> <span class="n">some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">puts</span> <span class="n">on</span> <span class="n">init</span>
+    <span class="n">bInit</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">fbLJ_1</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M7</span><span class="p">);</span>
+<span class="n">fbLJ_2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M8</span><span class="p">);</span>
+<span class="n">fbLJ_3</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M9</span><span class="p">);</span>
+<span class="n">fbLJ_4</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M10</span><span class="p">);</span>
+<span class="n">fbLJ_5</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M11</span><span class="p">);</span>
+<span class="n">fbLJ_6</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M12</span><span class="p">);</span>
+<span class="n">fbLJ_7</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M13</span><span class="p">);</span>
+<span class="n">fbLJ_8</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M14</span><span class="p">);</span>
+
+<span class="n">IF</span> <span class="n">NOT</span> <span class="n">bInit</span> <span class="n">THEN</span> <span class="o">//</span> <span class="n">Easier</span> <span class="n">to</span> <span class="n">debug</span> <span class="k">if</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span> <span class="n">to</span> <span class="n">these</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M7</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M7</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M7</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M7</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M7</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M8</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M8</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M8</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M8</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M8</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M9</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M9</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M9</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M9</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M9</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M10</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M10</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M10</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M10</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M10</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M11</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M11</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M11</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M11</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M11</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M12</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M12</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M12</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M12</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M12</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M13</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M13</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M13</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M13</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M13</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M14</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M14</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M14</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M14</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>    <span class="n">Main</span><span class="o">.</span><span class="n">M14</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">bInit</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#main">Main</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="prg-spec">
+<h2>PRG_SPEC<a class="headerlink" href="#prg-spec" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_SPEC</span>
+<span class="n">VAR</span>
+    <span class="n">fbSPEC_C1_X</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C1_ROT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C1_TILT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C2_X</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C2_ROT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C2_TILT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C3_X</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C3_ROT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C3_TILT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C4_X</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C4_ROT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C4_TILT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C5_X</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C5_ROT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C5_TILT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C6_X</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C6_ROT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_C6_TILT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_T1</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_T2</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_T3</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbSPEC_ROT</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Only</span> <span class="n">do</span> <span class="n">some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">puts</span> <span class="n">on</span> <span class="n">init</span>
+    <span class="n">bInit</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">fbSPEC_C1_X</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M15</span><span class="p">);</span>
+<span class="n">fbSPEC_C1_ROT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M16</span><span class="p">);</span>
+<span class="n">fbSPEC_C1_TILT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M17</span><span class="p">);</span>
+<span class="n">fbSPEC_C2_X</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M18</span><span class="p">);</span>
+<span class="n">fbSPEC_C2_ROT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="p">);</span>
+<span class="n">fbSPEC_C2_TILT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="p">);</span>
+<span class="n">fbSPEC_C3_X</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="p">);</span>
+<span class="n">fbSPEC_C3_ROT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="p">);</span>
+<span class="n">fbSPEC_C3_TILT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="p">);</span>
+<span class="n">fbSPEC_C4_X</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="p">);</span>
+<span class="n">fbSPEC_C4_ROT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M25</span><span class="p">);</span>
+<span class="n">fbSPEC_C4_TILT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M26</span><span class="p">);</span>
+<span class="n">fbSPEC_C5_X</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M27</span><span class="p">);</span>
+<span class="n">fbSPEC_C5_ROT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M28</span><span class="p">);</span>
+<span class="n">fbSPEC_C5_TILT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M29</span><span class="p">);</span>
+<span class="n">fbSPEC_C6_X</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M30</span><span class="p">);</span>
+<span class="n">fbSPEC_C6_ROT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M31</span><span class="p">);</span>
+<span class="n">fbSPEC_C6_TILT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M32</span><span class="p">);</span>
+<span class="n">fbSPEC_T1</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M33</span><span class="p">);</span>
+<span class="n">fbSPEC_T2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M34</span><span class="p">);</span>
+<span class="n">fbSPEC_T3</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M35</span><span class="p">);</span>
+<span class="n">fbSPEC_ROT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M36</span><span class="p">);</span>
+
+<span class="n">IF</span> <span class="n">NOT</span> <span class="n">bInit</span> <span class="n">THEN</span> <span class="o">//</span> <span class="n">Easier</span> <span class="n">to</span> <span class="n">debug</span> <span class="k">if</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span> <span class="n">to</span> <span class="n">these</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M15</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M15</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M15</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M15</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M15</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M16</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M16</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M16</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M16</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M16</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M17</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M17</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M17</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M17</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M17</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M18</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M18</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M18</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M18</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M18</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M25</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M25</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M25</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M25</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M25</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M26</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M26</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M26</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M26</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M26</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M27</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M27</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M27</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M27</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M27</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M28</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M28</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M28</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M28</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M28</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M29</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M29</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M29</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M29</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M29</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M30</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M30</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M30</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M30</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M30</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M31</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M31</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M31</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M31</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M31</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M32</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M32</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M32</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M32</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M32</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M33</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M33</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M33</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M33</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M33</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M34</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M34</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M34</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M34</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M34</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M35</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M35</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M35</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M35</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M35</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M36</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M36</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M36</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M36</span><span class="o">.</span><span class="n">nHomingMode</span> <span class="o">:=</span> <span class="n">ENUM_EpicsHomeCmd</span><span class="o">.</span><span class="n">LOW_LIMIT</span><span class="p">;</span>
+<span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M36</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">bInit</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#main">Main</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plc-mfx-motion_mfx_motion_epics.html" class="btn btn-neutral float-left" title="Data Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

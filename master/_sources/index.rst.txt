@@ -1,0 +1,30 @@
+lcls-plc-mfx-motion
+-------------------
+
+.. toctree::
+    :maxdepth: 2
+    :caption: plc-mfx-motion
+
+    plc-mfx-motion_pragmas
+    plc-mfx-motion_nc
+    plc-mfx-motion_ethercat
+    plc-mfx-motion_boxes
+    plc-mfx-motion_links
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: mfx_motion
+
+    plc-mfx-motion_mfx_motion_summary
+    plc-mfx-motion_mfx_motion_epics
+    plc-mfx-motion_mfx_motion_source
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

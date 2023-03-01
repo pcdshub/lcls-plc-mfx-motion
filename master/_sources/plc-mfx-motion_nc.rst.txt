@@ -1,0 +1,1211 @@
+
+NC Settings
+-----------
+
+.. csv-table::
+    :header: Axis ID, Name
+    :align: center
+
+        1, Axis 1 MFX-ATM-MMS-Y
+        2, Axis 2 MFX-ATM-MMS-X
+        3, Axis 3 MFX-LIB-MMS-01
+        4, Axis 4 MFX-LIB-MMS-02
+        5, Axis 5 MFX-LIB-MMS-03
+        6, Axis 6 MFX-LIB-MMS-04
+        7, Axis 7 MFX-LJ-JET_X
+        8, Axis 8 MFX-LJ-JET_Y
+        9, Axis 9 MFX-LJ-JET_Z
+        10, Axis 10 MFX-LJ-VH_EPIX
+        11, Axis 11 MFX-LJ-SS_TOP_X
+        12, Axis 12 MFX-LJ-SS_TOP_Y
+        13, Axis 13 MFX-LJ-SS_BOT_X
+        14, Axis 14 MFX-LJ-SS-BOT-Y
+        15, Axis 15 MFX-SPEC-C1-X
+        16, Axis 16 MFX-SPEC-C1-ROT
+        17, Axis 17 MFX-SPEC-C1-TILT
+        18, Axis 18 MFX-SPEC-C2-X
+        19, Axis 19 MFX-SPEC-C2-ROT
+        20, Axis 20 MFX-SPEC-C2-TILT
+        21, Axis 21 MFX-SPEC-C3-X
+        22, Axis 22 MFX-SPEC-C3-ROT
+        23, Axis 23 MFX-SPEC-C3-TILT
+        24, Axis 24 MFX-SPEC-C4-X
+        25, Axis 25 MFX-SPEC-C4-ROT
+        26, Axis 26 MFX-SPEC-C4-TILT
+        27, Axis 27 MFX-SPEC-C5-X
+        28, Axis 28 MFX-SPEC-C5-ROT
+        29, Axis 29 MFX-SPEC-C5-TILT
+        30, Axis 30 MFX-SPEC-C6-X
+        31, Axis 31 MFX-SPEC-C6-ROT
+        32, Axis 32 MFX-SPEC-C6-TILT
+        33, Axis 33 MFX-SPEC-T1
+        34, Axis 34 MFX-SPEC-T2
+        35, Axis 35 MFX-SPEC-T3
+        36, Axis 36 MFX-SPEC-ROT
+
+
+
+Axis 1: Axis 1 MFX-ATM-MMS-Y
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 1
+    Name, Axis 1 MFX-ATM-MMS-Y
+    AxisFolder, ATM
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 10
+    Dynamic:AccelerationMaximum, 200
+    Dynamic:Deceleration, 10
+    Dynamic:DecelerationMaximum, 200
+    Dynamic:DelayTime, 0.004
+    Dynamic:Jerk, 500
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:Offset, -214682
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 5e-05
+    Enc:SoftEndMaxControl:Range, -16
+    Enc:SoftEndMinControl:Range, -100
+    GroupId, 5
+    Id, 1
+    OtherSettings:AllowMotionCmdToSlave, true
+    Velo:Maximum, 20
+
+
+
+Axis 2: Axis 2 MFX-ATM-MMS-X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 2
+    Name, Axis 2 MFX-ATM-MMS-X
+    AxisFolder, ATM
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 10
+    Dynamic:AccelerationMaximum, 200
+    Dynamic:Deceleration, 50
+    Dynamic:DecelerationMaximum, 200
+    Dynamic:Jerk, 500
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 5e-05
+    Enc:SoftEndMaxControl:Range, 12.5
+    Enc:SoftEndMinControl:Range, 8.1
+    GroupId, 6
+    Id, 2
+    OtherSettings:AllowMotionCmdToSlave, true
+    TargetPosControl:Range, 0.05
+    TargetPosControl:Time, 0.5
+    Velo:Maximum, 5
+
+
+
+Axis 3: Axis 3 MFX-LIB-MMS-01
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 3
+    Name, Axis 3 MFX-LIB-MMS-01
+    AxisFolder, LIB
+    AxisType, 1
+    CreateSymbols, true
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 7.8125e-05
+    GroupId, 1
+    Id, 3
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    Velo:FastManual, 1
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 0.1
+
+
+
+Axis 4: Axis 4 MFX-LIB-MMS-02
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 4
+    Name, Axis 4 MFX-LIB-MMS-02
+    AxisFolder, LIB
+    AxisType, 1
+    CreateSymbols, true
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 7.8125e-05
+    GroupId, 2
+    Id, 4
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    Velo:FastManual, 1
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 0.1
+
+
+
+Axis 5: Axis 5 MFX-LIB-MMS-03
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 5
+    Name, Axis 5 MFX-LIB-MMS-03
+    AxisFolder, LIB
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 50
+    Dynamic:AccelerationMaximum, 50
+    Dynamic:Deceleration, 50
+    Dynamic:DecelerationMaximum, 50
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 0.0003125
+    GroupId, 3
+    Id, 5
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    Velo:FastManual, 0.1
+    Velo:Maximum, 38
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 0.05
+
+
+
+Axis 6: Axis 6 MFX-LIB-MMS-04
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 6
+    Name, Axis 6 MFX-LIB-MMS-04
+    AxisFolder, LIB
+    AxisType, 1
+    CreateSymbols, true
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 3.90625e-05
+    GroupId, 4
+    Id, 6
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    Velo:FastManual, 1
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 0.1
+
+
+
+Axis 7: Axis 7 MFX-LJ-JET_X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 7
+    Name, Axis 7 MFX-LJ-JET_X
+    AxisFolder, LJ
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 100
+    Dynamic:AccelerationMaximum, 100
+    Dynamic:Deceleration, 100
+    Dynamic:DecelerationMaximum, 100
+    Dynamic:Jerk, 70.8615
+    Enc:EncType, 4
+    Enc:Inc:RefMode, 2
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:Inverse, true
+    Enc:MaxCount, #x0000ffff
+    Id, 7
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    TargetPosControl:Range, 0.001
+    TargetPosControl:Time, 0.004
+    Velo:FastManual, 0.1
+    Velo:Maximum, 1
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 0.05
+
+
+
+Axis 8: Axis 8 MFX-LJ-JET_Y
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 8
+    Name, Axis 8 MFX-LJ-JET_Y
+    AxisFolder, LJ
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 50
+    Dynamic:AccelerationMaximum, 50
+    Dynamic:Deceleration, 50
+    Dynamic:DecelerationMaximum, 50
+    Dynamic:Jerk, 17.9282
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #x0000ffff
+    Id, 8
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    TargetPosControl:Range, 0.001
+    TargetPosControl:Time, 0.004
+    Velo:FastManual, 0.5
+    Velo:Maximum, 0.5
+    Velo:RefSearch, 0.2
+    Velo:RefSync, 0.2
+    Velo:SlowManual, 0.25
+
+
+
+Axis 9: Axis 9 MFX-LJ-JET_Z
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 9
+    Name, Axis 9 MFX-LJ-JET_Z
+    AxisFolder, LJ
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 23.8095
+    Dynamic:AccelerationMaximum, 100
+    Dynamic:Deceleration, 23.8095
+    Dynamic:DecelerationMaximum, 100
+    Dynamic:Jerk, 70.8615
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #x0000ffff
+    Id, 9
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    TargetPosControl:Range, 0.001
+    TargetPosControl:Time, 0.004
+    Velo:FastManual, 0.5
+    Velo:Maximum, 1
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 0.2
+
+
+
+Axis 10: Axis 10 MFX-LJ-VH_EPIX
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 10
+    Name, Axis 10 MFX-LJ-VH_EPIX
+    AxisFolder, LJ
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 100
+    Dynamic:AccelerationMaximum, 100
+    Dynamic:Deceleration, 100
+    Dynamic:DecelerationMaximum, 100
+    Dynamic:Jerk, 70.8615
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:Inverse, true
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 5e-05
+    Id, 10
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    TargetPosControl:Range, 0.01
+    Velo:FastManual, 0.1
+    Velo:Maximum, 1
+    Velo:RefSearch, 0.1
+    Velo:RefSync, 0.1
+    Velo:SlowManual, 0.05
+
+
+
+Axis 11: Axis 11 MFX-LJ-SS_TOP_X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 11
+    Name, Axis 11 MFX-LJ-SS_TOP_X
+    AxisFolder, LJ
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 23.8095
+    Dynamic:AccelerationMaximum, 50
+    Dynamic:Deceleration, 23.8095
+    Dynamic:DecelerationMaximum, 50
+    Dynamic:Jerk, 70.8615
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:Inverse, true
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 7.8125e-05
+    Id, 11
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    Velo:FastManual, 0.5
+    Velo:Maximum, 1
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 0.2
+
+
+
+Axis 12: Axis 12 MFX-LJ-SS_TOP_Y
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 12
+    Name, Axis 12 MFX-LJ-SS_TOP_Y
+    AxisFolder, LJ
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 5.98802
+    Dynamic:AccelerationMaximum, 10
+    Dynamic:Deceleration, 5.98802
+    Dynamic:DecelerationMaximum, 10
+    Dynamic:Jerk, 17.9282
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:Inverse, true
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 1.953125e-05
+    Id, 12
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    Velo:FastManual, 0.5
+    Velo:Maximum, 0.5
+    Velo:RefSearch, 0.2
+    Velo:RefSync, 0.2
+    Velo:SlowManual, 0.2
+
+
+
+Axis 13: Axis 13 MFX-LJ-SS_BOT_X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 13
+    Name, Axis 13 MFX-LJ-SS_BOT_X
+    AxisFolder, LJ
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 23.8095
+    Dynamic:AccelerationMaximum, 50
+    Dynamic:Deceleration, 23.8095
+    Dynamic:DecelerationMaximum, 50
+    Dynamic:Jerk, 70.8615
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:Inverse, true
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 7.8125e-05
+    Id, 13
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    Velo:FastManual, 0.5
+    Velo:Maximum, 1
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 0.2
+
+
+
+Axis 14: Axis 14 MFX-LJ-SS-BOT-Y
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 14
+    Name, Axis 14 MFX-LJ-SS-BOT-Y
+    AxisFolder, LJ
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 5.98802
+    Dynamic:AccelerationMaximum, 10
+    Dynamic:Deceleration, 5.98802
+    Dynamic:DecelerationMaximum, 10
+    Dynamic:DelayTime, 0.008
+    Dynamic:Jerk, 17.9282
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:Inverse, true
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 1.953125e-05
+    Id, 14
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    Velo:FastManual, 0.5
+    Velo:Maximum, 0.5
+    Velo:RefSearch, 0.2
+    Velo:RefSync, 0.2
+    Velo:SlowManual, 0.2
+
+
+
+Axis 15: Axis 15 MFX-SPEC-C1-X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 15
+    Name, Axis 15 MFX-SPEC-C1-X
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 4000
+    Dynamic:Deceleration, 4000
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 5e-06
+    Id, 15
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.5
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 16: Axis 16 MFX-SPEC-C1-ROT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 16
+    Name, Axis 16 MFX-SPEC-C1-ROT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 1e-06
+    General:UnitName, Degree
+    Id, 16
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PEHControl:Time, 7
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.05
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 17: Axis 17 MFX-SPEC-C1-TILT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 17
+    Name, Axis 17 MFX-SPEC-C1-TILT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 7e-07
+    General:UnitName, Degree
+    Id, 17
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PEHControl:Time, 7
+    TargetPosControl:Range, 0.01
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 18: Axis 18 MFX-SPEC-C2-X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 18
+    Name, Axis 18 MFX-SPEC-C2-X
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 5e-06
+    Id, 18
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.5
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 19: Axis 19 MFX-SPEC-C2-ROT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 19
+    Name, Axis 19 MFX-SPEC-C2-ROT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 1e-06
+    General:UnitName, Degree
+    Id, 19
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.05
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 20: Axis 20 MFX-SPEC-C2-TILT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 20
+    Name, Axis 20 MFX-SPEC-C2-TILT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ScaleFactorNumerator, 7e-07
+    General:UnitName, Degree
+    Id, 20
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 21: Axis 21 MFX-SPEC-C3-X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 21
+    Name, Axis 21 MFX-SPEC-C3-X
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 5e-06
+    Id, 21
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.5
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 22: Axis 22 MFX-SPEC-C3-ROT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 22
+    Name, Axis 22 MFX-SPEC-C3-ROT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 1e-06
+    General:UnitName, Degree
+    Id, 22
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.05
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 23: Axis 23 MFX-SPEC-C3-TILT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 23
+    Name, Axis 23 MFX-SPEC-C3-TILT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 7e-07
+    General:UnitName, Degree
+    Id, 23
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 24: Axis 24 MFX-SPEC-C4-X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 24
+    Name, Axis 24 MFX-SPEC-C4-X
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 5e-06
+    Id, 24
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.05
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 25: Axis 25 MFX-SPEC-C4-ROT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 25
+    Name, Axis 25 MFX-SPEC-C4-ROT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 1e-06
+    General:UnitName, Degree
+    Id, 25
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.05
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 26: Axis 26 MFX-SPEC-C4-TILT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 26
+    Name, Axis 26 MFX-SPEC-C4-TILT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 7e-07
+    General:UnitName, Degree
+    Id, 26
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 27: Axis 27 MFX-SPEC-C5-X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 27
+    Name, Axis 27 MFX-SPEC-C5-X
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 5e-06
+    Id, 27
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.5
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 28: Axis 28 MFX-SPEC-C5-ROT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 28
+    Name, Axis 28 MFX-SPEC-C5-ROT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 1e-06
+    General:UnitName, Degree
+    Id, 28
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.05
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 29: Axis 29 MFX-SPEC-C5-TILT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 29
+    Name, Axis 29 MFX-SPEC-C5-TILT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 7e-07
+    General:UnitName, Degree
+    Id, 29
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 30: Axis 30 MFX-SPEC-C6-X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 30
+    Name, Axis 30 MFX-SPEC-C6-X
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 5e-06
+    Id, 30
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.01
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 31: Axis 31 MFX-SPEC-C6-ROT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 31
+    Name, Axis 31 MFX-SPEC-C6-ROT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 1e-06
+    General:UnitName, Degree
+    Id, 31
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 1
+    TargetPosControl:Range, 0.05
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 32: Axis 32 MFX-SPEC-C6-TILT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 32
+    Name, Axis 32 MFX-SPEC-C6-TILT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 4
+    Enc:Inc:RefMode, 2
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:Inverse, true
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 0.00011953125
+    General:UnitName, Degree
+    Id, 32
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    TargetPosControl:Range, 0.01
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 33: Axis 33 MFX-SPEC-T1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 33
+    Name, Axis 33 MFX-SPEC-T1
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ScaleFactorNumerator, 0.001
+    Id, 33
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 0.1
+    TargetPosControl:Range, 0.1
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 34: Axis 34 MFX-SPEC-T2
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 34
+    Name, Axis 34 MFX-SPEC-T2
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ScaleFactorNumerator, 0.001
+    Id, 34
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PEHControl:Time, 10
+    PositionAreaControl:Range, 0.1
+    TargetPosControl:Range, 0.01
+    Velo:FastManual, 1
+    Velo:Maximum, 10
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 35: Axis 35 MFX-SPEC-T3
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 35
+    Name, Axis 35 MFX-SPEC-T3
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 0.001
+    Id, 35
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 0.1
+    TargetPosControl:Range, 0.1
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
+
+Axis 36: Axis 36 MFX-SPEC-ROT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 36
+    Name, Axis 36 MFX-SPEC-ROT
+    AxisFolder, SPEC
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:DelayTime, 0.008
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 7.8125e-05
+    General:UnitName, Degree
+    Id, 36
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    Velo:FastManual, 1
+    Velo:Maximum, 5
+    Velo:RefSearch, 0.5
+    Velo:RefSync, 0.5
+    Velo:SlowManual, 1
+
+
