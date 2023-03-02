@@ -1,11 +1,11 @@
-#!c:/Repos/ads-ioc/R0.6.0///bin/rhel7-x86_64/adsIoc
+#!/reg/g/pcds/epics/ioc/common/ads-ioc/R0.6.0/bin/rhel7-x86_64/adsIoc
 ################### AUTO-GENERATED DO NOT EDIT ###################
 #
 #         Project: plc-mfx-motion.tsproj
 #        PLC name: mfx_motion (mfx_motion Instance)
-# Generated using: pytmc 2.14.1+0.g20d35b3.dirty
-# Project version: unknown
-#    Project hash: unknown
+# Generated using: pytmc 2.14.1
+# Project version: 5675ee0
+#    Project hash: 5675ee0ad31f18701b7a1132efcb5bea199127a7
 #     PLC IP/host: 172.21.72.167
 #      PLC Net ID: 172.21.72.167.1.1
 # ** DEVELOPMENT MODE IOC **
@@ -29,7 +29,7 @@
 
 epicsEnvSet("ADS_IOC_TOP", "$(TOP)" )
 
-epicsEnvSet("ENGINEER", "" )
+epicsEnvSet("ENGINEER", "espov" )
 epicsEnvSet("LOCATION", "PLC:mfx_motion" )
 epicsEnvSet("IOCSH_PS1", "$(IOC)> " )
 epicsEnvSet("ACF_FILE", "$(ADS_IOC_TOP)/iocBoot/templates/unrestricted.acf")
@@ -49,7 +49,7 @@ epicsEnvSet("ADS_TIMEOUT_MS",   "1000")
 epicsEnvSet("ADS_TIME_SOURCE",  "0")
 
 # Add a route to the PLC automatically:
-system("${ADS_IOC_TOP}/scripts/add_route.sh 172.21.72.167 ^172.*$")
+system("${ADS_IOC_TOP}/scripts/add_route.sh 172.21.72.167 ^172.*")
 
 # adsAsynPortDriverConfigure(portName, ipaddr, amsaddr, amsport,
 #    asynParamTableSize, priority, noAutoConnect, defaultSampleTimeMS,
@@ -331,7 +331,7 @@ dbLoadRecords("caPutLog.db", "IOC=$(IOC)")
 dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:mfx_motion,IDX=1")
 dbLoadRecords("TwinCAT_AppInfo.db", "PORT=$(ASYN_PORT), PREFIX=PLC:mfx_motion")
 
-dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:mfx_motion,PROJECT=plc-mfx-motion.tsproj,HASH=unknown,VERSION=unknown,PYTMC=2.14.1+0.g20d35b3.dirty,PLC_HOST=172.21.72.167")
+dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:mfx_motion,PROJECT=plc-mfx-motion.tsproj,HASH=5675ee0,VERSION=5675ee0,PYTMC=2.14.1,PLC_HOST=172.21.72.167")
 
 #   LCLS General: * -> * (SLAC)
 dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=LCLS_General,VERSION=*,VENDOR=SLAC")

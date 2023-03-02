@@ -6,6 +6,7 @@ PRODUCTION_IOC := 0
 
 PROJECT_NAME := plc-mfx-motion
 PROJECT_PATH := ../../plc-mfx-motion/plc-mfx-motion.tsproj
+#PLC := MFX_MOTION
 PLC := mfx_motion
 
 PYTMC_OPTS :=
