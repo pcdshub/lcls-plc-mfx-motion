@@ -6,11 +6,10 @@ PRODUCTION_IOC := 0
 
 PROJECT_NAME := plc-mfx-motion
 PROJECT_PATH := ../../plc-mfx-motion/plc-mfx-motion.tsproj
-#PLC := MFX_MOTION
 PLC := mfx_motion
 
 PYTMC_OPTS :=
-PREFIX := PLC:$(PLC)
+PREFIX := PLC:MFX_MOTION
 
 # With two $$, as in $$(IOC) below, this will be expanded in the
 # environment of st.cmd:
