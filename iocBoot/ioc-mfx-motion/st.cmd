@@ -4,8 +4,8 @@
 #         Project: plc-mfx-motion.tsproj
 #        PLC name: mfx_motion (mfx_motion Instance)
 # Generated using: pytmc 2.14.1
-# Project version: 5675ee0
-#    Project hash: 5675ee0ad31f18701b7a1132efcb5bea199127a7
+# Project version: ee2321e
+#    Project hash: ee2321eb66c863573aa164b2b8caff112fa3d463
 #     PLC IP/host: 172.21.72.167
 #      PLC Net ID: 172.21.72.167.1.1
 # ** DEVELOPMENT MODE IOC **
@@ -14,15 +14,15 @@
 #
 # Libraries:
 #
-#   LCLS General: * -> * (SLAC)
+#   LCLS General: * -> 2.8.0 (SLAC)
 #   lcls-twincat-motion: * -> 1.8.0 (SLAC)
 #   lcls2-cc-lib: * -> 1.1.3 (SLAC)
 #   PMPS: * -> 2.2.3 (SLAC - LCLS)
-#   Tc2_MC2: * -> * (Beckhoff Automation GmbH)
-#   Tc2_SerialCom: * -> * (Beckhoff Automation GmbH)
-#   Tc2_Standard: * -> * (Beckhoff Automation GmbH)
-#   Tc2_System: * -> * (Beckhoff Automation GmbH)
-#   Tc3_Module: * -> * (Beckhoff Automation GmbH)
+#   Tc2_MC2: * -> 3.3.48.0 (Beckhoff Automation GmbH)
+#   Tc2_SerialCom: * -> 3.3.10.0 (Beckhoff Automation GmbH)
+#   Tc2_Standard: * -> 3.3.3.0 (Beckhoff Automation GmbH)
+#   Tc2_System: * -> 3.4.26.0 (Beckhoff Automation GmbH)
+#   Tc3_Module: * -> 3.3.21.0 (Beckhoff Automation GmbH)
 #
 ################### AUTO-GENERATED DO NOT EDIT ###################
 < envPaths
@@ -30,7 +30,7 @@
 epicsEnvSet("ADS_IOC_TOP", "$(TOP)" )
 
 epicsEnvSet("ENGINEER", "espov" )
-epicsEnvSet("LOCATION", "PLC:mfx_motion" )
+epicsEnvSet("LOCATION", "PLC:MFX_MOTION" )
 epicsEnvSet("IOCSH_PS1", "$(IOC)> " )
 epicsEnvSet("ACF_FILE", "$(ADS_IOC_TOP)/iocBoot/templates/unrestricted.acf")
 
@@ -80,7 +80,7 @@ cd "$(ADS_IOC_TOP)/db"
 
 
 epicsEnvSet("MOTOR_PORT",     "PLC_ADS")
-epicsEnvSet("PREFIX",         "PLC:mfx_motion:")
+epicsEnvSet("PREFIX",         "PLC:MFX_MOTION:")
 epicsEnvSet("NUMAXES",        "14")
 epicsEnvSet("MOVE_POLL_RATE", "200")
 epicsEnvSet("IDLE_POLL_RATE", "1000")
@@ -323,45 +323,45 @@ dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME
 dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
 
 
-dbLoadRecords("iocSoft.db", "IOC=PLC:mfx_motion")
-dbLoadRecords("save_restoreStatus.db", "P=PLC:mfx_motion:")
+dbLoadRecords("iocSoft.db", "IOC=PLC:MFX_MOTION")
+dbLoadRecords("save_restoreStatus.db", "P=PLC:MFX_MOTION:")
 dbLoadRecords("caPutLog.db", "IOC=$(IOC)")
 
 ## TwinCAT task, application, and project information databases ##
-dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:mfx_motion,IDX=1")
-dbLoadRecords("TwinCAT_AppInfo.db", "PORT=$(ASYN_PORT), PREFIX=PLC:mfx_motion")
+dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:MFX_MOTION,IDX=1")
+dbLoadRecords("TwinCAT_AppInfo.db", "PORT=$(ASYN_PORT), PREFIX=PLC:MFX_MOTION")
 
-dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:mfx_motion,PROJECT=plc-mfx-motion.tsproj,HASH=5675ee0,VERSION=5675ee0,PYTMC=2.14.1,PLC_HOST=172.21.72.167")
+dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:MFX_MOTION,PROJECT=plc-mfx-motion.tsproj,HASH=ee2321e,VERSION=ee2321e,PYTMC=2.14.1,PLC_HOST=172.21.72.167")
 
-#   LCLS General: * -> * (SLAC)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=LCLS_General,VERSION=*,VENDOR=SLAC")
+#   LCLS General: * -> 2.8.0 (SLAC)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=LCLS_General,VERSION=2.8.0,VENDOR=SLAC")
 #   lcls-twincat-motion: * -> 1.8.0 (SLAC)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=lcls-twincat-motion,VERSION=1.8.0,VENDOR=SLAC")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=lcls-twincat-motion,VERSION=1.8.0,VENDOR=SLAC")
 #   lcls2-cc-lib: * -> 1.1.3 (SLAC)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=lcls2-cc-lib,VERSION=1.1.3,VENDOR=SLAC")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=lcls2-cc-lib,VERSION=1.1.3,VENDOR=SLAC")
 #   PMPS: * -> 2.2.3 (SLAC - LCLS)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=PMPS,VERSION=2.2.3,VENDOR=SLAC - LCLS")
-#   Tc2_MC2: * -> * (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_MC2,VERSION=*,VENDOR=Beckhoff Automation GmbH")
-#   Tc2_SerialCom: * -> * (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_SerialCom,VERSION=*,VENDOR=Beckhoff Automation GmbH")
-#   Tc2_Standard: * -> * (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_Standard,VERSION=*,VENDOR=Beckhoff Automation GmbH")
-#   Tc2_System: * -> * (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_System,VERSION=*,VENDOR=Beckhoff Automation GmbH")
-#   Tc3_Module: * -> * (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc3_Module,VERSION=*,VENDOR=Beckhoff Automation GmbH")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=PMPS,VERSION=2.2.3,VENDOR=SLAC - LCLS")
+#   Tc2_MC2: * -> 3.3.48.0 (Beckhoff Automation GmbH)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=Tc2_MC2,VERSION=3.3.48.0,VENDOR=Beckhoff Automation GmbH")
+#   Tc2_SerialCom: * -> 3.3.10.0 (Beckhoff Automation GmbH)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=Tc2_SerialCom,VERSION=3.3.10.0,VENDOR=Beckhoff Automation GmbH")
+#   Tc2_Standard: * -> 3.3.3.0 (Beckhoff Automation GmbH)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=Tc2_Standard,VERSION=3.3.3.0,VENDOR=Beckhoff Automation GmbH")
+#   Tc2_System: * -> 3.4.26.0 (Beckhoff Automation GmbH)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=Tc2_System,VERSION=3.4.26.0,VENDOR=Beckhoff Automation GmbH")
+#   Tc3_Module: * -> 3.3.21.0 (Beckhoff Automation GmbH)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=Tc3_Module,VERSION=3.3.21.0,VENDOR=Beckhoff Automation GmbH")
 
 cd "$(IOC_TOP)"
 
 ## PLC Project Database files ##
-dbLoadRecords("mfx_motion.db", "PORT=$(ASYN_PORT),PREFIX=PLC:mfx_motion:,IOCNAME=$(IOC),IOC=$(IOC)")
+dbLoadRecords("mfx_motion.db", "PORT=$(ASYN_PORT),PREFIX=PLC:MFX_MOTION:,IOCNAME=$(IOC),IOC=$(IOC)")
 
 # Total records: 881
 callbackSetQueueSize(3762)
 
 # Autosave and archive settings:
-save_restoreSet_status_prefix("PLC:mfx_motion:")
+save_restoreSet_status_prefix("PLC:MFX_MOTION:")
 save_restoreSet_IncompleteSetsOk(1)
 save_restoreSet_DatedBackupFiles(1)
 set_pass0_restoreFile("info_positions.sav")
