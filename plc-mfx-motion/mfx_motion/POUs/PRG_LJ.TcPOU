@@ -3,16 +3,16 @@
   <POU Name="PRG_LJ" Id="{269206c4-334f-4c86-ba00-97f3bd43a4d4}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_LJ
 VAR
-	fbLJ_1: FB_MotionStage;
-	fbLJ_2: FB_MotionStage;
-	fbLJ_3: FB_MotionStage;
-	fbLJ_4: FB_MotionStage;
-	fbLJ_5: FB_MotionStage;
-	fbLJ_6: FB_MotionStage;
-	fbLJ_7: FB_MotionStage;
-	fbLJ_8: FB_MotionStage;
-	
-	// Only do some of the puts on init
+    fbLJ_1: FB_MotionStage;
+    fbLJ_2: FB_MotionStage;
+    fbLJ_3: FB_MotionStage;
+    fbLJ_4: FB_MotionStage;
+    fbLJ_5: FB_MotionStage;
+    fbLJ_6: FB_MotionStage;
+    fbLJ_7: FB_MotionStage;
+    fbLJ_8: FB_MotionStage;
+
+    // Only do some of the puts on init
     bInit: BOOL := FALSE;
 END_VAR
 ]]></Declaration>
@@ -73,30 +73,10 @@ IF NOT bInit THEN // Easier to debug if you can write to these
     Main.M14.bPowerSelf := TRUE;
     Main.M14.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 //	Main.M14.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
-//    Main.M14.nEnableMode := ENUM_StageEnableMode.ALWAYS;	
-	
+//    Main.M14.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
     bInit := True;
 END_IF]]></ST>
     </Implementation>
-    <LineIds Name="PRG_LJ">
-      <LineId Id="3" Count="3" />
-      <LineId Id="48" Count="3" />
-      <LineId Id="7" Count="24" />
-      <LineId Id="71" Count="0" />
-      <LineId Id="52" Count="3" />
-      <LineId Id="32" Count="0" />
-      <LineId Id="72" Count="0" />
-      <LineId Id="57" Count="3" />
-      <LineId Id="56" Count="0" />
-      <LineId Id="73" Count="0" />
-      <LineId Id="62" Count="3" />
-      <LineId Id="61" Count="0" />
-      <LineId Id="74" Count="0" />
-      <LineId Id="67" Count="3" />
-      <LineId Id="66" Count="0" />
-      <LineId Id="33" Count="0" />
-      <LineId Id="89" Count="0" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

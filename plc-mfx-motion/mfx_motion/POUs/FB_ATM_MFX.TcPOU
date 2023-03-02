@@ -34,7 +34,7 @@ VAR
         io: input
     '}
     fbThermoCouple1: FB_TempSensor;
-    
+
     // Only do some of the puts on init
     bInit: BOOL := FALSE;
 END_VAR
