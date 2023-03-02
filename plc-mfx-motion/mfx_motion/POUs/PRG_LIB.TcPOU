@@ -3,12 +3,12 @@
   <POU Name="PRG_LIB" Id="{41f87cec-8d4f-488b-ae3e-a2c9e5843eec}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_LIB
 VAR
-	fbLIB_1: FB_MotionStage;
-	fbLIB_2: FB_MotionStage;
-	fbLIB_3: FB_MotionStage;
-	fbLIB_4: FB_MotionStage;
-	
-	// Only do some of the puts on init
+    fbLIB_1: FB_MotionStage;
+    fbLIB_2: FB_MotionStage;
+    fbLIB_3: FB_MotionStage;
+    fbLIB_4: FB_MotionStage;
+
+    // Only do some of the puts on init
     bInit: BOOL := FALSE;
 END_VAR
 ]]></Declaration>
@@ -42,8 +42,8 @@ IF NOT bInit THEN // Easier to debug if you can write to these
     Main.M6.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 //	Main.M6.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
 //    Main.M6.nEnableMode := ENUM_StageEnableMode.ALWAYS;
-	
-	bInit := True;
+
+    bInit := True;
 END_IF]]></ST>
     </Implementation>
   </POU>
