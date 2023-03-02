@@ -15,14 +15,14 @@
 # Libraries:
 #
 #   LCLS General: * -> * (SLAC)
-#   lcls-twincat-motion: * -> 1.5.1 (SLAC)
-#   lcls2-cc-lib: * -> 1.1.2 (SLAC)
-#   PMPS: * -> 2.0.0 (SLAC - LCLS)
-#   Tc2_MC2: * -> 3.3.42.0 (Beckhoff Automation GmbH)
-#   Tc2_SerialCom: * -> 3.3.7.0 (Beckhoff Automation GmbH)
-#   Tc2_Standard: * -> 3.3.3.0 (Beckhoff Automation GmbH)
-#   Tc2_System: * -> 3.4.24.0 (Beckhoff Automation GmbH)
-#   Tc3_Module: * -> 3.3.21.0 (Beckhoff Automation GmbH)
+#   lcls-twincat-motion: * -> 1.8.0 (SLAC)
+#   lcls2-cc-lib: * -> 1.1.3 (SLAC)
+#   PMPS: * -> 2.2.3 (SLAC - LCLS)
+#   Tc2_MC2: * -> * (Beckhoff Automation GmbH)
+#   Tc2_SerialCom: * -> * (Beckhoff Automation GmbH)
+#   Tc2_Standard: * -> * (Beckhoff Automation GmbH)
+#   Tc2_System: * -> * (Beckhoff Automation GmbH)
+#   Tc3_Module: * -> * (Beckhoff Automation GmbH)
 #
 ################### AUTO-GENERATED DO NOT EDIT ###################
 < envPaths
@@ -42,7 +42,7 @@ epicsEnvSet("ASYN_PORT",        "ASYN_PLC")
 epicsEnvSet("IPADDR",           "172.21.72.167")
 epicsEnvSet("AMSID",            "172.21.72.167.1.1")
 epicsEnvSet("AMS_PORT",         "851")
-epicsEnvSet("ADS_MAX_PARAMS",   "1887")
+epicsEnvSet("ADS_MAX_PARAMS",   "1881")
 epicsEnvSet("ADS_SAMPLE_MS",    "50")
 epicsEnvSet("ADS_MAX_DELAY_MS", "100")
 epicsEnvSet("ADS_TIMEOUT_MS",   "1000")
@@ -335,30 +335,30 @@ dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:mfx_motion,PROJECT=plc-mfx-motio
 
 #   LCLS General: * -> * (SLAC)
 dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=LCLS_General,VERSION=*,VENDOR=SLAC")
-#   lcls-twincat-motion: * -> 1.5.1 (SLAC)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=lcls-twincat-motion,VERSION=1.5.1,VENDOR=SLAC")
-#   lcls2-cc-lib: * -> 1.1.2 (SLAC)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=lcls2-cc-lib,VERSION=1.1.2,VENDOR=SLAC")
-#   PMPS: * -> 2.0.0 (SLAC - LCLS)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=PMPS,VERSION=2.0.0,VENDOR=SLAC - LCLS")
-#   Tc2_MC2: * -> 3.3.42.0 (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_MC2,VERSION=3.3.42.0,VENDOR=Beckhoff Automation GmbH")
-#   Tc2_SerialCom: * -> 3.3.7.0 (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_SerialCom,VERSION=3.3.7.0,VENDOR=Beckhoff Automation GmbH")
-#   Tc2_Standard: * -> 3.3.3.0 (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_Standard,VERSION=3.3.3.0,VENDOR=Beckhoff Automation GmbH")
-#   Tc2_System: * -> 3.4.24.0 (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_System,VERSION=3.4.24.0,VENDOR=Beckhoff Automation GmbH")
-#   Tc3_Module: * -> 3.3.21.0 (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc3_Module,VERSION=3.3.21.0,VENDOR=Beckhoff Automation GmbH")
+#   lcls-twincat-motion: * -> 1.8.0 (SLAC)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=lcls-twincat-motion,VERSION=1.8.0,VENDOR=SLAC")
+#   lcls2-cc-lib: * -> 1.1.3 (SLAC)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=lcls2-cc-lib,VERSION=1.1.3,VENDOR=SLAC")
+#   PMPS: * -> 2.2.3 (SLAC - LCLS)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=PMPS,VERSION=2.2.3,VENDOR=SLAC - LCLS")
+#   Tc2_MC2: * -> * (Beckhoff Automation GmbH)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_MC2,VERSION=*,VENDOR=Beckhoff Automation GmbH")
+#   Tc2_SerialCom: * -> * (Beckhoff Automation GmbH)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_SerialCom,VERSION=*,VENDOR=Beckhoff Automation GmbH")
+#   Tc2_Standard: * -> * (Beckhoff Automation GmbH)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_Standard,VERSION=*,VENDOR=Beckhoff Automation GmbH")
+#   Tc2_System: * -> * (Beckhoff Automation GmbH)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc2_System,VERSION=*,VENDOR=Beckhoff Automation GmbH")
+#   Tc3_Module: * -> * (Beckhoff Automation GmbH)
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:mfx_motion,DEPENDENCY=Tc3_Module,VERSION=*,VENDOR=Beckhoff Automation GmbH")
 
 cd "$(IOC_TOP)"
 
 ## PLC Project Database files ##
 dbLoadRecords("mfx_motion.db", "PORT=$(ASYN_PORT),PREFIX=PLC:mfx_motion:,IOCNAME=$(IOC),IOC=$(IOC)")
 
-# Total records: 887
-callbackSetQueueSize(3774)
+# Total records: 881
+callbackSetQueueSize(3762)
 
 # Autosave and archive settings:
 save_restoreSet_status_prefix("PLC:mfx_motion:")
