@@ -760,12 +760,6 @@ $(PREFIX)FullBeamCnst:Rate_RBV.VAL	1	monitor
 $(PREFIX)FullBeamCnst:Transmission_RBV.VAL	1	monitor
 $(PREFIX)FullBeamCnst:PhotonEnergyRanges_RBV.VAL	1	monitor
 $(PREFIX)FullBeamCnst:Valid_RBV.VAL	1	monitor
-$(PREFIX)SafeBeamCnst:Veto_RBV.VAL	1	monitor
-$(PREFIX)SafeBeamCnst:Cohort_RBV.VAL	1	monitor
-$(PREFIX)SafeBeamCnst:Rate_RBV.VAL	1	monitor
-$(PREFIX)SafeBeamCnst:Transmission_RBV.VAL	1	monitor
-$(PREFIX)SafeBeamCnst:PhotonEnergyRanges_RBV.VAL	1	monitor
-$(PREFIX)SafeBeamCnst:Valid_RBV.VAL	1	monitor
 $(PREFIX)eVRangeCnst_RBV.VAL	1	monitor
 $(PREFIX)K:eVRangeCnst_RBV.VAL	1	monitor
 $(PREFIX)L:eVRangeCnst_RBV.VAL	1	monitor
