@@ -103,7 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <PlaceholderResolution Include="LCLS General">
-      <Resolution>LCLS General, 2.4.2 (SLAC)</Resolution>
+      <Resolution>LCLS General, * (SLAC)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="lcls-twincat-motion">
       <Resolution>lcls-twincat-motion, 1.5.1 (SLAC)</Resolution>
