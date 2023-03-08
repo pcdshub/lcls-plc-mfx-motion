@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4022.30" ClassName="CDevEtherCATDef" SubType="111">
-	<Device Id="1" DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="0.0.0.0.2.1" RemoteName="Device 1 (EtherCAT)">
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.35" ClassName="CDevEtherCATDef" SubType="111">
+	<Device Id="1" DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="0.0.0.0.2.1" RemoteName="Device 1 (EtherCAT)" InfoImageId="2">
 		<Name>__FILENAME__</Name>
 		<AddressInfo>
 			<Ccat>
@@ -44,6 +44,8 @@
 		<Box File="Power (EK1200).xti" Id="6">
 			<EtherCAT PortABoxInfo="#x00ffffff"/>
 		</Box>
-		<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="2" MaxSwitchFrames="120"/>
+		<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="2" MaxSwitchFrames="120">
+			<SyncUnit Name="LJ" NoDeleteIfUnused="true"/>
+		</EtherCAT>
 	</Device>
 </TcSmItem>

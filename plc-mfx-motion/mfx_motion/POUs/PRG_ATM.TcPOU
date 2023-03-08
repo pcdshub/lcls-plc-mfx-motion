@@ -12,6 +12,11 @@ VAR
                               .fbThermoCouple1.bOverrange := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Status^Overrange;
                               .fbThermoCouple1.iRaw := TIIB[MFX-ATM-EL3314-E5]^TC Inputs Channel 1^Value'}
     fbATM: FB_ATM_MFX;
+
+    {attribute 'TcLinkTo' := 'TIIB[MFX-ATM-EL2004-E4]^Channel 1^Output'}
+    bBrakeRelease AT%Q*: bool;
+
+    fbBrakeDelayTimer: TON;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -59,6 +64,12 @@ fbATM(
     fbFFHWO := fbFastFaultOutput1,
     stYStage := Main.M1,
     stXStage := Main.M2);
+
+// Add custom delay to the brakeRelease
+fbBrakeDelayTimer(
+    IN := main.M1.bBrakeRelease,
+    PT := T#50ms);
+bBrakeRelease := fbBrakeDelayTimer.Q;
 ]]></ST>
     </Implementation>
   </POU>

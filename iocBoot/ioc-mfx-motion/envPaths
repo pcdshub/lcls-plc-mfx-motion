@@ -1,5 +1,5 @@
-epicsEnvSet("IOC","ioc-mfx-motion")
-epicsEnvSet("TOP","/reg/g/pcds/epics/ioc/common/ads-ioc/R0.5.0")
+epicsEnvSet("IOC","${IOC=ioc-mfx-motion}")
+epicsEnvSet("TOP","/reg/g/pcds/epics/ioc/common/ads-ioc/R0.6.0")
 epicsEnvSet("EPICS_SITE_TOP","/reg/g/pcds/epics/")
 epicsEnvSet("EPICS_MODULES","/reg/g/pcds/epics//R7.0.2-2.0/modules")
 epicsEnvSet("AUTOSAVE","/reg/g/pcds/epics//R7.0.2-2.0/modules/autosave/R5.8-2.1.0")
@@ -11,4 +11,4 @@ epicsEnvSet("ADS","/reg/g/pcds/epics//R7.0.2-2.0/modules/twincat-ads/R2.0.0-0.0.
 epicsEnvSet("CAPUTLOG","/reg/g/pcds/epics//R7.0.2-2.0/modules/caPutLog/R3.7-1.0.0")
 epicsEnvSet("EPICS_BASE","/reg/g/pcds/epics//base/R7.0.2-2.0")
 epicsEnvSet("IOC_TOP", "/cds/group/pcds/epics-dev/espov/ioc/mfx/lcls-plc-mfx-motion/iocBoot/ioc-mfx-motion")
-epicsEnvSet("IOC_DATA", "/reg/d/iocData")
+epicsEnvSet("IOC_DATA", "/cds/data/iocData")

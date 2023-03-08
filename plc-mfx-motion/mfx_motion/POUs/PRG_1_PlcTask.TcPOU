@@ -8,7 +8,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[PRG_LIB();
 PRG_ATM();
-
+PRG_LJ();
 PRG_4_LOG();
 ]]></ST>
     </Implementation>
