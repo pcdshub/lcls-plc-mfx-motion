@@ -4,6 +4,8 @@
     <Declaration><![CDATA[PROGRAM PRG_SPEC
 VAR
     fbSPEC_C1_X: FB_MotionStage;
+    fbSPEC_C1_ROT: FB_MotionStage;
+    fbSPEC_C1_TILT: FB_MotionStage;
 
     // Only do some of the puts on init
     bInit: BOOL := FALSE;
@@ -11,6 +13,8 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[fbSPEC_C1_X(stMotionStage:=Main.M15);
+fbSPEC_C1_ROT(stMotionStage:=Main.M16);
+fbSPEC_C1_TILT(stMotionStage:=Main.M17);
 
 IF NOT bInit THEN // Easier to debug if you can write to these
     Main.M15.bHardwareEnable := TRUE;
@@ -18,6 +22,18 @@ IF NOT bInit THEN // Easier to debug if you can write to these
     Main.M15.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 //	Main.M15.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
 //	Main.M15.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    Main.M16.bHardwareEnable := TRUE;
+    Main.M16.bPowerSelf := TRUE;
+    Main.M16.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M16.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//	Main.M16.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    Main.M17.bHardwareEnable := TRUE;
+    Main.M17.bPowerSelf := TRUE;
+    Main.M17.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M17.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//	Main.M17.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
     bInit := True;
 END_IF]]></ST>
