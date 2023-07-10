@@ -77,6 +77,11 @@ VAR_GLOBAL
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E12]^Channel 7^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E12]^Channel 8^Input'}
     M14: DUT_MotionStage := (sName := 'MFX:LJH:SS:BOT_Y');
+
+
+    // SPEC-: 22 Axes
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C1:X'}
+    M15: DUT_MotionStage := (sName := 'MFX:SPEC:C1:X');
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

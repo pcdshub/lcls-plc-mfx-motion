@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_SPEC" Id="{a6a98e04-faf0-4b13-b27f-19dd2ce897a4}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_SPEC
+VAR
+    fbSPEC_C1_X: FB_MotionStage;
+
+    // Only do some of the puts on init
+    bInit: BOOL := FALSE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbSPEC_C1_X(stMotionStage:=Main.M15);
+
+IF NOT bInit THEN // Easier to debug if you can write to these
+    Main.M15.bHardwareEnable := TRUE;
+    Main.M15.bPowerSelf := TRUE;
+    Main.M15.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M15.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//	Main.M15.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    bInit := True;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
