@@ -21,6 +21,7 @@ VAR
     fbSPEC_C6_X: FB_MotionStage;
     fbSPEC_C6_ROT: FB_MotionStage;
     fbSPEC_C6_TILT: FB_MotionStage;
+    fbSPEC_ROT: FB_MotionStage;
 
     // Only do some of the puts on init
     bInit: BOOL := FALSE;
@@ -45,6 +46,7 @@ fbSPEC_C5_TILT(stMotionStage:=Main.M29);
 fbSPEC_C6_X(stMotionStage:=Main.M30);
 fbSPEC_C6_ROT(stMotionStage:=Main.M31);
 fbSPEC_C6_TILT(stMotionStage:=Main.M32);
+fbSPEC_ROT(stMotionStage:=Main.M36);
 
 IF NOT bInit THEN // Easier to debug if you can write to these
     Main.M15.bHardwareEnable := TRUE;
@@ -154,6 +156,12 @@ IF NOT bInit THEN // Easier to debug if you can write to these
     Main.M32.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 //	Main.M32.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
 //	Main.M32.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+    Main.M36.bHardwareEnable := TRUE;
+    Main.M36.bPowerSelf := TRUE;
+    Main.M36.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+//	Main.M36.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+//	Main.M36.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
     bInit := True;
 END_IF]]></ST>
