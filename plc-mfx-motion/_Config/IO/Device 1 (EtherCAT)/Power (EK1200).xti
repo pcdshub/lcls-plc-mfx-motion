@@ -13836,7 +13836,7 @@
 					</EtherCAT>
 				</Box>
 				<Box BoxType="9099" BoxFlags="#x00000020" Id="91">
-					<Name>Term 91 (EL7041)</Name>
+					<Name>MFX-SPEC2-EL7041-E13</Name>
 					<ImageId>1003</ImageId>
 					<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b813052" RevisionNo="#x00190000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7041 1Ch. Stepper motor output stage (50V, 5A)" Desc="EL7041" PortABoxInfo="#x0100005a">
 						<SyncMan>001080002600010001000000400080008000001026010000</SyncMan>
@@ -15530,7 +15530,7 @@
 					</EtherCAT>
 				</Box>
 				<Box BoxType="9099" BoxFlags="#x00000020" Id="93">
-					<Name>Term 93 (EL7041)</Name>
+					<Name>MFX-SPEC2-EL7041-E15</Name>
 					<ImageId>1003</ImageId>
 					<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b813052" RevisionNo="#x00190000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7041 1Ch. Stepper motor output stage (50V, 5A)" Desc="EL7041" PortABoxInfo="#x0100005c">
 						<SyncMan>001080002600010001000000400080008000001026010000</SyncMan>
@@ -17224,7 +17224,7 @@
 					</EtherCAT>
 				</Box>
 				<Box BoxType="9099" Id="95">
-					<Name>MFX-SPEC-EL1088-E17</Name>
+					<Name>MFX-SPEC2-EL1088-E17</Name>
 					<ImageId>7</ImageId>
 					<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04403052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1088 8Ch. Dig. Input 24V, 3ms, negative" Desc="EL1088" PortABoxInfo="#x0100005e">
 						<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
@@ -17272,7 +17272,7 @@
 					</EtherCAT>
 				</Box>
 				<Box BoxType="9099" Id="96">
-					<Name>Term 96 (EL2004)</Name>
+					<Name>MFX-SPEC2-EL2004-E18</Name>
 					<ImageId>1008</ImageId>
 					<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x07d43052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2004 4Ch. Dig. Output 24V, 0.5A" Desc="EL2004" PortABoxInfo="#x0100005f">
 						<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
@@ -17300,7 +17300,7 @@
 					</EtherCAT>
 				</Box>
 				<Box BoxType="9099" BoxFlags="#x00000020" Id="97">
-					<Name>Term 97 (EL7041)</Name>
+					<Name>MFX-SPEC2-EL7041-E19</Name>
 					<ImageId>1003</ImageId>
 					<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b813052" RevisionNo="#x00190000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7041 1Ch. Stepper motor output stage (50V, 5A)" Desc="EL7041" PortABoxInfo="#x01000060">
 						<SyncMan>001080002600010001000000400080008000001026010000</SyncMan>
@@ -18035,7 +18035,7 @@
 					</EtherCAT>
 				</Box>
 				<Box BoxType="9099" BoxFlags="#x00000020" Id="99">
-					<Name>MFX-SPEC-EL7041-E21</Name>
+					<Name>MFX-SPEC2-EL7041-E21</Name>
 					<ImageId>1003</ImageId>
 					<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b813052" RevisionNo="#x00190000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7041 1Ch. Stepper motor output stage (50V, 5A)" Desc="EL7041" PortABoxInfo="#x01000062">
 						<SyncMan>001080002600010001000000400080008000001026010000</SyncMan>
