@@ -14263,7 +14263,7 @@
 					</EtherCAT>
 				</Box>
 				<Box BoxType="9099" BoxFlags="#x00000020" Id="92">
-					<Name>Term 92 (EL5112)</Name>
+					<Name>MFX-SPEC2-EL5112-E14</Name>
 					<ImageId>1007</ImageId>
 					<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x13f83052" RevisionNo="#x00100000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" SdoUploadWithMaxLength="true" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL5112 2Ch. Inc. Encoder 5V (2xAB or 1xABC RS422,TTL)" Desc="EL5112" PortABoxInfo="#x0100005b">
 						<SyncMan>001080002600010001000000800000018000001026010000</SyncMan>
@@ -15794,7 +15794,7 @@
 							<Entry Name="Control__Enable latch C" Index="#x7000" Sub="#x01">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Control__Enable latch extern on positive edge" Index="#x7000" Sub="#x02">
+							<Entry Name="Control__Enable latch extern on positive edge" Index="#x7000" Sub="#x02" Flags="#x00008020">
 								<Type>BIT</Type>
 							</Entry>
 							<Entry Name="Control__Set counter" Index="#x7000" Sub="#x03">
