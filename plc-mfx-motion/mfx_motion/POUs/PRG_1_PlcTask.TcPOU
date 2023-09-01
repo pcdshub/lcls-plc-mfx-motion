@@ -9,6 +9,7 @@ END_VAR
       <ST><![CDATA[PRG_LIB();
 PRG_ATM();
 PRG_LJ();
+PRG_SPEC();
 PRG_4_LOG();
 ]]></ST>
     </Implementation>

@@ -77,6 +77,128 @@ VAR_GLOBAL
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E12]^Channel 7^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E12]^Channel 8^Input'}
     M14: DUT_MotionStage := (sName := 'MFX:LJH:SS:BOT_Y');
+
+
+    // SPEC-: 22 Axes
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C1:X'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E4]^Channel 1^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E4]^Channel 2^Input'}
+    M15: DUT_MotionStage := (sName := 'MFX:SPEC:C1:X');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C1:ROT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E4]^Channel 3^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E4]^Channel 4^Input'}
+    M16: DUT_MotionStage := (sName := 'MFX:SPEC:C1:ROT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C1:TILT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E4]^Channel 5^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E4]^Channel 6^Input'}
+    M17: DUT_MotionStage := (sName := 'MFX:SPEC:C1:TILT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C2:X'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E4]^Channel 7^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E4]^Channel 8^Input'}
+    M18: DUT_MotionStage := (sName := 'MFX:SPEC:C2:X');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C2:ROT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E11]^Channel 1^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E11]^Channel 2^Input'}
+    M19: DUT_MotionStage := (sName := 'MFX:SPEC:C2:ROT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C2:TILT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E11]^Channel 3^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E11]^Channel 4^Input'}
+    M20: DUT_MotionStage := (sName := 'MFX:SPEC:C2:TILT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C3:X'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E11]^Channel 5^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E11]^Channel 6^Input;
+                              .bHome := TIIB[MFX-SPEC1-EL1088-E11]^Channel 7^Input'}
+    M21: DUT_MotionStage := (sName := 'MFX:SPEC:C3:X');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C3:ROT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E17]^Channel 1^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E17]^Channel 2^Input;
+                              .bHome := TIIB[MFX-SPEC1-EL1088-E11]^Channel 8^Input'}
+    M22: DUT_MotionStage := (sName := 'MFX:SPEC:C3:ROT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C3:TILT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E17]^Channel 3^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E17]^Channel 4^Input;
+                              .bHome := TIIB[MFX-SPEC1-EL1088-E17]^Channel 5^Input'}
+    M23: DUT_MotionStage := (sName := 'MFX:SPEC:C3:TILT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C4:X'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E17]^Channel 6^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E17]^Channel 7^Input;
+                              .bHome := TIIB[MFX-SPEC1-EL1088-E17]^Channel 8^Input'}
+    M24: DUT_MotionStage := (sName := 'MFX:SPEC:C4:X');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C4:ROT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E21]^Channel 1^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E21]^Channel 2^Input;
+                              .bHome := TIIB[MFX-SPEC1-EL1088-E21]^Channel 3^Input'}
+    M25: DUT_MotionStage := (sName := 'MFX:SPEC:C4:ROT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C4:TILT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC1-EL1088-E21]^Channel 4^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC1-EL1088-E21]^Channel 5^Input;
+                              .bHome := TIIB[MFX-SPEC1-EL1088-E21]^Channel 6^Input'}
+    M26: DUT_MotionStage := (sName := 'MFX:SPEC:C4:TILT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C5:X'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E4]^Channel 1^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E4]^Channel 2^Input'}
+    M27: DUT_MotionStage := (sName := 'MFX:SPEC:C5:X');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C5:ROT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E4]^Channel 3^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E4]^Channel 4^Input'}
+    M28: DUT_MotionStage := (sName := 'MFX:SPEC:C5:ROT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C5:TILT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E4]^Channel 5^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E4]^Channel 6^Input'}
+    M29: DUT_MotionStage := (sName := 'MFX:SPEC:C5:TILT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C6:X'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E4]^Channel 7^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E4]^Channel 8^Input'}
+    M30: DUT_MotionStage := (sName := 'MFX:SPEC:C6:X');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C6:ROT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E11]^Channel 1^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E11]^Channel 2^Input'}
+    M31: DUT_MotionStage := (sName := 'MFX:SPEC:C6:ROT');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:C6:TILT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E11]^Channel 3^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E11]^Channel 4^Input'}
+    M32: DUT_MotionStage := (sName := 'MFX:SPEC:C6:TILT');
+
+    // #######################################################################################
+    {attribute 'pytmc' := 'pv: MFX:SPEC:T1'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 1^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E17]^Channel 2^Input;
+                              .bBrakeRelease        := TIIB[MFX-SPEC2-EL2004-E18]^Channel 1^Output'}
+    M33: DUT_MotionStage := (sName := 'MFX:SPEC:T1');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:T2'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 3^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E17]^Channel 4^Input;
+                              .bBrakeRelease        := TIIB[MFX-SPEC2-EL2004-E18]^Channel 2^Output'}
+    M34: DUT_MotionStage := (sName := 'MFX:SPEC:T2');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:T3'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 5^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E17]^Channel 6^Input;
+                              .bBrakeRelease        := TIIB[MFX-SPEC2-EL2004-E18]^Channel 3^Output'}
+    M35: DUT_MotionStage := (sName := 'MFX:SPEC:T3');
+
+    {attribute 'pytmc' := 'pv: MFX:SPEC:ROT'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 7^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E17]^Channel 8^Input'}
+    M36: DUT_MotionStage := (sName := 'MFX:SPEC:ROT');
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
