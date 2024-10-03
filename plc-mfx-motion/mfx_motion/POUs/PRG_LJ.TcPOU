@@ -31,7 +31,7 @@ IF NOT bInit THEN // Easier to debug if you can write to these
     Main.M7.bPowerSelf := TRUE;
     Main.M7.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 //	Main.M7.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
-//    Main.M7.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+//  Main.M7.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
     Main.M8.bHardwareEnable := TRUE;
     Main.M8.bPowerSelf := TRUE;
