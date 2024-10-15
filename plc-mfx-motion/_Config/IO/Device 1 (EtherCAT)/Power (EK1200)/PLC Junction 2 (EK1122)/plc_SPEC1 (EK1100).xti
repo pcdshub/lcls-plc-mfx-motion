@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.35" ClassName="CFlbTermDef" SubType="9099">
+	<ImageDatas>
+		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
+	</ImageDatas>
+	<Box Id="35" BoxType="9099">
+		<Name>__FILENAME__</Name>
+		<ImageId>1000</ImageId>
+		<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044c2c52" RevisionNo="#x00120000" PortPhys="305" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1100 EtherCAT Coupler (2A E-Bus)" Desc="EK1100"/>
+		<Box File="MFX-SPEC1-EL7031-E1.xti" Id="36">
+			<EtherCAT PortABoxInfo="#x01000023"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL5042-E2.xti" Id="37">
+			<EtherCAT PortABoxInfo="#x01000024"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E3.xti" Id="38">
+			<EtherCAT PortABoxInfo="#x01000025"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL1088-E4.xti" Id="40">
+			<EtherCAT PortABoxInfo="#x01000026"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E5.xti" Id="41">
+			<EtherCAT PortABoxInfo="#x01000028"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL5042-E6.xti" Id="42">
+			<EtherCAT PortABoxInfo="#x01000029"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E7.xti" Id="43">
+			<EtherCAT PortABoxInfo="#x0100002a"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E8.xti" Id="44">
+			<EtherCAT PortABoxInfo="#x0100002b"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL5042-E9.xti" Id="45">
+			<EtherCAT PortABoxInfo="#x0100002c"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E10.xti" Id="46">
+			<EtherCAT PortABoxInfo="#x0100002d"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL1088-E11.xti" Id="48">
+			<EtherCAT PortABoxInfo="#x0100002e"/>
+		</Box>
+		<Box File="Term 50 (EL9410).xti" Id="50">
+			<EtherCAT PortABoxInfo="#x01000030"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E13.xti" Id="59">
+			<EtherCAT PortABoxInfo="#x01000032"/>
+		</Box>
+		<Box File="Term 67 (EL5042).xti" Id="67">
+			<EtherCAT PortABoxInfo="#x0100003b"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E15.xti" Id="68">
+			<EtherCAT PortABoxInfo="#x01000043"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E16.xti" Id="70">
+			<EtherCAT PortABoxInfo="#x01000044"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL1088-E17.xti" Id="71">
+			<EtherCAT PortABoxInfo="#x01000046"/>
+		</Box>
+		<Box File="Term 72 (EL5042).xti" Id="72">
+			<EtherCAT PortABoxInfo="#x01000047"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E19.xti" Id="73">
+			<EtherCAT PortABoxInfo="#x01000048"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E20.xti" Id="74">
+			<EtherCAT PortABoxInfo="#x01000049"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL1088-E21.xti" Id="75">
+			<EtherCAT PortABoxInfo="#x0100004a"/>
+		</Box>
+		<Box File="Term 76 (EL5042).xti" Id="76">
+			<EtherCAT PortABoxInfo="#x0100004b"/>
+		</Box>
+		<Box File="MFX-SPEC1-EL7031-E23.xti" Id="77">
+			<EtherCAT PortABoxInfo="#x0100004c"/>
+		</Box>
+		<Box File="Term 60 (EL9011).xti" Id="102">
+			<EtherCAT PortABoxInfo="#x0100004d"/>
+		</Box>
+	</Box>
+</TcSmItem>
