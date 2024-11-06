@@ -3169,7 +3169,7 @@ External Setpoint Generation:
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
-					<PosDiffControl Range="0.06"/>
+					<PosDiffControl Range="0.2"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -3503,7 +3503,7 @@ External Setpoint Generation:
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
-					<PosDiffControl Range="0.06"/>
+					<PosDiffControl Range="0.2"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -3529,11 +3529,11 @@ External Setpoint Generation:
 			<AxisPara>
 				<Dynamic AccelerationMaximum="100" DecelerationMaximum="100" Acceleration="100" Deceleration="100" Jerk="70.8615"/>
 				<Velo RefSearch="0.1" RefSync="0.1" SlowManual="0.05" FastManual="0.1" Maximum="1"/>
-				<TargetPosControl Range="0.001" Time="0.004"/>
+				<TargetPosControl Range="0.01"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="4">
-				<EncPara Inverse="true" MaxCount="#x0000ffff">
+				<EncPara ScaleFactorNumerator="5e-05" Inverse="true" MaxCount="#x0000ffff">
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 				</EncPara>
 				<Vars VarGrpType="1">
@@ -3670,7 +3670,7 @@ External Setpoint Generation:
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
-					<PosDiffControl Range="0.06"/>
+					<PosDiffControl Range="0.2"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
