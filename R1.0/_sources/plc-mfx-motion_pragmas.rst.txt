@@ -1,0 +1,21 @@
+
+Pragmas
+-------
+
+.. csv-table::
+    :header: PLC Name, Total Pragmas, Errors
+    :align: center
+
+    :ref:`mfx_motion <mfx_motion_overview_pragmas>`, 86, 0
+
+
+.. _mfx_motion_overview_pragmas:
+
+
+mfx_motion
+^^^^^^^^^^
+
+Total pragmas found: 86
+Total linter errors: 0
+
+
