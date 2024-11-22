@@ -2734,7 +2734,7 @@ External Setpoint Generation:
 			<Name>Axis 1 MFX-ATM-MMS-Y</Name>
 			<AxisPara>
 				<Dynamic AccelerationMaximum="200" DecelerationMaximum="200" Acceleration="10" Deceleration="10" Jerk="500" DelayTime="0.004"/>
-				<Velo Maximum="20"/>
+				<Velo Maximum="5"/>
 				<OtherSettings AllowMotionCmdToSlave="true"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
@@ -2780,7 +2780,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog VeloReferenz="100" ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="50" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -2855,7 +2855,7 @@ External Setpoint Generation:
 			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
 					<PosDiffControl Range="1"/>
-					<PID PosKp="20" PosExtKp="1" PosExtVelo="0.1" DeadBandPosition="0.002"/>
+					<PID PosExtKp="1" PosExtVelo="0.1" DeadBandPosition="0.002"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
