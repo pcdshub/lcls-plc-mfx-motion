@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
   <POU Name="PRG_SPEC" Id="{a6a98e04-faf0-4b13-b27f-19dd2ce897a4}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SPEC
 VAR
@@ -28,6 +28,12 @@ VAR
 
     // Only do some of the puts on init
     bInit: BOOL := FALSE;
+
+    {attribute 'pytmc' := '
+        pv: MFX:SPEC:HOLDCUREN
+        io: io
+    '}
+    bHoldingCurrentEnable : BOOL := FALSE;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -188,7 +194,46 @@ IF NOT bInit THEN // Easier to debug if you can write to these
 //	Main.M36.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
     bInit := True;
-END_IF]]></ST>
+END_IF
+
+IF bHoldingCurrentEnable THEN
+      Main.M15.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M16.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M17.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M18.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M19.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M20.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M21.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M22.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M23.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M24.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M25.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M26.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M27.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M28.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M29.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M30.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M31.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+      Main.M32.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+END_IF
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

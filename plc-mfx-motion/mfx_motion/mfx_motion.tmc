@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{70B455B7-36D9-FAD5-65ED-F8C9D633C5DC}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{7A2A3D77-64AD-3B0F-B004-9436D263D0D6}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name GUID="{18071995-0000-0000-0000-000000000041}" TcBaseType="true" HideSubItems="true" CName="AmsNetId">AMSNETID</Name>
@@ -56511,6 +56511,24 @@ ELSE:
             <BitOffs>634824344</BitOffs>
           </Symbol>
           <Symbol>
+            <Name>PRG_SPEC.bHoldingCurrentEnable</Name>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Default>
+              <Value>0</Value>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+		pv: MFX:SPEC:HOLDCUREN
+		io: io
+	</Value>
+              </Property>
+            </Properties>
+            <BitOffs>634826016</BitOffs>
+          </Symbol>
+          <Symbol>
             <Name>Constants.bLittleEndian</Name>
             <Comment> Does the target support multiple cores?</Comment>
             <BitSize>8</BitSize>
@@ -56523,7 +56541,7 @@ ELSE:
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>634826024</BitOffs>
+            <BitOffs>634826032</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Constants.bSimulationMode</Name>
@@ -56532,21 +56550,6 @@ ELSE:
             <BaseType>BOOL</BaseType>
             <Default>
               <Value>0</Value>
-            </Default>
-            <Properties>
-              <Property>
-                <Name>TcVarGlobal</Name>
-              </Property>
-            </Properties>
-            <BitOffs>634826032</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>Constants.bFPUSupport</Name>
-            <Comment> Does the target support multiple cores?</Comment>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <Default>
-              <Value>1</Value>
             </Default>
             <Properties>
               <Property>
@@ -56800,12 +56803,12 @@ ELSE:
             <BitOffs>644675520</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>Constants.RuntimeVersionNumeric</Name>
+            <Name>Constants.bFPUSupport</Name>
             <Comment> Does the target support multiple cores?</Comment>
-            <BitSize>32</BitSize>
-            <BaseType>DWORD</BaseType>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
             <Default>
-              <Value>50662656</Value>
+              <Value>1</Value>
             </Default>
             <Properties>
               <Property>
@@ -56813,6 +56816,20 @@ ELSE:
               </Property>
             </Properties>
             <BitOffs>650463392</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>Constants.bMulticoreSupport</Name>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Default>
+              <Value>0</Value>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>650463400</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1</Name>
@@ -57869,12 +57886,12 @@ ELSE:
             <BitOffs>652192896</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>Constants.CompilerVersionNumeric</Name>
+            <Name>Constants.RuntimeVersionNumeric</Name>
             <Comment> Does the target support multiple cores?</Comment>
             <BitSize>32</BitSize>
             <BaseType>DWORD</BaseType>
             <Default>
-              <Value>50662696</Value>
+              <Value>50662656</Value>
             </Default>
             <Properties>
               <Property>
@@ -57884,11 +57901,12 @@ ELSE:
             <BitOffs>652192960</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>Constants.bMulticoreSupport</Name>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
+            <Name>Constants.CompilerVersionNumeric</Name>
+            <Comment> Does the target support multiple cores?</Comment>
+            <BitSize>32</BitSize>
+            <BaseType>DWORD</BaseType>
             <Default>
-              <Value>0</Value>
+              <Value>50662696</Value>
             </Default>
             <Properties>
               <Property>
@@ -58510,7 +58528,7 @@ ELSE:
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2024-11-06T15:32:27</Value>
+          <Value>2024-12-05T14:21:02</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>

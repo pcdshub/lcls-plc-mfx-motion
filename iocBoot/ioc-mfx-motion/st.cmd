@@ -1,16 +1,15 @@
-#!/reg/g/pcds/epics/ioc/common/ads-ioc/R0.6.0/bin/rhel7-x86_64/adsIoc
+#!c:/Repos/ads-ioc/R0.6.1///bin/rhel7-x86_64/adsIoc
 ################### AUTO-GENERATED DO NOT EDIT ###################
 #
 #         Project: plc-mfx-motion.tsproj
 #        PLC name: mfx_motion (mfx_motion Instance)
-# Generated using: pytmc 2.14.1
-# Project version: ee2321e
-#    Project hash: ee2321eb66c863573aa164b2b8caff112fa3d463
+# Generated using: pytmc 2.15.2.dev0+g73bd2d9.d20230727
+# Project version: unknown
+#    Project hash: unknown
 #     PLC IP/host: 172.21.72.167
 #      PLC Net ID: 172.21.72.167.1.1
-# ** DEVELOPMENT MODE IOC **
-# * Using IOC boot directory for autosave.
-# * Archiver settings will not be configured.
+#  ** Production mode IOC **
+#  Using /cds/data/iocData for autosave and archiver settings.
 #
 # Libraries:
 #
@@ -29,10 +28,13 @@
 
 epicsEnvSet("ADS_IOC_TOP", "$(TOP)" )
 
-epicsEnvSet("ENGINEER", "espov" )
-epicsEnvSet("LOCATION", "PLC:MFX_MOTION" )
+epicsEnvSet("ENGINEER", "" )
+epicsEnvSet("LOCATION", "PLC:MFX:MOTION" )
 epicsEnvSet("IOCSH_PS1", "$(IOC)> " )
 epicsEnvSet("ACF_FILE", "$(ADS_IOC_TOP)/iocBoot/templates/unrestricted.acf")
+
+# Run common startup commands for linux soft IOC's
+< /reg/d/iocCommon/All/pre_linux.cmd
 
 # Register all support components
 dbLoadDatabase("$(ADS_IOC_TOP)/dbd/adsIoc.dbd")
@@ -42,14 +44,14 @@ epicsEnvSet("ASYN_PORT",        "ASYN_PLC")
 epicsEnvSet("IPADDR",           "172.21.72.167")
 epicsEnvSet("AMSID",            "172.21.72.167.1.1")
 epicsEnvSet("AMS_PORT",         "851")
-epicsEnvSet("ADS_MAX_PARAMS",   "1881")
+epicsEnvSet("ADS_MAX_PARAMS",   "3049")
 epicsEnvSet("ADS_SAMPLE_MS",    "50")
 epicsEnvSet("ADS_MAX_DELAY_MS", "100")
 epicsEnvSet("ADS_TIMEOUT_MS",   "1000")
 epicsEnvSet("ADS_TIME_SOURCE",  "0")
 
 # Add a route to the PLC automatically:
-system("${ADS_IOC_TOP}/scripts/add_route.sh 172.21.72.167 ^172.*")
+system("${ADS_IOC_TOP}/scripts/add_route.sh 172.21.72.167 ^172.*$")
 
 # adsAsynPortDriverConfigure(portName, ipaddr, amsaddr, amsport,
 #    asynParamTableSize, priority, noAutoConnect, defaultSampleTimeMS,
@@ -80,8 +82,8 @@ cd "$(ADS_IOC_TOP)/db"
 
 
 epicsEnvSet("MOTOR_PORT",     "PLC_ADS")
-epicsEnvSet("PREFIX",         "PLC:MFX_MOTION:")
-epicsEnvSet("NUMAXES",        "14")
+epicsEnvSet("PREFIX",         "PLC:MFX:MOTION:")
+epicsEnvSet("NUMAXES",        "36")
 epicsEnvSet("MOVE_POLL_RATE", "200")
 epicsEnvSet("IDLE_POLL_RATE", "1000")
 
@@ -322,59 +324,396 @@ dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR
 dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
 dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
 
+epicsEnvSet("AXIS_NO",         "15")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C1:")
+epicsEnvSet("MOTOR_NAME",      "X")
+epicsEnvSet("DESC",            "Main.M15 / Axis 15 MFX-SPEC-C1-X")
+epicsEnvSet("EGU",             "mm")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
 
-dbLoadRecords("iocSoft.db", "IOC=PLC:MFX_MOTION")
-dbLoadRecords("save_restoreStatus.db", "P=PLC:MFX_MOTION:")
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "16")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C1:")
+epicsEnvSet("MOTOR_NAME",      "ROT")
+epicsEnvSet("DESC",            "Main.M16 / Axis 16 MFX-SPEC-C1-ROT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "17")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C1:")
+epicsEnvSet("MOTOR_NAME",      "TILT")
+epicsEnvSet("DESC",            "Main.M17 / Axis 17 MFX-SPEC-C1-TILT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "18")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C2:")
+epicsEnvSet("MOTOR_NAME",      "X")
+epicsEnvSet("DESC",            "Main.M18 / Axis 18 MFX-SPEC-C2-X")
+epicsEnvSet("EGU",             "mm")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "19")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C2:")
+epicsEnvSet("MOTOR_NAME",      "ROT")
+epicsEnvSet("DESC",            "Main.M19 / Axis 19 MFX-SPEC-C2-ROT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "20")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C2:")
+epicsEnvSet("MOTOR_NAME",      "TILT")
+epicsEnvSet("DESC",            "Main.M20 / Axis 20 MFX-SPEC-C2-TILT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "21")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C3:")
+epicsEnvSet("MOTOR_NAME",      "X")
+epicsEnvSet("DESC",            "Main.M21 / Axis 21 MFX-SPEC-C3-X")
+epicsEnvSet("EGU",             "mm")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "22")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C3:")
+epicsEnvSet("MOTOR_NAME",      "ROT")
+epicsEnvSet("DESC",            "Main.M22 / Axis 22 MFX-SPEC-C3-ROT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "23")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C3:")
+epicsEnvSet("MOTOR_NAME",      "TILT")
+epicsEnvSet("DESC",            "Main.M23 / Axis 23 MFX-SPEC-C3-TILT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "24")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C4:")
+epicsEnvSet("MOTOR_NAME",      "X")
+epicsEnvSet("DESC",            "Main.M24 / Axis 24 MFX-SPEC-C4-X")
+epicsEnvSet("EGU",             "mm")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "25")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C4:")
+epicsEnvSet("MOTOR_NAME",      "ROT")
+epicsEnvSet("DESC",            "Main.M25 / Axis 25 MFX-SPEC-C4-ROT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "26")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C4:")
+epicsEnvSet("MOTOR_NAME",      "TILT")
+epicsEnvSet("DESC",            "Main.M26 / Axis 26 MFX-SPEC-C4-TILT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "27")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C5:")
+epicsEnvSet("MOTOR_NAME",      "X")
+epicsEnvSet("DESC",            "Main.M27 / Axis 27 MFX-SPEC-C5-X")
+epicsEnvSet("EGU",             "mm")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "28")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C5:")
+epicsEnvSet("MOTOR_NAME",      "ROT")
+epicsEnvSet("DESC",            "Main.M28 / Axis 28 MFX-SPEC-C5-ROT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "29")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C5:")
+epicsEnvSet("MOTOR_NAME",      "TILT")
+epicsEnvSet("DESC",            "Main.M29 / Axis 29 MFX-SPEC-C5-TILT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "30")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C6:")
+epicsEnvSet("MOTOR_NAME",      "X")
+epicsEnvSet("DESC",            "Main.M30 / Axis 30 MFX-SPEC-C6-X")
+epicsEnvSet("EGU",             "mm")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "31")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C6:")
+epicsEnvSet("MOTOR_NAME",      "ROT")
+epicsEnvSet("DESC",            "Main.M31 / Axis 31 MFX-SPEC-C6-ROT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "32")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:C6:")
+epicsEnvSet("MOTOR_NAME",      "TILT")
+epicsEnvSet("DESC",            "Main.M32 / Axis 32 MFX-SPEC-C6-TILT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "33")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:")
+epicsEnvSet("MOTOR_NAME",      "T1")
+epicsEnvSet("DESC",            "Main.M33 / Axis 33 MFX-SPEC-T1")
+epicsEnvSet("EGU",             "mm")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "34")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:")
+epicsEnvSet("MOTOR_NAME",      "T2")
+epicsEnvSet("DESC",            "Main.M34 / Axis 34 MFX-SPEC-T2")
+epicsEnvSet("EGU",             "mm")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "35")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:")
+epicsEnvSet("MOTOR_NAME",      "T3")
+epicsEnvSet("DESC",            "Main.M35 / Axis 35 MFX-SPEC-T3")
+epicsEnvSet("EGU",             "mm")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+epicsEnvSet("AXIS_NO",         "36")
+epicsEnvSet("MOTOR_PREFIX",    "MFX:SPEC:")
+epicsEnvSet("MOTOR_NAME",      "ROT")
+epicsEnvSet("DESC",            "Main.M36 / Axis 36 MFX-SPEC-ROT")
+epicsEnvSet("EGU",             "Degree")
+epicsEnvSet("PREC",            "3")
+epicsEnvSet("AXISCONFIG",      "")
+epicsEnvSet("ECAXISFIELDINIT", "")
+epicsEnvSet("AMPLIFIER_FLAGS", "")
+
+EthercatMCCreateAxis("$(MOTOR_PORT)", "$(AXIS_NO)", "$(AMPLIFIER_FLAGS)", "$(AXISCONFIG)")
+dbLoadRecords("EthercatMC.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC), EGU=$(EGU) $(ECAXISFIELDINIT)")
+dbLoadRecords("EthercatMCreadback.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), R=$(MOTOR_NAME)-, MOTOR_PORT=$(MOTOR_PORT), ASYN_PORT=$(ASYN_PORT), AXIS_NO=$(AXIS_NO), DESC=$(DESC), PREC=$(PREC) ")
+dbLoadRecords("EthercatMCdebug.template", "PREFIX=$(MOTOR_PREFIX), MOTOR_NAME=$(MOTOR_NAME), MOTOR_PORT=$(MOTOR_PORT), AXIS_NO=$(AXIS_NO), PREC=3")
+
+
+dbLoadRecords("iocSoft.db", "IOC=PLC:MFX:MOTION")
+dbLoadRecords("save_restoreStatus.db", "P=PLC:MFX:MOTION:")
 dbLoadRecords("caPutLog.db", "IOC=$(IOC)")
 
 ## TwinCAT task, application, and project information databases ##
-dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:MFX_MOTION,IDX=1")
-dbLoadRecords("TwinCAT_AppInfo.db", "PORT=$(ASYN_PORT), PREFIX=PLC:MFX_MOTION")
+dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:MFX:MOTION,IDX=1")
+dbLoadRecords("TwinCAT_AppInfo.db", "PORT=$(ASYN_PORT), PREFIX=PLC:MFX:MOTION")
 
-dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:MFX_MOTION,PROJECT=plc-mfx-motion.tsproj,HASH=ee2321e,VERSION=ee2321e,PYTMC=2.14.1,PLC_HOST=172.21.72.167")
+dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:MFX:MOTION,PROJECT=plc-mfx-motion.tsproj,HASH=unknown,VERSION=unknown,PYTMC=2.15.2.dev0+g73bd2d9.d20230727,PLC_HOST=172.21.72.167")
 
 #   LCLS General: * -> 2.8.0 (SLAC)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=LCLS_General,VERSION=2.8.0,VENDOR=SLAC")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX:MOTION,DEPENDENCY=LCLS_General,VERSION=2.8.0,VENDOR=SLAC")
 #   lcls-twincat-motion: * -> 1.8.0 (SLAC)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=lcls-twincat-motion,VERSION=1.8.0,VENDOR=SLAC")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX:MOTION,DEPENDENCY=lcls-twincat-motion,VERSION=1.8.0,VENDOR=SLAC")
 #   lcls2-cc-lib: * -> 1.1.3 (SLAC)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=lcls2-cc-lib,VERSION=1.1.3,VENDOR=SLAC")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX:MOTION,DEPENDENCY=lcls2-cc-lib,VERSION=1.1.3,VENDOR=SLAC")
 #   PMPS: * -> 2.2.3 (SLAC - LCLS)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=PMPS,VERSION=2.2.3,VENDOR=SLAC - LCLS")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX:MOTION,DEPENDENCY=PMPS,VERSION=2.2.3,VENDOR=SLAC - LCLS")
 #   Tc2_MC2: * -> 3.3.48.0 (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=Tc2_MC2,VERSION=3.3.48.0,VENDOR=Beckhoff Automation GmbH")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX:MOTION,DEPENDENCY=Tc2_MC2,VERSION=3.3.48.0,VENDOR=Beckhoff Automation GmbH")
 #   Tc2_SerialCom: * -> 3.3.10.0 (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=Tc2_SerialCom,VERSION=3.3.10.0,VENDOR=Beckhoff Automation GmbH")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX:MOTION,DEPENDENCY=Tc2_SerialCom,VERSION=3.3.10.0,VENDOR=Beckhoff Automation GmbH")
 #   Tc2_Standard: * -> 3.3.3.0 (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=Tc2_Standard,VERSION=3.3.3.0,VENDOR=Beckhoff Automation GmbH")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX:MOTION,DEPENDENCY=Tc2_Standard,VERSION=3.3.3.0,VENDOR=Beckhoff Automation GmbH")
 #   Tc2_System: * -> 3.4.26.0 (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=Tc2_System,VERSION=3.4.26.0,VENDOR=Beckhoff Automation GmbH")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX:MOTION,DEPENDENCY=Tc2_System,VERSION=3.4.26.0,VENDOR=Beckhoff Automation GmbH")
 #   Tc3_Module: * -> 3.3.21.0 (Beckhoff Automation GmbH)
-dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX_MOTION,DEPENDENCY=Tc3_Module,VERSION=3.3.21.0,VENDOR=Beckhoff Automation GmbH")
+dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:MFX:MOTION,DEPENDENCY=Tc3_Module,VERSION=3.3.21.0,VENDOR=Beckhoff Automation GmbH")
 
 cd "$(IOC_TOP)"
 
 ## PLC Project Database files ##
-dbLoadRecords("mfx_motion.db", "PORT=$(ASYN_PORT),PREFIX=PLC:MFX_MOTION:,IOCNAME=$(IOC),IOC=$(IOC)")
+dbLoadRecords("mfx_motion.db", "PORT=$(ASYN_PORT),PREFIX=PLC:MFX:MOTION:,IOCNAME=$(IOC),IOC=$(IOC)")
 
-# Total records: 881
-callbackSetQueueSize(3762)
+# Total records: 2049
+callbackSetQueueSize(6098)
 
 # Autosave and archive settings:
-save_restoreSet_status_prefix("PLC:MFX_MOTION:")
+save_restoreSet_status_prefix("PLC:MFX:MOTION:")
 save_restoreSet_IncompleteSetsOk(1)
 save_restoreSet_DatedBackupFiles(1)
 set_pass0_restoreFile("info_positions.sav")
 set_pass1_restoreFile("info_settings.sav")
 
-# ** Development IOC Settings **
-# Development IOC autosave and archive files go in the IOC top directory:
-cd "$(IOC_TOP)"
+# ** Production IOC Settings **
+set_savefile_path("$(IOC_DATA)/$(IOC)/autosave")
+set_requestfile_path("$(IOC_DATA)/$(IOC)/autosave")
 
-# (Development mode) Create info_positions.req and info_settings.req
+# Production IOC autosave files go in iocData:
+cd "$(IOC_DATA)/$(IOC)/autosave"
+
+# Create info_positions.req and info_settings.req
 makeAutosaveFiles()
-# (Development mode) Create the archiver file
+
+cd "$(IOC_DATA)/$(IOC)/archive"
+
+# Create $(IOC).archive
 makeArchiveFromDbInfo("$(IOC).archive", "archive")
+cd "$(IOC_TOP)"
 
 # Configure access security: this is required for caPutLog.
 asSetFilename("$(ACF_FILE)")
@@ -399,4 +738,7 @@ caPutLogInit("$(EPICS_CAPUTLOG_HOST):$(EPICS_CAPUTLOG_PORT)", 0)
 # Start autosave backups
 create_monitor_set( "info_positions.req", 10, "" )
 create_monitor_set( "info_settings.req", 60, "" )
+
+# All IOCs should dump some common info after initial startup.
+< /reg/d/iocCommon/All/post_linux.cmd
 
