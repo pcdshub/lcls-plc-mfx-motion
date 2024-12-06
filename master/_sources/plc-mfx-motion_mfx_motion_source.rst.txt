@@ -51,35 +51,45 @@ Main
         //                          .bLimitBackwardEnable := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 2;
         //                          .bBrakeRelease        := TIIB[MFX-ATM-EL2004-E4]^Channel 1^Output;
         //                          .nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 1^Position'}
+
         {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 2;
                                   .nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 1^Position'}
         M1: DUT_MotionStage := (sName := 'MFX:ATM:MMS:Y');
+
         {attribute 'pytmc' := 'pv: MFX:ATM:MMS:X'}
         {attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 2^Position'}
         M2: DUT_MotionStage := (sName := 'MFX:ATM:MMS:X');
 
 
-        // LIB-: 4 Axes
+        // LIB-: 5 Axes
         {attribute 'pytmc' := 'pv: MFX:LIB:MMS:01'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 1^Input;
                                   .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 2^Input'}
         M3: DUT_MotionStage := (sName := 'MFX:LIB:MMS:01');
+
         {attribute 'pytmc' := 'pv: MFX:LIB:MMS:02'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 3^Input;
                                   .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 4^Input'}
         M4: DUT_MotionStage := (sName := 'MFX:LIB:MMS:02');
+
         {attribute 'pytmc' := 'pv: MFX:LIB:MMS:03'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 5^Input;
                                   .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 6^Input'}
         M5: DUT_MotionStage := (sName := 'MFX:LIB:MMS:03');
+
         {attribute 'pytmc' := 'pv: MFX:LIB:MMS:04'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 7^Input;
                                   .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 8^Input'}
         M6: DUT_MotionStage := (sName := 'MFX:LIB:MMS:04');
 
-        // LJ-: 8 Axes
+        {attribute 'pytmc' := 'pv: MFX:LIB:MMS:05'}
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E12]^Channel 1^Input;
+                                  .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E12]^Channel 2^Input'}
+        M37: DUT_MotionStage := (sName := 'MFX:LIB:MMS:05');
 
+
+        // LJ-: 8 Axes
         {attribute 'pytmc' := 'pv: MFX:LJH:JET:X'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E3]^Channel 2^Input;
                                   .bLimitBackwardEnable := TIIB[MFX-LJ-EL1088-E3]^Channel 1^Input'}
@@ -220,8 +230,8 @@ Main
 
         // #######################################################################################
         {attribute 'pytmc' := 'pv: MFX:SPEC:T1'}
-        {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 1^Input;
-                                  .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E17]^Channel 2^Input;
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 2^Input;
+                                  .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E17]^Channel 1^Input;
                                   .bBrakeRelease        := TIIB[MFX-SPEC2-EL2004-E18]^Channel 1^Output'}
         M33: DUT_MotionStage := (sName := 'MFX:SPEC:T1');
 
@@ -597,6 +607,7 @@ PRG_LIB
         fbLIB_2: FB_MotionStage;
         fbLIB_3: FB_MotionStage;
         fbLIB_4: FB_MotionStage;
+    	fbLIB_5: FB_MotionStage;
 
         // Only do some of the puts on init
         bInit: BOOL := FALSE;
@@ -605,6 +616,7 @@ PRG_LIB
     fbLIB_2(stMotionStage:=Main.M4);
     fbLIB_3(stMotionStage:=Main.M5);
     fbLIB_4(stMotionStage:=Main.M6);
+    fbLIB_5(stMotionStage:=Main.M37);
 
     IF NOT bInit THEN // Easier to debug if you can write to these
         Main.M3.bHardwareEnable := TRUE;
@@ -630,6 +642,12 @@ PRG_LIB
         Main.M6.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
     //	Main.M6.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
     //    Main.M6.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+        Main.M37.bHardwareEnable := TRUE;
+        Main.M37.bPowerSelf := TRUE;
+        Main.M37.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    //	Main.M37.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
+    //    Main.M37.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
         bInit := True;
     END_IF
@@ -760,7 +778,68 @@ PRG_SPEC
 
         // Only do some of the puts on init
         bInit: BOOL := FALSE;
+
+        {attribute 'pytmc' := '
+            pv: MFX:SPEC:HOLDCUREN
+            io: io
+        '}
+        bHoldingCurrentEnable : BOOL := FALSE;
+
+        tonDelay : TON;
+        tonDelay2 : TON;
+        bDisableStateMachine : BOOL;
+        nState : (WaitForStart, DelayBeforeBrakeRelease, DelayBeforeMove, WaitForMoveEnd, Error);
     END_VAR
+    IF NOT bDisableStateMachine THEN
+        CASE nState OF
+        WaitForStart:
+            IF Main.M33.bExecute AND NOT Main.M33.bError THEN
+                Main.M33.bExecute := FALSE;
+                Main.M33.bEnable := TRUE;
+                nState := DelayBeforeBrakeRelease;
+            ELSE
+                Main.M33.bEnable := FALSE;
+                Main.M33.bBrakeRelease := FALSE;
+            END_IF
+        DelayBeforeBrakeRelease:
+            tonDelay(
+                IN := TRUE,
+                PT := t#0.5s
+            );
+            IF tonDelay.Q THEN
+                IF Main.M33.bAllEnable THEN
+                    Main.M33.bBrakeRelease := TRUE;
+                END_IF
+                tonDelay(
+                    IN := FALSE
+                );
+                nState := DelayBeforeMove;
+            ELSIF Main.M33.bError THEN
+                nState := WaitForStart;
+            END_IF
+        DelayBeforeMove:
+            tonDelay2(
+                IN := TRUE,
+                PT := t#0.5s
+            );
+            IF tonDelay2.Q THEN
+                Main.M33.bExecute := TRUE;
+                tonDelay2(
+                    IN := FALSE
+                );
+                nState := WaitForMoveEnd;
+            ELSIF Main.M33.bError THEN
+                nState := WaitForStart;
+            END_IF
+        WaitForMoveEnd:
+            IF NOT Main.M33.bBusy THEN
+                nState := WaitForStart;
+            END_IF
+        Error:
+            nState := WaitForStart;
+        END_CASE
+    END_IF
+
     fbSPEC_C1_X(stMotionStage:=Main.M15);
     fbSPEC_C1_ROT(stMotionStage:=Main.M16);
     fbSPEC_C1_TILT(stMotionStage:=Main.M17);
@@ -895,7 +974,8 @@ PRG_SPEC
 
         Main.M33.bHardwareEnable := TRUE;
         Main.M33.bPowerSelf := TRUE;
-        Main.M33.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+        Main.M33.nEnableMode := ENUM_StageEnableMode.NEVER; // This just means we are handling ther enabling through custom logic.
+        Main.M33.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE; // This just means we are handling the braking through custom code.
     //	Main.M33.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
     //	Main.M33.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
@@ -918,6 +998,46 @@ PRG_SPEC
     //	Main.M36.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
         bInit := True;
+    END_IF
+
+    IF bHoldingCurrentEnable THEN
+          Main.M15.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M16.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M17.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M18.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M19.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M20.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M21.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M22.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M23.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M24.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M25.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M26.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M27.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M28.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M29.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M30.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M31.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+          Main.M32.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+    ELSE
+          Main.M15.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M16.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M17.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M18.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M19.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M20.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M21.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M22.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M23.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M24.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M25.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M26.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M27.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M28.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M29.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M30.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M31.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+          Main.M32.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
     END_IF
 
     END_PROGRAM
