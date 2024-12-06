@@ -843,6 +843,12 @@
 
     <span class="o">//</span> <span class="n">Only</span> <span class="n">do</span> <span class="n">some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">puts</span> <span class="n">on</span> <span class="n">init</span>
     <span class="n">bInit</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MFX</span><span class="p">:</span><span class="n">SPEC</span><span class="p">:</span><span class="n">HOLDCUREN</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">bHoldingCurrentEnable</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">fbSPEC_C1_X</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M15</span><span class="p">);</span>
 <span class="n">fbSPEC_C1_ROT</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M16</span><span class="p">);</span>
@@ -1001,6 +1007,44 @@
 <span class="o">//</span>  <span class="n">Main</span><span class="o">.</span><span class="n">M36</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
 
     <span class="n">bInit</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">IF</span> <span class="n">bHoldingCurrentEnable</span> <span class="n">THEN</span>
+      <span class="n">Main</span><span class="o">.</span><span class="n">M15</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M16</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M17</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M18</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M25</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M26</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M27</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M28</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M29</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M30</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M31</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+      <span class="n">Main</span><span class="o">.</span><span class="n">M32</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
 <span class="n">END_IF</span>
 
 <span class="n">END_PROGRAM</span>

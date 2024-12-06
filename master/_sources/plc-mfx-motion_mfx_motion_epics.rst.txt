@@ -30707,4 +30707,16 @@ Database Records
         | io: input
 
 
+    * - MFX:SPEC:HOLDCUREN_RBV
+      - bi
+      - PRG_SPEC.bHoldingCurrentEnable
+      - | io: output
+
+
+    * - MFX:SPEC:HOLDCUREN
+      - bo
+      - PRG_SPEC.bHoldingCurrentEnable
+      - | io: output
+
+
 

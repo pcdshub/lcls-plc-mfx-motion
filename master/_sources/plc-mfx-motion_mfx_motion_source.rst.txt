@@ -760,6 +760,12 @@ PRG_SPEC
 
         // Only do some of the puts on init
         bInit: BOOL := FALSE;
+
+        {attribute 'pytmc' := '
+            pv: MFX:SPEC:HOLDCUREN
+            io: io
+        '}
+        bHoldingCurrentEnable : BOOL := FALSE;
     END_VAR
     fbSPEC_C1_X(stMotionStage:=Main.M15);
     fbSPEC_C1_ROT(stMotionStage:=Main.M16);
@@ -918,6 +924,44 @@ PRG_SPEC
     //	Main.M36.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
         bInit := True;
+    END_IF
+
+    IF bHoldingCurrentEnable THEN
+          Main.M15.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M16.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M17.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M18.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M19.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M20.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M21.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M22.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M23.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M24.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M25.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M26.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M27.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M28.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M29.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M30.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M31.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+
+          Main.M32.nEnableMode := ENUM_StageEnableMode.ALWAYS;
     END_IF
 
     END_PROGRAM
