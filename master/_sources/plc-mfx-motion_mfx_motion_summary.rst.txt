@@ -24,7 +24,7 @@ Settings
 Pragmas
 -------
 
-Total pragmas found: 86
+Total pragmas found: 87
 Total linter errors: 0
 
 
@@ -78,16 +78,16 @@ Constants
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        Constants.bFPUSupport, BOOL, 634826040 (8)
-        Constants.bLittleEndian, BOOL, 634826024 (8)
-        Constants.bMulticoreSupport, BOOL, 652192992 (8)
-        Constants.bSimulationMode, BOOL, 634826032 (8)
+        Constants.bFPUSupport, BOOL, 650463392 (8)
+        Constants.bLittleEndian, BOOL, 634826032 (8)
+        Constants.bMulticoreSupport, BOOL, 650463400 (8)
+        Constants.bSimulationMode, BOOL, 634826040 (8)
         Constants.CompilerVersion, VERSION, 652192896 (64)
-        Constants.CompilerVersionNumeric, DWORD, 652192960 (32)
+        Constants.CompilerVersionNumeric, DWORD, 652192992 (32)
         Constants.nPackMode, UINT, 635689968 (16)
         Constants.nRegisterSize, WORD, 635689952 (16)
         Constants.RuntimeVersion, VERSION, 652192832 (64)
-        Constants.RuntimeVersionNumeric, DWORD, 650463392 (32)
+        Constants.RuntimeVersionNumeric, DWORD, 652192960 (32)
 
 
 DefaultGlobals
@@ -1152,12 +1152,13 @@ PRG_SPEC
 .. raw:: html
 
    <details>
-       <summary>67 Symbols</summary>
+       <summary>68 Symbols</summary>
 
 .. csv-table::
     :header: Symbol, Type, Offset/Size
     :align: center
 
+        PRG_SPEC.bHoldingCurrentEnable, BOOL, 634826016 (8)
         PRG_SPEC.bInit, BOOL, 634824344 (8)
         PRG_SPEC.fbSPEC_C1_ROT, FB_MotionStage, 638384512 (299392)
         PRG_SPEC.fbSPEC_C1_ROT.fbDriveVirtual.MasterAxis.NcToPlc, NCTOPLC_AXIS_REF, 638387008 (2048)
