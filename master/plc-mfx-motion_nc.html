@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NC Settings &mdash; pcdshub/lcls-plc-mfx-motion  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
       <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
@@ -16,7 +16,7 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
     <script src="_static/js/theme.js"></script>
@@ -85,6 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#axis-34-axis-34-mfx-spec-t2">Axis 34: Axis 34 MFX-SPEC-T2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#axis-35-axis-35-mfx-spec-t3">Axis 35: Axis 35 MFX-SPEC-T3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#axis-36-axis-36-mfx-spec-rot">Axis 36: Axis 36 MFX-SPEC-ROT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#axis-37-axis-37-mfx-lib-mms-05">Axis 37: Axis 37 MFX-LIB-MMS-05</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plc-mfx-motion_ethercat.html">EtherCAT Terminals</a></li>
@@ -244,6 +245,9 @@
 </tr>
 <tr class="row-odd"><td><p>36</p></td>
 <td><p>Axis 36 MFX-SPEC-ROT</p></td>
+</tr>
+<tr class="row-even"><td><p>37</p></td>
+<td><p>Axis 37 MFX-LIB-MMS-05</p></td>
 </tr>
 </tbody>
 </table>
@@ -1420,37 +1424,40 @@
 <tr class="row-even"><td><p>Enc:ScaleFactorNumerator</p></td>
 <td><p>5e-06</p></td>
 </tr>
-<tr class="row-odd"><td><p>Id</p></td>
+<tr class="row-odd"><td><p>GroupId</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td><p>Id</p></td>
 <td><p>15</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
+<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.5</p></td>
+<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.001</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:FastManual</p></td>
+<tr class="row-even"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:Maximum</p></td>
+<tr class="row-odd"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
+<tr class="row-even"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSync</p></td>
+<tr class="row-odd"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
+<tr class="row-even"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -1501,40 +1508,43 @@
 <tr class="row-odd"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>17</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>16</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>PEHControl:Time</p></td>
+<tr class="row-odd"><td><p>PEHControl:Time</p></td>
 <td><p>7</p></td>
 </tr>
-<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
+<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.05</p></td>
+<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.002</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:FastManual</p></td>
+<tr class="row-even"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:Maximum</p></td>
+<tr class="row-odd"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
+<tr class="row-even"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSync</p></td>
+<tr class="row-odd"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
+<tr class="row-even"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -1585,37 +1595,40 @@
 <tr class="row-odd"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>17</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>PEHControl:Time</p></td>
+<tr class="row-odd"><td><p>PEHControl:Time</p></td>
 <td><p>7</p></td>
 </tr>
-<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.01</p></td>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.001</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:FastManual</p></td>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:Maximum</p></td>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSearch</p></td>
+<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSync</p></td>
+<tr class="row-even"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:SlowManual</p></td>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -1663,37 +1676,40 @@
 <tr class="row-even"><td><p>Enc:ScaleFactorNumerator</p></td>
 <td><p>5e-06</p></td>
 </tr>
-<tr class="row-odd"><td><p>Id</p></td>
+<tr class="row-odd"><td><p>GroupId</p></td>
+<td><p>19</p></td>
+</tr>
+<tr class="row-even"><td><p>Id</p></td>
 <td><p>18</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
+<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.5</p></td>
+<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.002</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:FastManual</p></td>
+<tr class="row-even"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:Maximum</p></td>
+<tr class="row-odd"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
+<tr class="row-even"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSync</p></td>
+<tr class="row-odd"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
+<tr class="row-even"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -1744,37 +1760,40 @@
 <tr class="row-odd"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>19</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
+<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.05</p></td>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.002</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:FastManual</p></td>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:Maximum</p></td>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSearch</p></td>
+<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSync</p></td>
+<tr class="row-even"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:SlowManual</p></td>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -1822,17 +1841,23 @@
 <tr class="row-even"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-odd"><td><p>Id</p></td>
+<tr class="row-odd"><td><p>GroupId</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-even"><td><p>Id</p></td>
 <td><p>20</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.001</p></td>
 </tr>
 <tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
@@ -1910,7 +1935,7 @@
 <td><p>1</p></td>
 </tr>
 <tr class="row-even"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.5</p></td>
+<td><p>0.002</p></td>
 </tr>
 <tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
@@ -1975,37 +2000,40 @@
 <tr class="row-odd"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>23</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>22</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
+<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.05</p></td>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.002</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:FastManual</p></td>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:Maximum</p></td>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSearch</p></td>
+<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSync</p></td>
+<tr class="row-even"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:SlowManual</p></td>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -2056,17 +2084,23 @@
 <tr class="row-odd"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>24</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>23</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.001</p></td>
 </tr>
 <tr class="row-even"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
@@ -2144,7 +2178,7 @@
 <td><p>1</p></td>
 </tr>
 <tr class="row-even"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.05</p></td>
+<td><p>0.002</p></td>
 </tr>
 <tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
@@ -2209,37 +2243,40 @@
 <tr class="row-odd"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>26</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>25</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
+<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.05</p></td>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.002</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:FastManual</p></td>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:Maximum</p></td>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSearch</p></td>
+<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSync</p></td>
+<tr class="row-even"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:SlowManual</p></td>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -2290,17 +2327,23 @@
 <tr class="row-odd"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>27</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>26</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.001</p></td>
 </tr>
 <tr class="row-even"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
@@ -2378,7 +2421,7 @@
 <td><p>1</p></td>
 </tr>
 <tr class="row-even"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.5</p></td>
+<td><p>0.002</p></td>
 </tr>
 <tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
@@ -2443,37 +2486,40 @@
 <tr class="row-odd"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>29</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>28</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
+<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.05</p></td>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.002</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:FastManual</p></td>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:Maximum</p></td>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSearch</p></td>
+<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSync</p></td>
+<tr class="row-even"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:SlowManual</p></td>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -2524,17 +2570,23 @@
 <tr class="row-odd"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>29</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.001</p></td>
 </tr>
 <tr class="row-even"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
@@ -2612,7 +2664,7 @@
 <td><p>1</p></td>
 </tr>
 <tr class="row-even"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.01</p></td>
+<td><p>0.002</p></td>
 </tr>
 <tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
@@ -2677,37 +2729,40 @@
 <tr class="row-odd"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>32</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>31</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
+<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.05</p></td>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.002</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:FastManual</p></td>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:Maximum</p></td>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSearch</p></td>
+<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSync</p></td>
+<tr class="row-even"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:SlowManual</p></td>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -2761,34 +2816,37 @@
 <tr class="row-even"><td><p>General:UnitName</p></td>
 <td><p>Degree</p></td>
 </tr>
-<tr class="row-odd"><td><p>Id</p></td>
+<tr class="row-odd"><td><p>GroupId</p></td>
+<td><p>33</p></td>
+</tr>
+<tr class="row-even"><td><p>Id</p></td>
 <td><p>32</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
-<td><p>0.01</p></td>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.001</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:FastManual</p></td>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:Maximum</p></td>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSearch</p></td>
+<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSync</p></td>
+<tr class="row-even"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:SlowManual</p></td>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -2833,37 +2891,40 @@
 <tr class="row-odd"><td><p>Enc:ScaleFactorNumerator</p></td>
 <td><p>0.001</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>GroupId</p></td>
+<td><p>34</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>33</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
+<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
 <td><p>0.1</p></td>
 </tr>
-<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
 <td><p>0.1</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:FastManual</p></td>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:Maximum</p></td>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
 <td><p>5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:RefSearch</p></td>
+<tr class="row-odd"><td><p>Velo:RefSearch</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-odd"><td><p>Velo:RefSync</p></td>
+<tr class="row-even"><td><p>Velo:RefSync</p></td>
 <td><p>0.5</p></td>
 </tr>
-<tr class="row-even"><td><p>Velo:SlowManual</p></td>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
@@ -3094,6 +3155,84 @@
 </tbody>
 </table>
 </section>
+<section id="axis-37-axis-37-mfx-lib-mms-05">
+<h2>Axis 37: Axis 37 MFX-LIB-MMS-05<a class="headerlink" href="#axis-37-axis-37-mfx-lib-mms-05" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Axis ID</p></td>
+<td><p>37</p></td>
+</tr>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>Axis 37 MFX-LIB-MMS-05</p></td>
+</tr>
+<tr class="row-even"><td><p>AxisFolder</p></td>
+<td><p>LIB</p></td>
+</tr>
+<tr class="row-odd"><td><p>AxisType</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>CreateSymbols</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dynamic:Acceleration</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-even"><td><p>Dynamic:AccelerationMaximum</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dynamic:Deceleration</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-even"><td><p>Dynamic:DecelerationMaximum</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:EncType</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:Inc:RefSoftSyncMask</p></td>
+<td><p>#x0000ffff</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:MaxCount</p></td>
+<td><p>#x0000ffff</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:ScaleFactorNumerator</p></td>
+<td><p>1.95313e-05</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
+<td><p>37</p></td>
+</tr>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.001</p></td>
+</tr>
+<tr class="row-even"><td><p>TargetPosControl:Time</p></td>
+<td><p>0.004</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
+<td><p>0.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
+<td><p>0.025</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 
 
@@ -3107,7 +3246,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2025, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

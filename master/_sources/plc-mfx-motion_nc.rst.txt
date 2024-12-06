@@ -42,6 +42,7 @@ NC Settings
         34, Axis 34 MFX-SPEC-T2
         35, Axis 35 MFX-SPEC-T3
         36, Axis 36 MFX-SPEC-ROT
+        37, Axis 37 MFX-LIB-MMS-05
 
 
 
@@ -524,12 +525,13 @@ Axis 15: Axis 15 MFX-SPEC-C1-X
     Enc:MaxCount, #xffffffff
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
+    GroupId, 16
     Id, 15
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.5
+    TargetPosControl:Range, 0.001
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -557,13 +559,14 @@ Axis 16: Axis 16 MFX-SPEC-C1-ROT
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     General:UnitName, Degree
+    GroupId, 17
     Id, 16
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PEHControl:Time, 7
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.05
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -591,12 +594,13 @@ Axis 17: Axis 17 MFX-SPEC-C1-TILT
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 7e-07
     General:UnitName, Degree
+    GroupId, 18
     Id, 17
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PEHControl:Time, 7
-    TargetPosControl:Range, 0.01
+    TargetPosControl:Range, 0.001
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -623,12 +627,13 @@ Axis 18: Axis 18 MFX-SPEC-C2-X
     Enc:MaxCount, #xffffffff
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
+    GroupId, 19
     Id, 18
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.5
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -656,12 +661,13 @@ Axis 19: Axis 19 MFX-SPEC-C2-ROT
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     General:UnitName, Degree
+    GroupId, 20
     Id, 19
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.05
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -688,10 +694,12 @@ Axis 20: Axis 20 MFX-SPEC-C2-TILT
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 7e-07
     General:UnitName, Degree
+    GroupId, 21
     Id, 20
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
+    TargetPosControl:Range, 0.001
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -723,7 +731,7 @@ Axis 21: Axis 21 MFX-SPEC-C3-X
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.5
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -751,12 +759,13 @@ Axis 22: Axis 22 MFX-SPEC-C3-ROT
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     General:UnitName, Degree
+    GroupId, 23
     Id, 22
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.05
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -784,10 +793,12 @@ Axis 23: Axis 23 MFX-SPEC-C3-TILT
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 7e-07
     General:UnitName, Degree
+    GroupId, 24
     Id, 23
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
+    TargetPosControl:Range, 0.001
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -819,7 +830,7 @@ Axis 24: Axis 24 MFX-SPEC-C4-X
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.05
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -847,12 +858,13 @@ Axis 25: Axis 25 MFX-SPEC-C4-ROT
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     General:UnitName, Degree
+    GroupId, 26
     Id, 25
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.05
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -880,10 +892,12 @@ Axis 26: Axis 26 MFX-SPEC-C4-TILT
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 7e-07
     General:UnitName, Degree
+    GroupId, 27
     Id, 26
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
+    TargetPosControl:Range, 0.001
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -915,7 +929,7 @@ Axis 27: Axis 27 MFX-SPEC-C5-X
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.5
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -943,12 +957,13 @@ Axis 28: Axis 28 MFX-SPEC-C5-ROT
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     General:UnitName, Degree
+    GroupId, 29
     Id, 28
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.05
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -976,10 +991,12 @@ Axis 29: Axis 29 MFX-SPEC-C5-TILT
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 7e-07
     General:UnitName, Degree
+    GroupId, 30
     Id, 29
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
+    TargetPosControl:Range, 0.001
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -1011,7 +1028,7 @@ Axis 30: Axis 30 MFX-SPEC-C6-X
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.01
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -1039,12 +1056,13 @@ Axis 31: Axis 31 MFX-SPEC-C6-ROT
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     General:UnitName, Degree
+    GroupId, 32
     Id, 31
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
     PositionAreaControl:Range, 1
-    TargetPosControl:Range, 0.05
+    TargetPosControl:Range, 0.002
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -1073,11 +1091,12 @@ Axis 32: Axis 32 MFX-SPEC-C6-TILT
     Enc:MaxCount, #x0000ffff
     Enc:ScaleFactorNumerator, 0.00011953125
     General:UnitName, Degree
+    GroupId, 33
     Id, 32
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
     OtherSettings:PulseDistancePos, 1
-    TargetPosControl:Range, 0.01
+    TargetPosControl:Range, 0.001
     Velo:FastManual, 1
     Velo:Maximum, 5
     Velo:RefSearch, 0.5
@@ -1103,6 +1122,7 @@ Axis 33: Axis 33 MFX-SPEC-T1
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 0.001
+    GroupId, 34
     Id, 33
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 1
@@ -1207,5 +1227,37 @@ Axis 36: Axis 36 MFX-SPEC-ROT
     Velo:RefSearch, 0.5
     Velo:RefSync, 0.5
     Velo:SlowManual, 1
+
+
+
+Axis 37: Axis 37 MFX-LIB-MMS-05
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 37
+    Name, Axis 37 MFX-LIB-MMS-05
+    AxisFolder, LIB
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 50
+    Dynamic:AccelerationMaximum, 50
+    Dynamic:Deceleration, 50
+    Dynamic:DecelerationMaximum, 50
+    Enc:EncType, 4
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #x0000ffff
+    Enc:ScaleFactorNumerator, 1.95313e-05
+    Id, 37
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    TargetPosControl:Range, 0.001
+    TargetPosControl:Time, 0.004
+    Velo:FastManual, 0.05
+    Velo:Maximum, 0.5
+    Velo:SlowManual, 0.025
 
 
