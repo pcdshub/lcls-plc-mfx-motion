@@ -6,7 +6,7 @@ Pragmas
     :header: PLC Name, Total Pragmas, Errors
     :align: center
 
-    :ref:`mfx_motion <mfx_motion_overview_pragmas>`, 86, 0
+    :ref:`mfx_motion <mfx_motion_overview_pragmas>`, 87, 0
 
 
 .. _mfx_motion_overview_pragmas:
@@ -15,7 +15,7 @@ Pragmas
 mfx_motion
 ^^^^^^^^^^
 
-Total pragmas found: 86
+Total pragmas found: 87
 Total linter errors: 0
 
 
