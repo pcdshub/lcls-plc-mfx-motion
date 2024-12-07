@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{7A2A3D77-64AD-3B0F-B004-9436D263D0D6}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{314615AC-5017-15BD-981B-847CF6BF1751}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name GUID="{18071995-0000-0000-0000-000000000041}" TcBaseType="true" HideSubItems="true" CName="AmsNetId">AMSNETID</Name>
@@ -56521,9 +56521,9 @@ ELSE:
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: MFX:SPEC:HOLDCUREN
-		io: io
-	</Value>
+        pv: MFX:SPEC:HOLDCUREN
+        io: io
+    </Value>
               </Property>
             </Properties>
             <BitOffs>634826016</BitOffs>
@@ -58528,7 +58528,7 @@ ELSE:
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2024-12-05T14:21:02</Value>
+          <Value>2024-12-07T10:12:35</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>

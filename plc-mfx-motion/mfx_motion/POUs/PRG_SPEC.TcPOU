@@ -232,6 +232,42 @@ IF bHoldingCurrentEnable THEN
       Main.M31.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 
       Main.M32.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+ELSE
+      Main.M15.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M16.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M17.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M18.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M19.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M20.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M21.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M22.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M23.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M24.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M25.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M26.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M27.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M28.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M29.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M30.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M31.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+      Main.M32.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 END_IF
 ]]></ST>
     </Implementation>
