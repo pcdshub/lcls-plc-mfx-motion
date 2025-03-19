@@ -20,7 +20,7 @@ VAR_GLOBAL
     M2: DUT_MotionStage := (sName := 'MFX:ATM:MMS:X');
 
 
-    // LIB-: 4 Axes
+    // LIB-: 5 Axes
     {attribute 'pytmc' := 'pv: MFX:LIB:MMS:01'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 1^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 2^Input'}

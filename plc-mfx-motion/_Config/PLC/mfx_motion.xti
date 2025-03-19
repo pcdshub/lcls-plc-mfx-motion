@@ -1001,7 +1001,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{9DD0BA81-4A92-4D5E-8BD9-E101C02702D4}" Name="mfx_motion" PrjFilePath="..\..\mfx_motion\mfx_motion.plcproj" TmcFilePath="..\..\mfx_motion\mfx_motion.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="mfx_motion\mfx_motion.tmc" TmcHash="{46BE928F-BA8E-C3D4-B062-998DF64E23E2}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="mfx_motion\mfx_motion.tmc" TmcHash="{9013B402-0451-94E0-85AC-098AC5477C01}">
 			<Name>mfx_motion Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">

@@ -1428,10 +1428,13 @@ External Setpoint Generation:
 		<Name>__FILENAME__</Name>
 		<Comment><![CDATA[New LIB stage for diode]]></Comment>
 		<AxisPara>
-			<OtherSettings AllowMotionCmdToSlave="true"/>
+			<Dynamic AccelerationMaximum="50" DecelerationMaximum="50" Acceleration="50" Deceleration="50"/>
+			<Velo SlowManual="0.025" FastManual="0.05" Maximum="0.5"/>
+			<TargetPosControl Range="0.001" Time="0.004"/>
+			<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="1" PulseDistanceNeg="1"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="4">
-			<EncPara MaxCount="#x0000ffff">
+			<EncPara ScaleFactorNumerator="1.95313e-05" MaxCount="#x0000ffff">
 				<Inc RefSoftSyncMask="#x0000ffff"/>
 			</EncPara>
 			<Vars VarGrpType="1">
@@ -1492,7 +1495,7 @@ External Setpoint Generation:
 		</Encoder>
 		<Drive Name="Drive" DrvType="24">
 			<DrvPara>
-				<Analog TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+				<Analog VeloReferenz="1.25" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">
@@ -1564,6 +1567,7 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
+				<PosDiffControl Range="0.03"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
