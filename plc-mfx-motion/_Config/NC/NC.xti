@@ -4280,7 +4280,7 @@ External Setpoint Generation:
 				<Dynamic Acceleration="4000" Deceleration="4000" DelayTime="0.008"/>
 				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="1" FastManual="1" Maximum="5"/>
 				<PositionAreaControl Range="1"/>
-				<TargetPosControl Range="0.5"/>
+				<TargetPosControl Range="0.002"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="1" PulseDistanceNeg="1"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
@@ -4395,6 +4395,7 @@ External Setpoint Generation:
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
 					<PosDiffControl Range="1"/>
+					<PID PosKp="4"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -4699,7 +4700,7 @@ External Setpoint Generation:
 				<Dynamic DelayTime="0.008"/>
 				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="1" FastManual="1" Maximum="5"/>
 				<PositionAreaControl Range="1"/>
-				<TargetPosControl Range="0.5"/>
+				<TargetPosControl Range="0.002"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="1" PulseDistanceNeg="1"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
@@ -4814,6 +4815,7 @@ External Setpoint Generation:
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
 					<PosDiffControl Range="1"/>
+					<PID PosKp="4"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -5115,7 +5117,7 @@ External Setpoint Generation:
 				<Dynamic DelayTime="0.008"/>
 				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="1" FastManual="1" Maximum="5"/>
 				<PositionAreaControl Range="1"/>
-				<TargetPosControl Range="0.5"/>
+				<TargetPosControl Range="0.002"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="1" PulseDistanceNeg="1"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
@@ -5230,6 +5232,7 @@ External Setpoint Generation:
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
 					<PosDiffControl Range="1"/>
+					<PID PosKp="4"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -5531,7 +5534,7 @@ External Setpoint Generation:
 				<Dynamic DelayTime="0.008"/>
 				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="1" FastManual="1" Maximum="5"/>
 				<PositionAreaControl Range="1"/>
-				<TargetPosControl Range="0.05"/>
+				<TargetPosControl Range="0.002"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="1" PulseDistanceNeg="1"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
@@ -5646,6 +5649,7 @@ External Setpoint Generation:
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
 					<PosDiffControl Range="1"/>
+					<PID PosKp="4"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -5946,7 +5950,7 @@ External Setpoint Generation:
 				<Dynamic DelayTime="0.008"/>
 				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="1" FastManual="1" Maximum="5"/>
 				<PositionAreaControl Range="1"/>
-				<TargetPosControl Range="0.5"/>
+				<TargetPosControl Range="0.002"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="1" PulseDistanceNeg="1"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
@@ -6061,6 +6065,7 @@ External Setpoint Generation:
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
 					<PosDiffControl Range="1"/>
+					<PID PosKp="4"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
@@ -6361,7 +6366,7 @@ External Setpoint Generation:
 				<Dynamic DelayTime="0.008"/>
 				<Velo RefSearch="0.5" RefSync="0.5" SlowManual="1" FastManual="1" Maximum="5"/>
 				<PositionAreaControl Range="1"/>
-				<TargetPosControl Range="0.01"/>
+				<TargetPosControl Range="0.002"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="1" PulseDistanceNeg="1"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
@@ -6475,6 +6480,7 @@ External Setpoint Generation:
 			</Drive>
 			<Controller Name="Ctrl" CtrType="1">
 				<CtrPara PriorControlFactor="1">
+					<PID PosKp="4"/>
 					<Observer BandWidth="20"/>
 				</CtrPara>
 			</Controller>
