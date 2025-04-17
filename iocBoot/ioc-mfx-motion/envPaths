@@ -1,2 +1,2 @@
-epicsEnvSet("IOC_TOP", "/c/Users/nlentz/Documents/PLC/lcls-plc-mfx-motion/iocBoot/ioc-mfx-motion")
+epicsEnvSet("IOC_TOP", "/c/Users/rcjwoods/Documents/github_repos/lcls-plc-mfx-motion/iocBoot/ioc-mfx-motion")
 epicsEnvSet("IOC_DATA", "/cds/data/iocData")
