@@ -1315,14 +1315,14 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 	</DataTypes>
-	<Axis Id="19" CreateSymbols="true" AxisType="1" AxisFolder="SPEC">
+	<Axis Id="19" CreateSymbols="true" AxisType="1" AxisFolder="SPEC" GroupId="20">
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<General UnitName="Degree"/>
 			<Dynamic DelayTime="0.008"/>
 			<Velo RefSearch="0.5" RefSync="0.5" SlowManual="1" FastManual="1" Maximum="5"/>
 			<PositionAreaControl Range="1"/>
-			<TargetPosControl Range="0.05"/>
+			<TargetPosControl Range="0.002"/>
 			<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="1" PulseDistanceNeg="1"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="29">
