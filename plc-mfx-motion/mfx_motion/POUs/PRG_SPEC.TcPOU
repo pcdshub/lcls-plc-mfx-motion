@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
   <POU Name="PRG_SPEC" Id="{a6a98e04-faf0-4b13-b27f-19dd2ce897a4}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SPEC
 VAR
@@ -34,10 +34,66 @@ VAR
         io: io
     '}
     bHoldingCurrentEnable : BOOL := FALSE;
+
+    tonDelay : TON;
+    tonDelay2 : TON;
+    bDisableStateMachine : BOOL;
+    nState : (WaitForStart, DelayBeforeBrakeRelease, DelayBeforeMove, WaitForMoveEnd, Error);
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbSPEC_C1_X(stMotionStage:=Main.M15);
+      <ST><![CDATA[
+IF NOT bDisableStateMachine THEN
+    CASE nState OF
+    WaitForStart:
+        IF Main.M33.bExecute AND NOT Main.M33.bError THEN
+            Main.M33.bExecute := FALSE;
+            Main.M33.bEnable := TRUE;
+            nState := DelayBeforeBrakeRelease;
+        ELSE
+            Main.M33.bEnable := FALSE;
+            Main.M33.bBrakeRelease := FALSE;
+        END_IF
+    DelayBeforeBrakeRelease:
+        tonDelay(
+            IN := TRUE,
+            PT := t#0.5s
+        );
+        IF tonDelay.Q THEN
+            IF Main.M33.bAllEnable THEN
+                Main.M33.bBrakeRelease := TRUE;
+            END_IF
+            tonDelay(
+                IN := FALSE
+            );
+            nState := DelayBeforeMove;
+        ELSIF Main.M33.bError THEN
+            nState := WaitForStart;
+        END_IF
+    DelayBeforeMove:
+        tonDelay2(
+            IN := TRUE,
+            PT := t#0.5s
+        );
+        IF tonDelay2.Q THEN
+            Main.M33.bExecute := TRUE;
+            tonDelay2(
+                IN := FALSE
+            );
+            nState := WaitForMoveEnd;
+        ELSIF Main.M33.bError THEN
+            nState := WaitForStart;
+        END_IF
+    WaitForMoveEnd:
+        IF NOT Main.M33.bBusy THEN
+            nState := WaitForStart;
+        END_IF
+    Error:
+        nState := WaitForStart;
+    END_CASE
+END_IF
+
+fbSPEC_C1_X(stMotionStage:=Main.M15);
 fbSPEC_C1_ROT(stMotionStage:=Main.M16);
 fbSPEC_C1_TILT(stMotionStage:=Main.M17);
 fbSPEC_C2_X(stMotionStage:=Main.M18);
@@ -171,7 +227,8 @@ IF NOT bInit THEN // Easier to debug if you can write to these
 
     Main.M33.bHardwareEnable := TRUE;
     Main.M33.bPowerSelf := TRUE;
-    Main.M33.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    Main.M33.nEnableMode := ENUM_StageEnableMode.NEVER; // This just means we are handling ther enabling through custom logic.
+    Main.M33.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE; // This just means we are handling the braking through custom code.
 //	Main.M33.nHomingMode := ENUM_EpicsHomeCmd.LOW_LIMIT;
 //	Main.M33.nEnableMode := ENUM_StageEnableMode.ALWAYS;
 

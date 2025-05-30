@@ -1017,15 +1017,15 @@ External Setpoint Generation:
 					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
+					<Name>PRG_SPEC.fbSPEC_C2_X.fbDriveVirtual.MasterAxis.NcToPlc</Name>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
 					<Name>PRG_SPEC.fbSPEC_C2_ROT.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>PRG_SPEC.fbSPEC_C2_TILT.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SPEC.fbSPEC_C2_X.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
@@ -3379,8 +3379,8 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^Main.M32.bLimitForwardEnable" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Power (EK1200)^PLC Junction 2 (EK1122)^plc_SPEC2 (EK1100)^MFX-SPEC2-EL1088-E17">
-				<Link VarA="PlcTask Inputs^Main.M33.bLimitBackwardEnable" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M33.bLimitForwardEnable" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^Main.M33.bLimitBackwardEnable" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^Main.M33.bLimitForwardEnable" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M34.bLimitBackwardEnable" VarB="Channel 4^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M34.bLimitForwardEnable" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M35.bLimitBackwardEnable" VarB="Channel 6^Input" AutoLink="true" Size="1"/>
