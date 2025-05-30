@@ -9,7 +9,7 @@
 				</Target>
 			</Licenses>
 			<Tasks>
-				<Task Id="5" Priority="20" CycleTime="100000" AmsPort="350" DisableFpExceptions="true" AdtTasks="true">
+				<Task Id="5" Priority="20" CycleTime="90000" AmsPort="350" DisableFpExceptions="true" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
 			</Tasks>
