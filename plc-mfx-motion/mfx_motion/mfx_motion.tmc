@@ -58786,6 +58786,9 @@ ELSE:
                 <Value>
         pv: @(PREFIX)AccumulatedFastFaults
         io: i
+<<<<<<< HEAD
+    </Value></Property><Property><Name>TcVarGlobal</Name></Property></Properties><BitOffs>633578208</BitOffs></Symbol></DataArea></DataAreas><Deployment /><EventClasses><EventClass><Type GUID="{BB2A9999-102E-421A-8D3D-B0660E07B1FE}">TcSystemEventClass</Type></EventClass><EventClass><Type GUID="{7D760066-D373-4A0C-B0F1-328B1620B0F0}">TcGeneralAdsEventClass</Type></EventClass><EventClass><Type GUID="{E759605A-2341-48FC-9F3F-C8FA405C4B24}">TcRouterEventClass</Type></EventClass><EventClass><Type GUID="{92F05393-06A8-48C2-8871-EAA38C1E3990}">TcRTimeEventClass</Type></EventClass><EventClass><Type GUID="{1D0C4BAC-ECF3-4F33-8F20-A12E77AB6387}">Win32EventClass</Type></EventClass><EventClass><Type GUID="{97CF8247-B59C-4E2C-B4B0-7350D0471457}">LCLSGeneralEventClass</Type></EventClass></EventClasses><Properties><Property><Name>ApplicationName</Name><Value>Port_851</Value></Property><Property><Name>ChangeDate</Name><Value>2025-05-28T21:52:17</Value></Property><Property><Name>GeneratedCodeSize</Name><Value>577536</Value></Property><Property><Name>GlobalDataSize</Name><Value>81260544</Value></Property></Properties></Module></Modules></TcModuleClass>
+=======
     </Value>
               </Property>
               <Property>
@@ -58838,3 +58841,4 @@ ELSE:
     </Module>
   </Modules>
 </TcModuleClass>
+>>>>>>> origin/master
