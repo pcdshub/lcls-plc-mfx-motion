@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
   <GVL Name="Main" Id="{1691e643-5c47-48e9-bb1a-9f3fc0d078a1}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -9,12 +9,12 @@ VAR_GLOBAL
     //                          .bLimitBackwardEnable := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 2;
     //                          .bBrakeRelease        := TIIB[MFX-ATM-EL2004-E4]^Channel 1^Output;
     //                          .nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 1^Position'}
-	
+
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable := TIIB[MFX-ATM-EL7041-E1]^STM Status^Status^Digital input 2;
                               .nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 1^Position'}
     M1: DUT_MotionStage := (sName := 'MFX:ATM:MMS:Y');
-	
+
     {attribute 'pytmc' := 'pv: MFX:ATM:MMS:X'}
     {attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[MFX-ATM-EL5042-E3]^FB Inputs Channel 2^Position'}
     M2: DUT_MotionStage := (sName := 'MFX:ATM:MMS:X');
@@ -25,28 +25,28 @@ VAR_GLOBAL
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 1^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 2^Input'}
     M3: DUT_MotionStage := (sName := 'MFX:LIB:MMS:01');
-	
+
     {attribute 'pytmc' := 'pv: MFX:LIB:MMS:02'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 3^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 4^Input'}
     M4: DUT_MotionStage := (sName := 'MFX:LIB:MMS:02');
-	
+
     {attribute 'pytmc' := 'pv: MFX:LIB:MMS:03'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 5^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 6^Input'}
     M5: DUT_MotionStage := (sName := 'MFX:LIB:MMS:03');
-	
+
     {attribute 'pytmc' := 'pv: MFX:LIB:MMS:04'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E5]^Channel 7^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E5]^Channel 8^Input'}
     M6: DUT_MotionStage := (sName := 'MFX:LIB:MMS:04');
-	
-	{attribute 'pytmc' := 'pv: MFX:LIB:MMS:05'}
+
+    {attribute 'pytmc' := 'pv: MFX:LIB:MMS:05'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LIB-EL1088-E12]^Channel 1^Input;
                               .bLimitBackwardEnable := TIIB[MFX-LIB-EL1088-E12]^Channel 2^Input'}
     M37: DUT_MotionStage := (sName := 'MFX:LIB:MMS:05');
 
-	
+
     // LJ-: 8 Axes
     {attribute 'pytmc' := 'pv: MFX:LJH:JET:X'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-LJ-EL1088-E3]^Channel 2^Input;
@@ -188,8 +188,8 @@ VAR_GLOBAL
 
     // #######################################################################################
     {attribute 'pytmc' := 'pv: MFX:SPEC:T1'}
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 1^Input;
-                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E17]^Channel 2^Input;
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[MFX-SPEC2-EL1088-E17]^Channel 2^Input;
+                              .bLimitBackwardEnable := TIIB[MFX-SPEC2-EL1088-E17]^Channel 1^Input;
                               .bBrakeRelease        := TIIB[MFX-SPEC2-EL2004-E18]^Channel 1^Output'}
     M33: DUT_MotionStage := (sName := 'MFX:SPEC:T1');
 
