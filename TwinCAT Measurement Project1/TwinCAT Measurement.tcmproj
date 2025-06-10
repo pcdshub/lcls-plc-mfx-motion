@@ -10,5 +10,8 @@
     <Content Include="Scope Project1.tcscopex">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="XLJ_JetX.tcscopex">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
 </Project>
