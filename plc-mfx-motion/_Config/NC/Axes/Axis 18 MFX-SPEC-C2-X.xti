@@ -1315,7 +1315,7 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 	</DataTypes>
-	<Axis Id="18" CreateSymbols="true" AxisType="1" AxisFolder="SPEC">
+	<Axis Id="18" CreateSymbols="true" AxisType="1" AxisFolder="SPEC" GroupId="19">
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<Dynamic DelayTime="0.008"/>

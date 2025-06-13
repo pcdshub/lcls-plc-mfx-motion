@@ -3271,7 +3271,7 @@ External Setpoint Generation:
 						<OTCID>#x02010050</OTCID>
 					</ManualConfig>
 					<Priority>20</Priority>
-					<CycleTime>10000000</CycleTime>
+					<CycleTime>9000000</CycleTime>
 				</Context>
 			</Contexts>
 			<TaskPouOids>
